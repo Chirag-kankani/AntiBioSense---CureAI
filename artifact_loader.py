@@ -49,7 +49,9 @@ def _load_split_models(model_dir: Path, meta: dict[str, Any]) -> dict[str, Any]:
         if not file_path.is_file():
             missing_files.append(f"{code} -> {relative_path}")
             continue
-        loaded_models[code] = _read_pickle(file_path)
+        # FREE TIER FIX: Store the path instead of unpickling the model right now.
+        # This saves ~400MB of RAM and prevents Render from throwing an OOM error.
+        loaded_models[code] = file_path
 
     if missing_files:
         raise FileNotFoundError(
@@ -57,6 +59,7 @@ def _load_split_models(model_dir: Path, meta: dict[str, Any]) -> dict[str, Any]:
         )
 
     return loaded_models
+
 
 
 def load_artifact_bundle(base_dir: str | Path, allow_legacy: bool = True) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:

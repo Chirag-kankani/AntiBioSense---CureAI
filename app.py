@@ -1,4 +1,4 @@
-import os, json, traceback
+import os, json, traceback, pickle, gc
 import numpy as np, pandas as pd
 from flask import Flask, render_template, request, jsonify
 from dotenv import load_dotenv
@@ -556,9 +556,15 @@ def predict_antibiotics(age, gender, diabetes, hypertension, hospital_before, in
     for ab in AB_COLS:
         if ab not in MODELS:
             continue
-        m = MODELS[ab]
-        pipe, le = m['pipeline'], m['le']
+        
+        # FREE TIER FIX: MODELS[ab] is now a file path, not an unpickled object in RAM.
+        # We load one, predict, and immediately delete it to stay under 512MB RAM.
+        model_path = MODELS[ab]
         try:
+            with open(model_path, 'rb') as f:
+                m = pickle.load(f)
+            pipe, le = m['pipeline'], m['le']
+
             proba = pipe.predict_proba(input_df)[0]
             classes = le.classes_
             prob_dict = {cls: round(float(p) * 100, 1) for cls, p in zip(classes, proba)}
@@ -575,8 +581,14 @@ def predict_antibiotics(age, gender, diabetes, hypertension, hospital_before, in
                 'model_accuracy': META['model_meta'][ab]['accuracy'],
                 'status': 'Susceptible' if s_prob >= 60 else ('Resistant' if r_prob >= 60 else 'Intermediate')
             })
+            
+            # Immediately free RAM before loading the next 30MB model
+            del m, pipe, le
+            gc.collect()
+
         except Exception as e:
             print(f"Prediction error for {ab}: {e}")
+            traceback.print_exc()
             continue
 
     results.sort(key=lambda x: -x['susceptible_pct'])

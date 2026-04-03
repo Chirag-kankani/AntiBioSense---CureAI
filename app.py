@@ -24,7 +24,7 @@ else:
     print("[INIT] contraindications.json not found — red-flag warnings disabled")
 
 # ── Load doctor feedback memory ──────────────────────────────────────
-_feedback_path = os.path.join(BASE, 'feedback.json')
+_feedback_path = os.environ.get('FEEDBACK_PATH', os.path.join(BASE, 'feedback.json'))
 
 def _load_feedback():
     """Read feedback.json from disk (thread-safe for reads)."""

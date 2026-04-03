@@ -13,6 +13,9 @@ BASE = os.path.dirname(__file__)
 # ── Load models & data ───────────────────────────────────────────────
 META, MODELS, CARD = load_artifact_bundle(BASE)
 
+# ── Initialize patient database (creates tables if they don't exist) ─
+patient_db.init_db()
+
 # ── Load contraindications knowledge base ────────────────────────────
 _contra_path = os.path.join(BASE, 'models', 'contraindications.json')
 if os.path.exists(_contra_path):

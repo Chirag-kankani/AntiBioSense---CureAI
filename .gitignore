@@ -12,6 +12,8 @@ __pycache__/
 
 # Database and runtime state
 *.db
+*.db-shm
+*.db-wal
 *.sqlite3
 
 # The following is kept out of ignore if you want to push initial feedback state:

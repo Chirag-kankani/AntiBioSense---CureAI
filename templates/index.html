@@ -1,0 +1,3627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AntibioSense — Antibiotic Resistance Predictor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js">
+    document.getElementById('other-symptoms-textarea').addEventListener('input', function () {
+      const meta = document.getElementById('textarea-meta');
+      if (this.value.length > 0) {
+        meta.style.display = 'flex';
+      } else {
+        meta.style.display = 'none';
+      }
+    });
+  </script>
+  <style>
+    :root {
+      --bg: #0a0f1a;
+      --bg2: #121929;
+      --bg3: #1a2236;
+      --border: rgba(255, 255, 255, 0.05);
+      --border2: rgba(255, 255, 255, 0.10);
+      --text: #e8eaf0;
+      --text2: #94a3b8;
+      --text3: #525970;
+      --cyan: #22d3ee;
+      --blue: #0ea5e9;
+      --green: #34d399;
+      --green2: #10b981;
+      --amber: #fbbf24;
+      --red: #f87171;
+      --purple: #a78bfa;
+      --teal: #2dd4bf;
+      --radius: 24px;
+      --radius-sm: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: radial-gradient(circle at center top, #16223b 0%, var(--bg) 60%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 4px;
+    }
+
+    .nav-tab {
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.88rem;
+      color: var(--text2);
+      border: none;
+      background: none;
+      transition: all 0.2s;
+    }
+
+    .nav-tab:hover {
+      color: var(--text);
+      background: var(--bg3);
+    }
+
+    .nav-tab.active {
+      color: var(--cyan);
+      background: rgba(34, 211, 238, 0.12);
+    }
+
+    .badge-cureai {
+      background: linear-gradient(135deg, var(--teal), var(--cyan));
+      color: #000;
+      box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* LAYOUT & TRANSITIONS */
+    .page {
+      display: none;
+      padding: 2rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .view-section {
+      display: none;
+      opacity: 0;
+    }
+
+    .view-section.active {
+      display: block;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 3rem 0 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      color: var(--text2);
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      background: var(--bg2);
+      padding: 12px 24px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.5), -3px -3px 12px rgba(255, 255, 255, 0.03), inset 1px 1px 2px rgba(255, 255, 255, 0.05);
+    }
+
+    .hero-stat .icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg3);
+      box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.4), inset -2px -2px 4px rgba(255, 255, 255, 0.02);
+    }
+
+    .hero-stat-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.2;
+    }
+
+    .hero-stat .val {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .hero-stat .lbl {
+      font-size: 0.75rem;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--bg2);
+      border: none;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5), -4px -4px 15px rgba(255, 255, 255, 0.03), inset 1px 1px 2px rgba(255, 255, 255, 0.1);
+    }
+
+    .card-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text2);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg3);
+      padding: 6px 12px;
+      border-radius: 20px;
+      width: fit-content;
+    }
+
+    .card-title .icon {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+
+    /* GRID */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    @media(max-width: 900px) {
+
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* FORM ELEMENTS */
+    label {
+      display: block;
+      font-size: 0.83rem;
+      color: var(--text2);
+      margin-bottom: 6px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      background: var(--bg3);
+      border: none;
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      padding: 12px 14px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.2s;
+      box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.4), inset -2px -2px 6px rgba(255, 255, 255, 0.03);
+    }
+
+    input:focus,
+    select:focus {
+      box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.4), inset -2px -2px 6px rgba(255, 255, 255, 0.03), 0 0 0 2px var(--cyan);
+    }
+
+    select option {
+      background: var(--bg3);
+    }
+
+    /* SYMPTOM CHECKBOXES */
+    .symptom-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 8px;
+    }
+
+    .symptom-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.85rem;
+    }
+
+    .symptom-item:hover {
+      border-color: var(--cyan);
+      background: rgba(34, 211, 238, 0.06);
+    }
+
+    .symptom-item.checked {
+      border-color: var(--cyan);
+      background: rgba(34, 211, 238, 0.12);
+      color: var(--cyan);
+    }
+
+    /* Custom Checkbox for Symptoms */
+    .symptom-item input[type=checkbox] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(10, 15, 26, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.45);
+      flex-shrink: 0;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .symptom-item input[type=checkbox]:checked {
+      background: var(--cyan);
+      border-color: var(--cyan);
+      box-shadow: 0 0 8px rgba(34, 211, 238, 0.4), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .symptom-item input[type=checkbox]:checked::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      background: #0a0f1a;
+      border-radius: 50%;
+    }
+
+    /* BUTTONS */
+    .btn {
+      padding: 12px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: #000;
+      box-shadow: 4px 4px 12px rgba(34, 211, 238, 0.2), -2px -2px 8px rgba(255, 255, 255, 0.05), inset 2px 2px 4px rgba(255, 255, 255, 0.4), inset -2px -2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.1);
+      transform: scale(1.02);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border2);
+      color: var(--text2);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--text);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* TOGGLES & SEGMENTED */
+    .segmented-track {
+      display: flex;
+      gap: 4px;
+      background: var(--bg3);
+      padding: 4px;
+      border-radius: 50px;
+      margin-bottom: 1.25rem;
+      box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.5), inset -2px -2px 4px rgba(255, 255, 255, 0.02);
+    }
+
+    .mode-btn {
+      flex: 1;
+      padding: 10px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--text2);
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .mode-btn.active {
+      background: var(--bg2);
+      color: var(--cyan);
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4), inset 1px 1px 2px rgba(255, 255, 255, 0.1);
+    }
+
+    /* RESULTS */
+    #results {
+      display: none;
+      margin-top: 2rem;
+    }
+
+    .mdr-banner {
+      background: rgba(248, 113, 113, 0.12);
+      border: 1px solid rgba(248, 113, 113, 0.4);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mdr-icon {
+      font-size: 1.4rem;
+    }
+
+    .mdr-text h3 {
+      color: var(--red);
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+
+    .mdr-text p {
+      color: var(--text2);
+      font-size: 0.83rem;
+    }
+
+    /* TOP 3 ANTIBIOTIC CARDS */
+    .top3-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media(max-width: 700px) {
+      .top3-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .ab-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .ab-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .ab-card.rank-1 {
+      border-color: rgba(52, 211, 153, 0.5);
+    }
+
+    .ab-card.rank-1::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green), var(--teal));
+    }
+
+    .ab-card.rank-2 {
+      border-color: rgba(79, 142, 247, 0.4);
+    }
+
+    .ab-card.rank-2::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--blue);
+    }
+
+    .ab-card.rank-3 {
+      border-color: rgba(167, 139, 250, 0.4);
+    }
+
+    .ab-card.rank-3::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--purple);
+    }
+
+    .ab-rank {
+      font-size: 0.72rem;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .ab-name {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .ab-class-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: rgba(79, 142, 247, 0.12);
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .ab-pct {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--green);
+      line-height: 1;
+    }
+
+    .ab-pct-label {
+      font-size: 0.75rem;
+      color: var(--text2);
+      margin-bottom: 10px;
+    }
+
+    .progress-bar {
+      height: 6px;
+      background: var(--bg3);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.8s ease;
+    }
+
+    .fill-green {
+      background: linear-gradient(90deg, var(--green2), var(--green));
+    }
+
+    .fill-red {
+      background: var(--red);
+    }
+
+    .fill-amber {
+      background: var(--amber);
+    }
+
+    .ab-bars-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: var(--text3);
+    }
+
+    .ab-accuracy {
+      font-size: 0.72rem;
+      color: var(--text3);
+      margin-top: 10px;
+    }
+
+    /* RED FLAG WARNING STRIPS */
+    .ab-warning-strip {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      line-height: 1.5;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .ab-warning-strip.severity-high {
+      background: rgba(248, 113, 113, 0.12);
+      border: 1px solid rgba(248, 113, 113, 0.35);
+      border-left: 3px solid var(--red);
+    }
+
+    .ab-warning-strip.severity-medium {
+      background: rgba(251, 191, 36, 0.10);
+      border: 1px solid rgba(251, 191, 36, 0.30);
+      border-left: 3px solid var(--amber);
+    }
+
+    .ab-warning-strip.severity-low {
+      background: rgba(79, 142, 247, 0.08);
+      border: 1px solid rgba(79, 142, 247, 0.20);
+      border-left: 3px solid var(--blue);
+    }
+
+    .ab-warning-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+
+    .ab-warning-body {
+      flex: 1;
+    }
+
+    .ab-warning-msg {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .ab-warning-source {
+      color: var(--text3);
+      font-size: 0.68rem;
+      margin-top: 3px;
+      font-style: italic;
+    }
+
+    /* WHATSAPP SUMMARY CARD */
+    .share-summary-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 2rem;
+    }
+
+    .share-summary-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .share-summary-title .share-icon {
+      font-size: 1.3rem;
+    }
+
+    .share-summary-title h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .share-summary-title .share-subtitle {
+      font-size: 0.78rem;
+      color: var(--text3);
+      margin-left: auto;
+    }
+
+    .share-summary-preview {
+      background: var(--bg1);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: var(--text2);
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+
+    .share-summary-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .btn-copy {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 50px;
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-copy-primary {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-copy-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+    }
+
+    .btn-copy-primary:active {
+      transform: scale(0.97);
+    }
+
+    .copy-toast {
+      font-size: 0.82rem;
+      color: var(--green);
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .copy-toast.show {
+      opacity: 1;
+    }
+
+    /* PATIENT HISTORY PANEL */
+    .patient-panel {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 1.5rem;
+    }
+
+    .patient-panel-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .patient-search-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .patient-search-row input {
+      flex: 1;
+      min-width: 160px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg1);
+      color: var(--text);
+      font-size: 0.88rem;
+    }
+
+    .patient-search-row input:focus {
+      border-color: var(--cyan);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
+    }
+
+    .btn-sm {
+      padding: 9px 18px;
+      border-radius: 10px;
+      border: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-search {
+      background: var(--bg2);
+      color: var(--cyan);
+      border: 1px solid var(--cyan);
+    }
+
+    .btn-search:hover {
+      background: rgba(6, 182, 212, 0.1);
+    }
+
+    .btn-new-patient {
+      background: linear-gradient(135deg, var(--cyan), var(--teal));
+      color: #fff;
+    }
+
+    .btn-new-patient:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+    }
+
+    .pid-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(6, 182, 212, 0.12);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 50px;
+      padding: 6px 16px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--cyan);
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.04em;
+    }
+
+    .patient-info-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: rgba(45, 212, 191, 0.06);
+      border-radius: 10px;
+      border-left: 3px solid var(--teal);
+      font-size: 0.82rem;
+      color: var(--text2);
+    }
+
+    .patient-info-bar .info-chip {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 0.78rem;
+    }
+
+    .visit-timeline {
+      margin-top: 14px;
+    }
+
+    .visit-timeline-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text2);
+      margin-bottom: 8px;
+    }
+
+    .visit-entry {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 10px 14px;
+      border-left: 2px solid var(--border);
+      margin-left: 8px;
+      margin-bottom: 2px;
+      cursor: pointer;
+      border-radius: 0 8px 8px 0;
+      transition: background 0.15s;
+    }
+
+    .visit-entry:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .visit-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .visit-info {
+      flex: 1;
+    }
+
+    .visit-date {
+      font-size: 0.75rem;
+      color: var(--text3);
+    }
+
+    .visit-species {
+      font-size: 0.82rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .visit-drug {
+      font-size: 0.76rem;
+      color: var(--text2);
+    }
+
+    .search-results-dropdown {
+      margin-top: 8px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .search-result-item {
+      padding: 10px 14px;
+      cursor: pointer;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.83rem;
+      transition: background 0.15s;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .search-result-item:hover {
+      background: rgba(6, 182, 212, 0.08);
+    }
+
+    .search-result-item:last-child {
+      border-bottom: none;
+    }
+
+    /* DOCTOR FEEDBACK BUTTONS */
+    .feedback-section {
+      margin-top: 14px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.025);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .feedback-question {
+      font-size: 0.78rem;
+      color: var(--text3);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .feedback-btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    .fb-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text2);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .fb-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .fb-btn-yes:hover {
+      background: rgba(52, 211, 153, 0.12);
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .fb-btn-no:hover {
+      background: rgba(248, 113, 113, 0.12);
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    .fb-btn:disabled {
+      opacity: 0.5;
+      cursor: default;
+      transform: none;
+    }
+
+    .fb-btn.voted {
+      opacity: 1;
+    }
+
+    .fb-btn-yes.voted {
+      background: rgba(52, 211, 153, 0.15);
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .fb-btn-no.voted {
+      background: rgba(248, 113, 113, 0.15);
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    .fb-thanks {
+      font-size: 0.78rem;
+      color: var(--green);
+      font-weight: 600;
+      display: none;
+      margin-top: 6px;
+    }
+
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .trust-high {
+      background: rgba(52, 211, 153, 0.12);
+      color: var(--green);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+
+    .trust-medium {
+      background: rgba(251, 191, 36, 0.12);
+      color: var(--amber);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+    }
+
+    .trust-low {
+      background: rgba(248, 113, 113, 0.12);
+      color: var(--red);
+      border: 1px solid rgba(248, 113, 113, 0.3);
+    }
+
+    /* INLINE NEW PATIENT PANEL */
+    .new-patient-inline {
+      display: none;
+      margin-top: 12px;
+      padding: 16px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      animation: fadeSlideIn 0.25s ease;
+    }
+
+    .new-patient-inline.show {
+      display: block;
+    }
+
+    .new-patient-inline label {
+      font-size: 0.8rem;
+      color: var(--text2);
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .new-patient-inline input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg1);
+      color: var(--text);
+      font-size: 0.88rem;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+    }
+
+    .new-patient-inline input:focus {
+      border-color: var(--cyan);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
+    }
+
+    .new-patient-inline .inline-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ALL ANTIBIOTICS TABLE */
+    .ab-table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    th {
+      text-align: left;
+      padding: 8px 12px;
+      color: var(--text2);
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.05);
+    }
+
+    .status-S {
+      background: rgba(52, 211, 153, 0.15);
+      color: var(--green);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+
+    .status-I {
+      background: rgba(251, 191, 36, 0.15);
+      color: var(--amber);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+    }
+
+    .status-R {
+      background: rgba(248, 113, 113, 0.15);
+      color: var(--red);
+      border: 1px solid rgba(248, 113, 113, 0.3);
+    }
+
+    .mini-bar-wrap {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+    }
+
+    .mini-bar {
+      height: 10px;
+      border-radius: 2px;
+      min-width: 2px;
+    }
+
+    /* SPECIES RESULT */
+    .species-card {
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .species-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(79, 142, 247, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .species-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    .species-conf {
+      font-size: 0.82rem;
+      color: var(--text2);
+    }
+
+    .species-probs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .sp-prob {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+    }
+
+    /* SHAP / FEATURE IMPORTANCE */
+    .fi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .fi-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+    }
+
+    .fi-bar-wrap {
+      flex: 1;
+      height: 6px;
+      background: var(--bg3);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .fi-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--purple), var(--blue));
+    }
+
+    .fi-label {
+      font-size: 0.82rem;
+      color: var(--text2);
+      min-width: 120px;
+    }
+
+    .fi-val {
+      font-size: 0.78rem;
+      color: var(--text3);
+      min-width: 38px;
+      text-align: right;
+    }
+
+    /* LOADING */
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--border);
+      border-top-color: var(--blue);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* HEATMAP */
+    #heatmap-container {
+      overflow-x: auto;
+    }
+
+    .heatmap-table {
+      border-collapse: collapse;
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    .heatmap-table th,
+    .heatmap-table td {
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .heatmap-table th {
+      background: var(--bg3);
+      color: var(--text2);
+      font-weight: 500;
+    }
+
+    .heatmap-table td.species-col {
+      text-align: left;
+      font-style: italic;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text3);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+
+    /* Section spacer */
+    .section {
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 1.5rem 0;
+    }
+
+    /* SKELETON LOADER SHIMMER */
+    .shimmer {
+      background: #1a2236;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .shimmer::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+      transform: translateX(-100%);
+      animation: shimmer 1.5s infinite;
+    }
+
+    @keyframes shimmer {
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .skeleton-pill {
+      height: 24px;
+      width: 120px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .skeleton-chip {
+      height: 80px;
+      width: 30%;
+      border-radius: var(--radius-sm);
+    }
+
+    .skeleton-line {
+      height: 16px;
+      width: 100%;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .skeleton-line.short {
+      width: 60%;
+    }
+
+    .skeleton-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 24px;
+    }
+
+    /* ═══════════════════ PRINT STYLES ═══════════════════ */
+    @media print {
+
+      /* Hide everything application-related */
+      body>*:not(#print-report) {
+        display: none !important;
+      }
+
+      /* Reset background and apply clinical styling */
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 11pt;
+        line-height: 1.5;
+      }
+
+      /* Ensure the print container spans the page */
+      #print-report {
+        display: block !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+
+      /* Print color adjustments */
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      /* Report specific layout elements */
+      .print-header {
+        border-bottom: 2px solid #000;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+      }
+
+      .print-title {
+        font-size: 24pt;
+        font-weight: bold;
+        margin: 0;
+        color: #000;
+      }
+
+      .print-subtitle {
+        font-size: 12pt;
+        color: #555;
+        margin-top: 5px;
+      }
+
+      .print-section {
+        margin-bottom: 25px;
+        page-break-inside: avoid;
+      }
+
+      .print-section-title {
+        font-size: 14pt;
+        font-weight: bold;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 4px;
+        color: #333;
+      }
+
+      .print-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+
+      .print-label {
+        font-weight: bold;
+        width: 40%;
+        color: #333;
+      }
+
+      .print-value {
+        width: 60%;
+      }
+
+      .print-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+
+      .print-table th {
+        background-color: #f5f5f5 !important;
+        color: #000;
+        font-weight: bold;
+        border: 1px solid #999;
+        padding: 6px;
+        text-align: left;
+      }
+
+      .print-table td {
+        border: 1px solid #ddd;
+        padding: 6px;
+        color: #000;
+      }
+
+      .print-status-S {
+        background-color: #d1fae5 !important;
+        color: #065f46 !important;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+
+      .print-status-I {
+        background-color: #fef3c7 !important;
+        color: #92400e !important;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+
+      .print-status-R {
+        background-color: #fee2e2 !important;
+        color: #991b1b !important;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+
+      /* Floating button hidden on print */
+      .fab-print {
+        display: none !important;
+      }
+    }
+
+    /* FAB button styling for screen */
+    .fab-print {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      color: #000;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(34, 211, 238, 0.4);
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: none;
+      display: none;
+      /* hidden until results are ready */
+    }
+
+    .fab-print:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(34, 211, 238, 0.6);
+    }
+
+    .fab-print svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    @keyframes pulse-live {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      }
+
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+      }
+
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+      }
+    }
+
+    .groq-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #111827;
+      border: 1px solid #374151;
+      border-radius: 20px;
+      padding: 6px 14px;
+      color: #e5e7eb;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      animation: pulse-live 2s infinite;
+    }
+
+    /* ── Base reset for all form controls ── */
+    input:not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea {
+      appearance: none;
+      -webkit-appearance: none;
+      font-family: 'Inter', 'DM Sans', sans-serif;
+      font-size: 13.5px;
+      color: #e2e8f0;
+      background: rgba(10, 15, 26, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 14px;
+      padding: 11px 14px;
+      width: 100%;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.03);
+    }
+
+    input:not([type="checkbox"]):not([type="radio"])::placeholder,
+    textarea::placeholder {
+      color: #334155;
+      font-style: italic;
+      font-size: 13px;
+    }
+
+    input:not([type="checkbox"]):not([type="radio"]):focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(34, 211, 238, 0.4);
+      background: rgba(10, 15, 26, 0.75);
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(0, 0, 0, 0.3), 0 0 0 3px rgba(34, 211, 238, 0.08), 0 0 12px rgba(34, 211, 238, 0.06);
+    }
+
+    input:not([type="checkbox"]):not([type="radio"]):hover:not(:focus),
+    select:hover:not(:focus),
+    textarea:hover:not(:focus) {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(10, 15, 26, 0.65);
+    }
+
+    .field-label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 7px;
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 13px;
+      padding-right: 38px;
+      cursor: pointer;
+    }
+
+    select option {
+      background: #0f1a2e;
+      color: #e2e8f0;
+      padding: 8px;
+    }
+
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type='number'] {
+      -moz-appearance: textfield;
+    }
+
+    .other-symptoms-textarea {
+      width: 100%;
+      box-sizing: border-box;
+      background: rgba(8, 12, 22, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 13px 16px;
+      color: #e2e8f0;
+      font-size: 13.5px;
+      font-family: 'Inter', 'DM Sans', sans-serif;
+      line-height: 1.65;
+      resize: none;
+      min-height: 84px;
+      max-height: 220px;
+      overflow-y: auto;
+      box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.03);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, min-height 0.2s ease;
+    }
+
+    .other-symptoms-textarea::placeholder {
+      color: #2d3f55;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .other-symptoms-textarea:focus {
+      border-color: rgba(34, 211, 238, 0.38);
+      box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(34, 211, 238, 0.07), 0 0 16px rgba(34, 211, 238, 0.05);
+      outline: none;
+    }
+
+    .other-symptoms-textarea::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .other-symptoms-textarea::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .other-symptoms-textarea::-webkit-scrollbar-thumb {
+      background: rgba(34, 211, 238, 0.2);
+      border-radius: 4px;
+    }
+
+    .textarea-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+      padding: 0 2px;
+    }
+
+    .textarea-char-count {
+      font-size: 11px;
+      color: #334155;
+    }
+
+    .textarea-ai-tag {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10.5px;
+      color: #22d3ee;
+      opacity: 0.7;
+    }
+
+    .ai-tag-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #22d3ee;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    .analyse-btn {
+      background: linear-gradient(135deg, #06b6d4 0%, #22d3ee 50%, #67e8f9 100%);
+      color: #0a0f1a;
+      font-weight: 700;
+      font-size: 14.5px;
+      letter-spacing: 0.02em;
+      padding: 14px 36px;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(34, 211, 238, 0.35), 0 2px 8px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .analyse-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 28px rgba(34, 211, 238, 0.45), 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    }
+
+    .analyse-btn:active {
+      transform: translateY(0px) scale(0.99);
+      box-shadow: 0 4px 12px rgba(34, 211, 238, 0.25), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ── About Page Redesign ── */
+    .about-page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    .about-hero {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .about-badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .about-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+    }
+
+    .about-badge.accent {
+      background: rgba(34, 211, 238, 0.08);
+      border-color: rgba(34, 211, 238, 0.25);
+      color: #22d3ee;
+    }
+
+    .about-title {
+      font-size: 38px;
+      font-weight: 800;
+      color: #f1f5f9;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 18px 0;
+    }
+
+    .about-subtitle {
+      font-size: 15px;
+      color: #64748b;
+      line-height: 1.75;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .about-stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+
+    .about-stat-chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 18px 12px;
+      background: #111827;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.45), -3px -3px 10px rgba(255, 255, 255, 0.025), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .about-stat-icon {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .about-stat-value {
+      font-size: 22px;
+      font-weight: 800;
+      color: #22d3ee;
+      line-height: 1;
+    }
+
+    .about-stat-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #475569;
+    }
+
+    .about-section {
+      margin-bottom: 52px;
+    }
+
+    .about-section-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #475569;
+      margin-bottom: 24px;
+    }
+
+    .about-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .about-step-card {
+      padding: 24px 22px;
+      background: #111827;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5), -4px -4px 12px rgba(255, 255, 255, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .about-step-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 10px 12px 28px rgba(0, 0, 0, 0.55), -4px -4px 12px rgba(255, 255, 255, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .step-number {
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 12px;
+      opacity: 0.9;
+    }
+
+    .step-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin: 0 0 10px 0;
+    }
+
+    .step-body {
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .about-feature-callout {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 24px;
+      background: #111827;
+      border-radius: 24px;
+      border: 1px solid rgba(34, 211, 238, 0.1);
+      box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.45), -4px -4px 12px rgba(255, 255, 255, 0.02), inset 0 1px 0 rgba(34, 211, 238, 0.05);
+    }
+
+    .callout-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .callout-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin: 0 0 8px 0;
+    }
+
+    .callout-body {
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .about-tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .tech-chip {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: #111827;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.4), -2px -2px 8px rgba(255, 255, 255, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      transition: transform 0.15s ease;
+    }
+
+    .tech-chip:hover {
+      transform: translateY(-2px);
+    }
+
+    .tech-chip-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      box-shadow: 0 0 8px currentColor;
+    }
+
+    .tech-chip-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #e2e8f0;
+      line-height: 1.2;
+    }
+
+    .tech-chip-role {
+      font-size: 11px;
+      color: #475569;
+      margin-top: 2px;
+    }
+
+    .about-model-card {
+      padding: 28px;
+      background: #111827;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5), -4px -4px 12px rgba(255, 255, 255, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .about-body-text {
+      font-size: 13.5px;
+      color: #64748b;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .model-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .model-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(34, 211, 238, 0.06);
+      border: 1px solid rgba(34, 211, 238, 0.15);
+      color: #22d3ee;
+    }
+
+    .about-built-for {
+      text-align: center;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .built-for-text {
+      font-size: 13px;
+      color: #334155;
+      line-height: 2;
+    }
+
+    .built-for-accent {
+      color: #22d3ee;
+      font-weight: 600;
+    }
+
+    @media print {
+      .about-page {
+        display: none !important;
+      }
+    }
+
+    /* ═══════════ PATIENT VIEW TOGGLE ═══════════ */
+    .view-toggle-bar { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-bottom: 16px; }
+    .view-toggle-label { font-size: 0.78rem; font-weight: 600; color: var(--text3); transition: color 0.2s; }
+    .view-toggle-label.active { color: var(--text); }
+    .view-toggle { position: relative; width: 52px; height: 28px; background: var(--bg3); border: 1px solid var(--border2); border-radius: 14px; cursor: pointer; transition: background 0.3s; flex-shrink: 0; }
+    .view-toggle.on { background: linear-gradient(135deg, var(--green2), var(--green)); border-color: var(--green); }
+    .view-toggle-knob { position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; background: #fff; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.3); transition: transform 0.25s ease; }
+    .view-toggle.on .view-toggle-knob { transform: translateX(24px); }
+    .patient-view-card { padding: 18px 20px; background: rgba(52,211,153,0.06); border: 1px solid rgba(52,211,153,0.15); border-radius: 14px; margin-bottom: 12px; }
+    .patient-view-card h4 { font-size: 1rem; color: var(--green); margin-bottom: 8px; font-weight: 700; }
+    .patient-view-card p { font-size: 0.92rem; color: var(--text); line-height: 1.8; margin-bottom: 6px; }
+    .patient-view-card .pv-label { font-size: 0.78rem; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+    #patient-view-container { display: none; }
+
+
+    @media (max-width: 768px) {
+
+      .about-steps-grid,
+      .about-tech-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-title {
+        font-size: 28px;
+      }
+
+      .about-feature-callout {
+        flex-direction: column;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-brand">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2">
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+      </svg>
+      <span style="color: white; font-weight: 500;">Antibio</span><span
+        style="color: var(--cyan); font-weight: 600;">Sense</span>
+    </div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="showPage('predictor')">Predictor</button>
+      <button class="nav-tab" onclick="showPage('heatmap')">Resistance Heatmap</button>
+      <button class="nav-tab" onclick="showPage('about')">About</button>
+    </div>
+    <div>
+      <span class="badge-cureai">CureAI</span>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════ PAGE: PREDICTOR ═══════════════════ -->
+  <div id="page-predictor" class="page active">
+    <div id="view-input" class="view-section active">
+
+      <div class="hero" style="position: relative; overflow: hidden; padding-top: 2rem;">
+        <svg
+          style="position: absolute; top: 10%; left: 0; width: 100%; height: 80%; opacity: 0.05; z-index: 0; pointer-events: none;"
+          preserveAspectRatio="none" viewBox="0 0 1000 100">
+          <path d="M0,50 L200,50 L220,20 L240,80 L260,50 L1000,50" fill="none" class="pulse-line" stroke="var(--cyan)"
+            stroke-width="2" />
+        </svg>
+        <div style="position: relative; z-index: 1;">
+          <h1 style="background: none; -webkit-text-fill-color: initial; color: #fff;">Intelligent Susceptibility</h1>
+          <p>Predicting antibiotic efficacy to support targeted empiric therapies.</p>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
+              </div>
+              <div class="hero-stat-info">
+                <span class="val">9,947</span>
+                <span class="lbl">Records</span>
+              </div>
+            </div>
+            <div class="hero-stat">
+              <div class="icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div class="hero-stat-info">
+                <span class="val">15</span>
+                <span class="lbl">Antibiotics</span>
+              </div>
+            </div>
+            <div class="hero-stat">
+              <div class="icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M2 12h20" />
+                  <path
+                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+              </div>
+              <div class="hero-stat-info">
+                <span class="val">9</span>
+                <span class="lbl">Pathogens</span>
+              </div>
+            </div>
+            <div class="hero-stat">
+              <div class="icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                  <line x1="9" y1="9" x2="9.01" y2="9" />
+                  <line x1="15" y1="9" x2="15.01" y2="9" />
+                </svg>
+              </div>
+              <div class="hero-stat-info">
+                <span class="val">~74%</span>
+                <span class="lbl">Accuracy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- PATIENT PANEL -->
+      <div class="patient-panel" id="patient-panel">
+        <div class="patient-panel-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="8.5" cy="7" r="4" />
+            <line x1="20" y1="8" x2="20" y2="14" />
+            <line x1="23" y1="11" x2="17" y2="11" />
+          </svg>
+          Patient Record
+        </div>
+        <div class="patient-search-row">
+          <input type="text" id="patient-search-input" placeholder="Search Patient ID (e.g., 030426-001) or Name"
+            autocomplete="off">
+          <button class="btn-sm btn-search" onclick="searchPatient()">Search</button>
+          <button class="btn-sm btn-new-patient" onclick="createNewPatient()">+ New Patient</button>
+        </div>
+        <div id="search-results-container" style="display:none;"></div>
+        <div class="new-patient-inline" id="new-patient-inline">
+          <label for="new-patient-name">Patient Name <span
+              style="color:var(--text3);font-weight:400;">(optional)</span></label>
+          <input type="text" id="new-patient-name" placeholder="e.g. Rahul Sharma" autocomplete="off">
+          <div class="inline-actions">
+            <button class="btn-sm btn-new-patient" onclick="confirmNewPatient()">Register Patient</button>
+            <button class="btn-sm" style="background:transparent; color:var(--text3); border:1px solid var(--border);"
+              onclick="cancelNewPatient()">Cancel</button>
+          </div>
+        </div>
+        <div id="patient-loaded" style="display:none;">
+          <div class="patient-info-bar">
+            <span class="pid-badge" id="active-pid"></span>
+            <span id="patient-info-chips"></span>
+            <button class="btn-sm"
+              style="margin-left:auto; background:transparent; color:var(--text3); border:1px solid var(--border);"
+              onclick="clearPatient()">Clear</button>
+          </div>
+          <div class="visit-timeline" id="visit-timeline" style="display:none;"></div>
+        </div>
+      </div>
+
+      <!-- INPUT FORM -->
+      <div class="grid-2" style="margin-bottom:1.5rem">
+        <!-- Left: Patient Info -->
+        <div class="card" style="align-self: start;">
+          <div class="card-title">
+            <div class="icon"></div>Patient Information
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem">
+            <div>
+              <label>Age</label>
+              <input type="number" id="age" placeholder="e.g. 45" min="1" max="120">
+            </div>
+            <div>
+              <label>Gender</label>
+              <select id="gender">
+                <option value="">— Select —</option>
+                <option value="F">Female</option>
+                <option value="M">Male</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem;">
+            <button type="button" onclick="toggleAdvancedFilters()"
+              style="background:var(--bg3); border:none; color:var(--text2); font-size:0.85rem; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:8px; transition: all 0.2s; padding: 8px 16px; border-radius: 50px; box-shadow: 2px 2px 6px rgba(0,0,0,0.3), inset 1px 1px 2px rgba(255,255,255,0.05);">
+              <span id="adv-icon" style="font-size: 1.1rem; line-height: 1;">+</span>
+              <span id="adv-text">Advanced Filters</span>
+            </button>
+          </div>
+
+          <div id="advanced-filters"
+            style="display:none; margin-top:1rem; padding-top:1rem; border-top:1px solid var(--border);">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem">
+              <div>
+                <label>Diabetes</label>
+                <select id="diabetes">
+                  <option value="">— Unknown —</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div>
+                <label>Hypertension</label>
+                <select id="hypertension">
+                  <option value="">— Unknown —</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem">
+              <div>
+                <label>Prior Hospitalisation</label>
+                <select id="hospital_before">
+                  <option value="">— Unknown —</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div>
+                <label>Infection Frequency</label>
+                <select id="infection_freq">
+                  <option value="">— Unknown —</option>
+                  <option value="0">Never</option>
+                  <option value="1">Rarely</option>
+                  <option value="2">Regularly</option>
+                  <option value="3">Often</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Bacteria selector -->
+        <div class="card" style="align-self: start;">
+          <div class="card-title">
+            <div class="icon"></div>Bacterial Species
+          </div>
+          <div class="segmented-track">
+            <button class="mode-btn active" onclick="setMode('symptom')">Predict from Symptoms</button>
+            <button class="mode-btn" onclick="setMode('manual')">Select Manually</button>
+          </div>
+          <div id="mode-symptom">
+            <p style="font-size:0.83rem; color:var(--text2); margin-bottom:10px;">
+              Select presenting symptoms. The AI will predict the most likely bacterium.
+            </p>
+            <div id="selected-symptoms"
+              style="font-size:0.82rem; color:var(--blue); min-height:18px; margin-bottom:8px;"></div>
+            <div class="symptom-grid" id="symptom-checkboxes">
+              {% for sym in symptoms %}
+              <label class="symptom-item" id="sym-label-{{ loop.index }}">
+                <input type="checkbox" value="{{ sym }}" onchange="toggleSymptom(this)"> {{ sym }}
+              </label>
+              {% endfor %}
+              <div class="other-symptoms-row" style="grid-column: 1 / -1; margin-top: 15px;">
+                <label class="field-label">Other Symptoms (Describe):</label>
+                <textarea id="other-symptoms-textarea" class="other-symptoms-textarea"
+                  placeholder="e.g. sharp pain behind the eyes, worsens at night, accompanied by chills, pain increases when lying down..."
+                  oninput="this.style.height='auto'; this.style.height = Math.min(this.scrollHeight, 220) + 'px'; document.getElementById('char-count').innerText = this.value.length;"></textarea>
+                <div class="textarea-meta-row" id="textarea-meta" style="display:none;">
+                  <span class="textarea-char-count"><span id="char-count">0</span> characters</span>
+                  <span class="textarea-ai-tag"><span class="ai-tag-dot"></span>passed directly to AI</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div id="mode-manual" style="display:none">
+            <label>Select bacterial species</label>
+            <select id="species-manual">
+              <option value="">— Select species —</option>
+              {% for sp in species_list %}
+              <option value="{{ sp }}">{{ sp }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:1rem; justify-content:center; margin-bottom:2rem">
+        <button class="btn btn-primary" id="predict-btn" onclick="runPrediction()">
+          Analyse &amp; Recommend Antibiotics
+        </button>
+        <button class="btn btn-outline" onclick="resetForm()">Reset</button>
+      </div>
+    </div><!-- /view-input -->
+
+    <!-- LOADING -->
+    <div id="view-loading" class="view-section">
+      <div style="text-align: center; padding: 2rem 0; margin-bottom: 1rem;">
+        <p style="color:var(--cyan); font-weight: 500;" id="loading-text">Analyzing symptoms & compiling susceptibility
+          profile...</p>
+        <div class="groq-badge"
+          style="display: inline-flex; align-items: center; gap: 8px; background: #111827; border: 1px solid #374151; border-radius: 20px; padding: 6px 14px; color: #e5e7eb; font-size: 0.85rem; margin-top: 1rem;">
+          <div class="live-dot"></div>
+          <span>Running on <strong>Groq</strong> / llama-3.3-70b-versatile</span>
+        </div>
+      </div>
+      <div class="card" style="pointer-events: none;">
+        <div class="shimmer skeleton-pill"></div>
+        <div class="shimmer skeleton-line short"></div>
+        <div class="shimmer skeleton-line" style="margin-bottom: 2rem; width: 40%;"></div>
+
+        <div class="shimmer skeleton-line short" style="margin-bottom: 1rem; width: 180px;"></div>
+        <div class="skeleton-row">
+          <div class="shimmer skeleton-chip"></div>
+          <div class="shimmer skeleton-chip"></div>
+          <div class="shimmer skeleton-chip"></div>
+        </div>
+
+        <div class="shimmer skeleton-line"></div>
+        <div class="shimmer skeleton-line" style="width: 85%;"></div>
+        <div class="shimmer skeleton-line short"></div>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="view-results" class="view-section">
+      <div id="results" style="display:block; margin-top:0;">
+
+        <!-- View Toggle: Clinical / Patient -->
+        <div class="view-toggle-bar">
+          <span class="view-toggle-label active" id="lbl-clinical">Clinical View</span>
+          <div class="view-toggle" id="patient-view-toggle" onclick="togglePatientView()">
+            <div class="view-toggle-knob"></div>
+          </div>
+          <span class="view-toggle-label" id="lbl-patient">Patient View</span>
+        </div>
+
+        <!-- Patient-friendly view (hidden by default) -->
+        <div id="patient-view-container"></div>
+
+        <!-- Clinical view wrapper -->
+        <div id="clinical-view-container">
+
+        <!-- MDR Banner -->
+        <div id="mdr-banner" class="mdr-banner" style="display:none">
+          <div class="mdr-icon">Alert</div>
+          <div class="mdr-text">
+            <h3>Multi-Drug Resistance (MDR) Detected</h3>
+            <p>This bacterium is resistant to 3+ antibiotic classes. Consult an infectious disease specialist
+              immediately. Consider combination therapy.</p>
+          </div>
+        </div>
+
+        <!-- Identified Species -->
+        <div class="species-card" id="species-result-card">
+          <div class="species-icon">🦠</div>
+          <div style="flex:1;">
+            <div
+              style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--text2); margin-bottom:2px;">
+              Identified Pathogen</div>
+            <div class="species-name" id="res-species">—</div>
+            <div class="species-conf" id="res-species-conf"></div>
+            <div id="species-reasoning"
+              style="display:none; margin-top:6px; padding:8px 12px; background:rgba(79,142,247,0.08); border-radius:6px; border-left:3px solid var(--blue); font-size:0.8rem; color:var(--text2); line-height:1.5;">
+            </div>
+            <div id="species-clinical-context"
+              style="display:none; margin-top:8px; padding:8px 12px; background:rgba(45,212,191,0.08); border-radius:6px; border-left:3px solid var(--teal); font-size:0.8rem; color:var(--text2); line-height:1.5;">
+            </div>
+            <div class="species-probs" id="species-probs"></div>
+          </div>
+        </div>
+
+        <!-- Top 3 -->
+        <div class="section-title">Top 3 Recommended Antibiotics</div>
+        <div class="top3-grid" id="top3-grid"></div>
+
+        <!-- All Antibiotics Table -->
+        <div class="card section">
+          <div class="card-title">
+            <div class="icon"></div>Full Resistance Profile — All 15 Antibiotics
+          </div>
+          <div class="ab-table-wrap">
+            <table id="ab-full-table">
+              <thead>
+                <tr>
+                  <th>Antibiotic</th>
+                  <th>Class</th>
+                  <th>Susceptibility</th>
+                  <th>Profile</th>
+                  <th>Verdict</th>
+                  <th>Model Acc.</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Feature Importance (SHAP-like) -->
+        <div class="card section">
+          <div class="card-title">
+            <div class="icon"></div>Feature Importance — What Drives the Prediction
+          </div>
+          <p style="font-size:0.82rem; color:var(--text2); margin-bottom:1rem;">Relative importance of each clinical
+            feature across the resistance models (Permutation importance).</p>
+          <div id="feature-importance-chart" style="position:relative; height:280px;">
+            <canvas id="fi-canvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Resistance stats chart -->
+        <div class="card section">
+          <div class="card-title">
+            <div class="icon"></div>Resistance Rates for Identified Species
+          </div>
+          <p style="font-size:0.82rem; color:var(--text2); margin-bottom:1rem;">Historical resistance and susceptibility
+            rates for <em id="chart-species-name">this species</em> across all antibiotics.</p>
+          <div style="position:relative; height:320px;">
+            <canvas id="res-chart"></canvas>
+          </div>
+        </div>
+
+        <!-- WHATSAPP-READY SUMMARY -->
+        </div><!-- end clinical-view-container -->
+
+        <!-- WHATSAPP-READY SUMMARY (outside toggle so always visible) -->
+        <div class="share-summary-card" id="share-summary-section" style="display:none;">
+          <div class="share-summary-title">
+            <h3>Quick Share Summary</h3>
+            <span class="share-subtitle">Review before sharing</span>
+          </div>
+          <div class="share-summary-preview" id="share-summary-text"></div>
+          <div class="share-summary-actions">
+            <button class="btn-copy btn-copy-primary" onclick="copySummary()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+              Copy to Clipboard
+            </button>
+            <span class="copy-toast" id="copy-toast">Copied!</span>
+          </div>
+        </div>
+
+        <div style="text-align:center; padding: 2rem 0;">
+          <button class="btn btn-outline" style="padding: 14px 32px;" onclick="resetForm()">&#8592; New Patient
+            Prediction</button>
+        </div>
+
+      </div><!-- /results -->
+    </div><!-- /view-results -->
+  </div><!-- /predictor page -->
+
+  <!-- ═══════════════════ PAGE: HEATMAP ═══════════════════ -->
+  <div id="page-heatmap" class="page">
+    <div style="margin-bottom:1.5rem">
+      <h2 style="font-size:1.4rem; font-weight:700; margin-bottom:0.4rem">Resistance Heatmap</h2>
+      <p style="color:var(--text2); font-size:0.9rem">Resistance rates (%) per bacterial species across all 15
+        antibiotics. Brighter red = higher resistance.</p>
+    </div>
+    <div class="card">
+      <div id="heatmap-container">
+        <p style="color:var(--text2); font-size:0.9rem">Loading heatmap…</p>
+      </div>
+    </div>
+    <div style="margin-top:1.5rem" class="card">
+      <div class="card-title">
+        <div class="icon"></div>Resistance Heatmap Chart
+      </div>
+      <div style="position:relative; height:420px;">
+        <canvas id="heatmap-canvas"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ PAGE: ABOUT ═══════════════════ -->
+  <div id="page-about" class="page">
+    <div class="about-page" style="max-width:900px; margin:0 auto; padding-top: 2rem;">
+      <div class="about-hero">
+        <h2 class="about-title">About AntibioSense</h2>
+        <p class="about-subtitle">
+          "Antimicrobial resistance (AMR) kills 1.27 million people per year worldwide and is projected to cause 10
+          million deaths annually by 2050." — WHO
+        </p>
+      </div>
+
+      <div class="card section">
+        <div class="card-title">
+          <div class="icon"></div>How It Works
+        </div>
+        <div class="about-steps-grid">
+          <div class="about-step-card"
+            style="background: var(--bg3); box-shadow: none; border: 1px solid var(--border);">
+            <div class="step-number" style="color: #06b6d4;">1</div>
+            <h3 class="step-title">LLM Reasoning</h3>
+            <p class="step-body">Clinical symptoms are analyzed using Groq's LLaMA 3.3 70B to infer the most probable
+              bacterial pathogen instantly.</p>
+          </div>
+          <div class="about-step-card"
+            style="background: var(--bg3); box-shadow: none; border: 1px solid var(--border);">
+            <div class="step-number" style="color: #22d3ee;">2</div>
+            <h3 class="step-title">ML Prediction</h3>
+            <p class="step-body">15 independent Random Forest models analyze patient risk factors against historical
+              resistance data to predict susceptibility.</p>
+          </div>
+          <div class="about-step-card"
+            style="background: var(--bg3); box-shadow: none; border: 1px solid var(--border);">
+            <div class="step-number" style="color: #67e8f9;">3</div>
+            <h3 class="step-title">Genomic Context</h3>
+            <p class="step-body">Predictions are enriched with verified gene associations from the Comprehensive
+              Antibiotic Resistance Database (CARD).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card section">
+        <div class="card-title">
+          <div class="icon"></div>Antibiotics covered
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+          {% for code, name in ab_full_names.items() %}
+          <div
+            style="font-size:0.85rem; padding:10px 14px; background:var(--bg3); border-radius:8px; box-shadow: inset 4px 4px 8px rgba(0,0,0,0.4), inset -2px -2px 6px rgba(255,255,255,0.03);">
+            <span style="color:var(--text2)">{{ code }}</span>
+            <span style="color:var(--text); margin-left:8px">{{ name }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <p class="built-for-text">
+          <span class="built-for-accent">Made by:</span> Yash Verdhan and Chirag Kankani
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING PRINT BUTTON -->
+  <button class="fab-print" id="fab-print-btn" onclick="window.print()" title="Download / Print Report">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <polyline points="6 9 6 2 18 2 18 9"></polyline>
+      <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+      <rect x="6" y="14" width="12" height="8"></rect>
+    </svg>
+  </button>
+
+  <!-- PRINT REPORT CONTAINER (Hidden on screen) -->
+  <div id="print-report" style="display: none;">
+    <!-- This will be dynamically populated by JS -->
+  </div>
+
+  <footer>
+    AntibioSense — Antibiotic Resistance Prediction Tool · Built for Hackathon 2026 · Not for clinical use
+  </footer>
+
+  <script>
+    let currentMode = 'symptom';
+    let selectedSymptoms = [];
+    let resChart = null;
+    let fiChart = null;
+    let heatmapChart = null;
+    let activePatientId = null;
+    let lastPredictionData = null;
+
+    function showPage(name) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('page-' + name).classList.add('active');
+      event.target.classList.add('active');
+      if (name === 'heatmap') loadHeatmap();
+    }
+
+    function switchView(viewId) {
+      document.querySelectorAll('#page-predictor .view-section').forEach(v => {
+        v.classList.remove('active');
+      });
+      document.getElementById(viewId).classList.add('active');
+    }
+
+    function setMode(mode) {
+      currentMode = mode;
+      document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('mode-symptom').style.display = mode === 'symptom' ? 'block' : 'none';
+      document.getElementById('mode-manual').style.display = mode === 'manual' ? 'block' : 'none';
+    }
+
+    function toggleAdvancedFilters() {
+      const panel = document.getElementById('advanced-filters');
+      const isHidden = panel.style.display === 'none';
+      panel.style.display = isHidden ? 'block' : 'none';
+      const icon = document.getElementById('adv-icon');
+      const btn = icon.parentElement;
+      icon.textContent = isHidden ? '−' : '+';
+      btn.style.color = isHidden ? 'var(--cyan)' : 'var(--text2)';
+      btn.style.boxShadow = isHidden ? 'inset 3px 3px 6px rgba(0,0,0,0.5), inset -2px -2px 4px rgba(255,255,255,0.02)' : '2px 2px 6px rgba(0,0,0,0.3), inset 1px 1px 2px rgba(255,255,255,0.05)';
+    }
+
+    function toggleSymptom(cb) {
+      const label = cb.closest('label');
+      if (cb.checked) {
+        selectedSymptoms.push(cb.value);
+        label.classList.add('checked');
+      } else {
+        selectedSymptoms = selectedSymptoms.filter(s => s !== cb.value);
+        label.classList.remove('checked');
+      }
+      document.getElementById('selected-symptoms').textContent =
+        selectedSymptoms.length ? selectedSymptoms.length + ' symptom(s) selected' : '';
+    }
+
+    function resetForm() {
+      selectedSymptoms = [];
+      document.querySelectorAll('#symptom-checkboxes input[type=checkbox]').forEach(cb => {
+        cb.checked = false;
+        cb.closest('label').classList.remove('checked');
+      });
+      document.getElementById('selected-symptoms').textContent = '';
+      document.getElementById('species-manual').value = '';
+      ['age', 'gender', 'diabetes', 'hypertension', 'hospital_before', 'infection_freq'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+      });
+      const otherEl = document.getElementById('other-symptoms-textarea');
+      if (otherEl) otherEl.value = '';
+      document.getElementById('fab-print-btn').style.display = 'none';
+      document.getElementById('share-summary-section').style.display = 'none';
+      lastPredictionData = null;
+      switchView('view-input');
+    }
+
+    async function runPrediction() {
+      const payload = {
+        symptoms: currentMode === 'symptom' ? selectedSymptoms : [],
+        species: currentMode === 'manual' ? document.getElementById('species-manual').value : '',
+        age: document.getElementById('age').value || null,
+        gender: document.getElementById('gender').value || null,
+        diabetes: document.getElementById('diabetes').value || null,
+        hypertension: document.getElementById('hypertension').value || null,
+        hospital_before: document.getElementById('hospital_before').value || null,
+        infection_freq: document.getElementById('infection_freq').value || null,
+        otherSymptoms: document.getElementById('other-symptoms-textarea') ? document.getElementById('other-symptoms-textarea').value : '',
+      };
+
+      if (currentMode === 'symptom' && selectedSymptoms.length === 0) {
+        alert('Please select at least one symptom, or switch to manual species selection.');
+        return;
+      }
+      if (currentMode === 'manual' && !payload.species) {
+        alert('Please select a bacterial species.');
+        return;
+      }
+
+      document.getElementById('predict-btn').disabled = true;
+      switchView('view-loading');
+
+      try {
+        const resp = await fetch('/predict', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await resp.json();
+        if (data.error) {
+          alert(data.error);
+          switchView('view-input');
+          return;
+        }
+        renderResults(data);
+        lastPredictionData = data;
+        switchView('view-results');
+        // Auto-save visit if patient is loaded
+        if (activePatientId) {
+          autoSaveVisit(data, payload);
+        }
+      } catch (e) {
+        alert('Prediction failed: ' + e.message);
+        switchView('view-input');
+      } finally {
+        document.getElementById('predict-btn').disabled = false;
+      }
+    }
+
+    // ════════════════════════════════════════════════════════════════════
+    //  PATIENT HISTORY SYSTEM
+    // ════════════════════════════════════════════════════════════════════
+
+    async function createNewPatient() {
+      // Show the inline name input panel instead of browser prompt
+      const panel = document.getElementById('new-patient-inline');
+      panel.classList.add('show');
+      document.getElementById('new-patient-name').value = '';
+      document.getElementById('new-patient-name').focus();
+      document.getElementById('search-results-container').style.display = 'none';
+    }
+
+    function cancelNewPatient() {
+      document.getElementById('new-patient-inline').classList.remove('show');
+    }
+
+    async function confirmNewPatient() {
+      const name = document.getElementById('new-patient-name').value.trim();
+      const age = document.getElementById('age').value || null;
+      const gender = document.getElementById('gender').value || '';
+      const diabetes = document.getElementById('diabetes').value || '';
+      const hypertension = document.getElementById('hypertension').value || '';
+      const hospital_before = document.getElementById('hospital_before').value || '';
+      const infection_freq = document.getElementById('infection_freq').value || '';
+
+      // Hide the panel
+      document.getElementById('new-patient-inline').classList.remove('show');
+
+      try {
+        const resp = await fetch('/patient/new', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, age, gender, diabetes, hypertension, hospital_before, infection_freq })
+        });
+        const data = await resp.json();
+        if (data.ok) {
+          activePatientId = data.patient_id;
+          document.getElementById('patient-search-input').value = '';
+          loadPatientUI(data.patient_id);
+        } else {
+          alert('Error creating patient: ' + (data.error || 'Unknown'));
+        }
+      } catch (e) {
+        alert('Failed to create patient: ' + e.message);
+      }
+    }
+
+    async function searchPatient() {
+      const q = document.getElementById('patient-search-input').value.trim();
+      if (!q) return;
+      try {
+        const resp = await fetch('/patient/search?q=' + encodeURIComponent(q));
+        const data = await resp.json();
+        const container = document.getElementById('search-results-container');
+        if (data.results.length === 0) {
+          container.innerHTML = '<div style="padding:12px; color:var(--text3); font-size:0.83rem;">No patients found. Click "+ New Patient" to register.</div>';
+          container.style.display = 'block';
+          return;
+        }
+        container.innerHTML = '<div class="search-results-dropdown">' +
+          data.results.map(p => {
+            const chips = [p.age ? p.age + 'y' : '', p.gender || '', p.name || ''].filter(Boolean).join(' | ');
+            return `<div class="search-result-item" onclick="selectPatient('${p.patient_id}')">
+          <span style="font-weight:600; color:var(--cyan); font-family:monospace;">${p.patient_id}</span>
+          <span style="color:var(--text3);">${chips}</span>
+        </div>`;
+          }).join('') + '</div>';
+        container.style.display = 'block';
+      } catch (e) {
+        console.error('Search failed:', e);
+      }
+    }
+
+    // Allow Enter key to search and register
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('patient-search-input');
+      if (searchInput) {
+        searchInput.addEventListener('keydown', e => {
+          if (e.key === 'Enter') searchPatient();
+        });
+      }
+      const nameInput = document.getElementById('new-patient-name');
+      if (nameInput) {
+        nameInput.addEventListener('keydown', e => {
+          if (e.key === 'Enter') confirmNewPatient();
+        });
+      }
+    });
+
+    async function selectPatient(pid) {
+      activePatientId = pid;
+      document.getElementById('search-results-container').style.display = 'none';
+      document.getElementById('patient-search-input').value = '';
+      await loadPatientUI(pid);
+    }
+
+    async function loadPatientUI(pid) {
+      try {
+        const resp = await fetch('/patient/' + encodeURIComponent(pid));
+        const data = await resp.json();
+        if (data.error) {
+          alert(data.error);
+          return;
+        }
+        const p = data.patient;
+        const visits = data.visits || [];
+
+        // Show PID badge and info
+        document.getElementById('active-pid').textContent = p.patient_id;
+        const chips = [p.name, p.age ? p.age + 'y' : '', p.gender === 'M' ? 'Male' : p.gender === 'F' ? 'Female' : '',
+        p.diabetes === 'Yes' ? 'Diabetic' : '', p.hypertension === 'Yes' ? 'Hypertensive' : ''].filter(Boolean);
+        document.getElementById('patient-info-chips').innerHTML = chips.map(c => `<span class="info-chip">${c}</span>`).join('');
+        document.getElementById('patient-loaded').style.display = 'block';
+
+        // Pre-fill form fields from patient record
+        if (p.age) document.getElementById('age').value = p.age;
+        if (p.gender) document.getElementById('gender').value = p.gender;
+        if (p.diabetes) document.getElementById('diabetes').value = p.diabetes;
+        if (p.hypertension) document.getElementById('hypertension').value = p.hypertension;
+        if (p.hospital_before) document.getElementById('hospital_before').value = p.hospital_before;
+        if (p.infection_freq) document.getElementById('infection_freq').value = p.infection_freq;
+        // Show advanced filters if they have data
+        if (p.diabetes || p.hypertension || p.hospital_before || p.infection_freq) {
+          document.getElementById('advanced-filters').style.display = 'block';
+          document.getElementById('adv-icon').textContent = '\u2212';
+        }
+
+        // Render visit timeline
+        const timelineEl = document.getElementById('visit-timeline');
+        if (visits.length > 0) {
+          timelineEl.innerHTML = '<div class="visit-timeline-title">Past Visits (' + visits.length + ')</div>' +
+            visits.map(v => {
+              const d = new Date(v.timestamp);
+              const dateStr = d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) + ' ' +
+                d.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true });
+              const top1 = Array.isArray(v.top3) && v.top3.length ? v.top3[0].name + ' (' + v.top3[0].susceptible_pct.toFixed(0) + '%)' : '';
+              const mdrTag = v.mdr ? ' <span style="color:var(--red);font-size:0.7rem;font-weight:700;">MDR</span>' : '';
+              return `<div class="visit-entry" onclick="loadPastVisit(${v.visit_id})" title="Click to view full details">
+            <div class="visit-dot"></div>
+            <div class="visit-info">
+              <div class="visit-date">${dateStr}</div>
+              <div class="visit-species">${v.predicted_species || '?'}${mdrTag}</div>
+              <div class="visit-drug">${top1}</div>
+            </div>
+          </div>`;
+            }).join('');
+          timelineEl.style.display = 'block';
+        } else {
+          timelineEl.innerHTML = '<div style="font-size:0.8rem;color:var(--text3);padding:8px 0;">No previous visits. Run a prediction to create the first one.</div>';
+          timelineEl.style.display = 'block';
+        }
+      } catch (e) {
+        console.error('Load patient failed:', e);
+      }
+    }
+
+    function clearPatient() {
+      activePatientId = null;
+      document.getElementById('patient-loaded').style.display = 'none';
+      document.getElementById('visit-timeline').style.display = 'none';
+      document.getElementById('search-results-container').style.display = 'none';
+      document.getElementById('patient-search-input').value = '';
+    }
+
+    async function autoSaveVisit(predData, payload) {
+      if (!activePatientId) return;
+      try {
+        const visitPayload = {
+          symptoms: payload.symptoms || [],
+          other_symptoms: payload.otherSymptoms || '',
+          mode: currentMode,
+          predicted_species: predData.species,
+          species_confidence: predData.species_probabilities[predData.species] || null,
+          top3: predData.top3,
+          mdr: predData.mdr_flag,
+          warnings: predData.contraindication_warnings || {},
+          full_response: predData,
+        };
+        const resp = await fetch('/patient/' + encodeURIComponent(activePatientId) + '/visit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(visitPayload)
+        });
+        const result = await resp.json();
+        if (result.ok) {
+          console.log('[Patient] Visit saved:', result.visit_id);
+        }
+      } catch (e) {
+        console.error('[Patient] Auto-save failed:', e);
+      }
+    }
+
+    async function loadPastVisit(visitId) {
+      try {
+        const resp = await fetch('/patient/visit/' + visitId);
+        const data = await resp.json();
+        if (data.error) {
+          alert(data.error);
+          return;
+        }
+        const v = data.visit;
+        // If we have the full response, re-render it
+        if (v.full_response && typeof v.full_response === 'object' && v.full_response.species) {
+          renderResults(v.full_response);
+          switchView('view-results');
+        } else {
+          // Show basic info
+          alert(`Visit on ${v.timestamp}\nSpecies: ${v.predicted_species}\nTop drug: ${Array.isArray(v.top3) && v.top3.length ? v.top3[0].name : 'N/A'}\nMDR: ${v.mdr ? 'Yes' : 'No'}`);
+        }
+      } catch (e) {
+        alert('Failed to load visit: ' + e.message);
+      }
+    }
+
+    async function submitFeedback(species, abCode, vote, btnEl) {
+      // Disable both buttons immediately
+      const yesBtn = document.getElementById('fb-yes-' + abCode);
+      const noBtn = document.getElementById('fb-no-' + abCode);
+      if (yesBtn) yesBtn.disabled = true;
+      if (noBtn) noBtn.disabled = true;
+
+      // Highlight the voted button
+      btnEl.classList.add('voted');
+
+      try {
+        const resp = await fetch('/feedback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ species, antibiotic_code: abCode, vote })
+        });
+        const result = await resp.json();
+        if (result.ok) {
+          // Show thank you
+          const thanksEl = document.getElementById('fb-thanks-' + abCode);
+          if (thanksEl) thanksEl.style.display = 'block';
+          console.log('[Feedback]', species, abCode, vote, 'trust:', result.trust);
+        }
+      } catch (e) {
+        console.error('[Feedback] Failed:', e);
+        // Re-enable on error
+        if (yesBtn) yesBtn.disabled = false;
+        if (noBtn) noBtn.disabled = false;
+        btnEl.classList.remove('voted');
+      }
+    }
+
+    function renderResults(data) {
+      // Store data globally for patient view toggle
+      window._lastPredData = data;
+
+      // Reset patient view toggle
+      const toggle = document.getElementById('patient-view-toggle');
+      if (toggle) toggle.classList.remove('on');
+      document.getElementById('lbl-clinical').classList.add('active');
+      document.getElementById('lbl-patient').classList.remove('active');
+      document.getElementById('patient-view-container').style.display = 'none';
+      document.getElementById('clinical-view-container').style.display = 'block';
+
+      // Show print FAB
+      document.getElementById('fab-print-btn').style.display = 'flex';
+
+      // MDR
+      document.getElementById('mdr-banner').style.display = data.mdr_flag ? 'flex' : 'none';
+
+      // Species
+      document.getElementById('res-species').textContent = data.species;
+      const conf = data.species_probabilities[data.species];
+      document.getElementById('res-species-conf').textContent = conf ? `Confidence: ${conf}%` : '';
+
+      // LLM reasoning
+      const reasoningEl = document.getElementById('species-reasoning');
+      if (data.species_reasoning) {
+        reasoningEl.innerHTML = `<strong style="color:var(--blue);">Clinical reasoning:</strong> ${data.species_reasoning}`;
+        reasoningEl.style.display = 'block';
+      } else {
+        reasoningEl.style.display = 'none';
+      }
+
+      const clinicalContextEl = document.getElementById('species-clinical-context');
+      const context = data.species_clinical_context || {};
+      const summary = context.clinical_summary || '';
+      const supporting = Array.isArray(context.supporting_features) ? context.supporting_features : [];
+      const counterpoints = Array.isArray(context.counterpoints) ? context.counterpoints : [];
+      if (summary || supporting.length || counterpoints.length) {
+        const supportHtml = supporting.length
+          ? `<div style="margin-top:6px;"><span style="color:var(--text2); font-weight:600;">Supporting features:</span> ${supporting.map(x => `<span style="display:inline-block;margin:2px 4px 0 0;padding:2px 8px;border-radius:20px;background:rgba(255,255,255,0.05);border:1px solid var(--border);">${x}</span>`).join('')}</div>`
+          : '';
+        const caveatHtml = counterpoints.length
+          ? `<div style="margin-top:6px;"><span style="color:var(--text2); font-weight:600;">Caveats:</span> ${counterpoints.map(x => `<span style="display:inline-block;margin:2px 4px 0 0;padding:2px 8px;border-radius:20px;background:rgba(251,191,36,0.10);border:1px solid rgba(251,191,36,0.25);">${x}</span>`).join('')}</div>`
+          : '';
+        clinicalContextEl.innerHTML = `${summary ? `<div><strong style="color:var(--teal);">Clinical summary:</strong> ${summary}</div>` : ''}${supportHtml}${caveatHtml}`;
+        clinicalContextEl.style.display = 'block';
+      } else {
+        clinicalContextEl.style.display = 'none';
+      }
+
+      const probsEl = document.getElementById('species-probs');
+      probsEl.innerHTML = '';
+      Object.entries(data.species_probabilities).slice(0, 5).forEach(([sp, pct]) => {
+        const span = document.createElement('span');
+        span.className = 'sp-prob';
+        span.textContent = sp + ' ' + pct + '%';
+        probsEl.appendChild(span);
+      });
+
+      // Top 3
+      const top3El = document.getElementById('top3-grid');
+      top3El.innerHTML = '';
+      data.top3.forEach((ab, i) => {
+        // Try LLM-formatted insight first, fall back to raw CARD data
+        const llmInsight = data.card_insights ? data.card_insights[ab.code] : null;
+        const rawCard = data.card_ontology ? data.card_ontology[ab.code] : null;
+        let cardHtml = '';
+
+        if (llmInsight) {
+          // ── LLM-formatted clinical insight ──
+          const markersHtml = (llmInsight.key_markers || []).map(m =>
+            `<div style="display:flex;gap:8px;align-items:baseline;margin-bottom:4px;">
+          <span style="color:var(--teal);font-family:monospace;font-size:0.78rem;font-weight:700;white-space:nowrap;">${m.gene}</span>
+          <span style="color:var(--text3);font-size:0.73rem;">${m.role}</span>
+        </div>`
+          ).join('');
+
+          cardHtml = `
+      <div style="margin-top:14px; padding:14px; background:rgba(0,0,0,0.20); border-radius:10px; border-left:3px solid var(--teal);">
+        <div style="font-size:0.68rem; color:var(--teal); font-weight:700; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px;">AI Clinical Insight <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text3);">(CARD + LLM)</span></div>
+        <div style="font-size:0.8rem; color:var(--text); line-height:1.5; margin-bottom:10px; font-weight:500;">
+          ${llmInsight.mechanism_summary}
+        </div>
+        <div style="margin-bottom:10px; padding-left:4px;">
+          <div style="font-size:0.7rem; color:var(--text2); font-weight:600; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.04em;">Key genetic markers</div>
+          ${markersHtml}
+        </div>
+        <div style="padding:8px 10px; background:rgba(52,211,153,0.08); border-radius:6px; border-left:2px solid var(--green);">
+          <span style="font-size:0.72rem; color:var(--green); font-weight:700;">Clinical implication:</span>
+          <span style="font-size:0.78rem; color:var(--text2); margin-left:4px;">${llmInsight.clinical_implication}</span>
+        </div>
+      </div>`;
+
+        } else if (rawCard && rawCard.key_genes && rawCard.key_genes.length > 0) {
+          // ── Fallback: raw CARD data ──
+          const mechTags = (rawCard.mechanisms || []).map(m =>
+            `<span style="display:inline-block;padding:2px 8px;margin:2px;border-radius:12px;background:rgba(79,142,247,0.15);color:var(--blue);font-size:0.68rem;font-weight:600;">${m}</span>`
+          ).join('');
+          const geneList = rawCard.key_genes.slice(0, 5).join(', ');
+          cardHtml = `
+      <div style="margin-top:14px; padding:12px; background:rgba(0,0,0,0.18); border-radius:8px; border-left:3px solid var(--blue);">
+        <div style="font-size:0.68rem; color:var(--blue); font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">CARD resistance data</div>
+        <div style="margin-bottom:6px;">${mechTags}</div>
+        <div style="font-size:0.76rem; color:var(--text2); line-height:1.5;">
+          <strong>Genes:</strong> <span style="font-family:monospace;">${geneList}</span>
+        </div>
+      </div>`;
+        }
+
+        // Build warning HTML for this antibiotic
+        const abWarnings = (data.contraindication_warnings || {})[ab.code] || [];
+        let warningsHtml = '';
+        if (abWarnings.length > 0) {
+          warningsHtml = abWarnings.map(w => {
+            const icon = w.severity === 'high' ? '🔴' : (w.severity === 'medium' ? '🟡' : '🟢');
+            const label = w.severity === 'high' ? 'CONTRAINDICATION' : (w.severity === 'medium' ? 'CAUTION' : 'NOTE');
+            return `
+          <div class="ab-warning-strip severity-${w.severity}">
+            <div class="ab-warning-icon">${icon}</div>
+            <div class="ab-warning-body">
+              <div style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px;color:${w.severity === 'high' ? 'var(--red)' : w.severity === 'medium' ? 'var(--amber)' : 'var(--blue)'}">${label}</div>
+              <div class="ab-warning-msg">${w.message}</div>
+              ${w.source ? `<div class="ab-warning-source">Source: ${w.source}</div>` : ''}
+            </div>
+          </div>`;
+          }).join('');
+        }
+
+        // Build trust badge if feedback exists
+        const trustData = (data.clinician_trust || {})[ab.code];
+        let trustHtml = '';
+        if (trustData && trustData.total >= 3) {
+          const t = trustData.trust;
+          const cls = t >= 0.75 ? 'trust-high' : t >= 0.45 ? 'trust-medium' : 'trust-low';
+          const icon = t >= 0.75 ? '&#10003;' : t >= 0.45 ? '~' : '!';
+          const label = t >= 0.75 ? 'Clinician-validated' : t >= 0.45 ? 'Mixed feedback' : 'Clinician-flagged';
+          trustHtml = `<div class="trust-badge ${cls}">${icon} ${label} (${trustData.positive}/${trustData.total} positive)</div>`;
+        }
+
+        top3El.innerHTML += `
+      <div class="ab-card rank-${i + 1}">
+        <div class="ab-rank">#${i + 1} Recommended</div>
+        <div class="ab-name">${ab.name}</div>
+        <div class="ab-class-badge">${ab.drug_class}</div>
+        <div class="ab-pct">${ab.susceptible_pct.toFixed(1)}%</div>
+        <div class="ab-pct-label">Susceptibility probability</div>
+        <div class="progress-bar"><div class="progress-fill fill-green" style="width:${ab.susceptible_pct}%"></div></div>
+        <div class="ab-bars-label"><span>Susceptible</span><span>${ab.susceptible_pct.toFixed(1)}%</span></div>
+        <div class="progress-bar"><div class="progress-fill fill-amber" style="width:${ab.intermediate_pct}%"></div></div>
+        <div class="ab-bars-label"><span>Intermediate</span><span>${ab.intermediate_pct.toFixed(1)}%</span></div>
+        <div class="progress-bar"><div class="progress-fill fill-red" style="width:${ab.resistant_pct}%"></div></div>
+        <div class="ab-bars-label"><span>Resistant</span><span>${ab.resistant_pct.toFixed(1)}%</span></div>
+        <div class="ab-accuracy">Model accuracy: ${ab.model_accuracy}%</div>
+        ${trustHtml}
+        ${warningsHtml}
+        ${cardHtml}
+        <div class="feedback-section" id="fb-section-${ab.code}">
+          <div class="feedback-question">Was this recommendation accurate?</div>
+          <div class="feedback-btns">
+            <button class="fb-btn fb-btn-yes" id="fb-yes-${ab.code}" onclick="submitFeedback('${data.species}', '${ab.code}', 'positive', this)">Yes, it worked</button>
+            <button class="fb-btn fb-btn-no" id="fb-no-${ab.code}" onclick="submitFeedback('${data.species}', '${ab.code}', 'negative', this)">No, it failed</button>
+          </div>
+          <div class="fb-thanks" id="fb-thanks-${ab.code}">Thank you! Your feedback improves future predictions.</div>
+        </div>
+      </div>`;
+      });
+
+      // Full table
+      const allWarnings = data.contraindication_warnings || {};
+      const tbody = document.querySelector('#ab-full-table tbody');
+      tbody.innerHTML = '';
+      data.all_results.forEach(ab => {
+        const s = ab.susceptible_pct, r = ab.resistant_pct, im = ab.intermediate_pct;
+        const total = s + r + im || 1;
+        const abWarn = allWarnings[ab.code] || [];
+        let warnDot = '';
+        if (abWarn.length > 0) {
+          const maxSev = abWarn.some(w => w.severity === 'high') ? 'high' : abWarn.some(w => w.severity === 'medium') ? 'medium' : 'low';
+          const dotColor = maxSev === 'high' ? 'var(--red)' : maxSev === 'medium' ? 'var(--amber)' : 'var(--blue)';
+          const dotIcon = maxSev === 'high' ? '⚠' : maxSev === 'medium' ? '⚠' : 'ℹ';
+          warnDot = `<span title="${abWarn.length} warning(s) — click top-3 for details" style="color:${dotColor};font-size:0.75rem;margin-left:6px;cursor:help;">${dotIcon}</span>`;
+        }
+        tbody.innerHTML += `<tr>
+      <td style="font-weight:600">${ab.name}${warnDot}</td>
+      <td style="color:var(--text2); font-size:0.8rem">${ab.drug_class}</td>
+      <td style="font-weight:700; color:${s >= 60 ? 'var(--green)' : r >= 60 ? 'var(--red)' : 'var(--amber)'}">${s.toFixed(1)}%</td>
+      <td>
+        <div class="mini-bar-wrap">
+          <div class="mini-bar fill-green" style="width:${s / total * 80}px; background:var(--green)"></div>
+          <div class="mini-bar fill-amber" style="width:${im / total * 80}px; background:var(--amber)"></div>
+          <div class="mini-bar fill-red" style="width:${r / total * 80}px; background:var(--red)"></div>
+        </div>
+      </td>
+      <td><span class="status-badge status-${ab.status[0]}">${ab.status}</span></td>
+      <td style="color:var(--text3)">${ab.model_accuracy}%</td>
+    </tr>`;
+      });
+
+      // Feature importance chart
+      // BUG FIX: use top_ab_code (best antibiotic for this patient) not always first key
+      const fiData = data.feature_importances;
+      const topAbCode = data.top_ab_code;
+      const topAbName = data.ab_full_names[topAbCode] || topAbCode;
+      const fi = fiData[topAbCode] || fiData[Object.keys(fiData)[0]];
+      if (fi) {
+        // Sort by importance descending so chart reads naturally
+        const entries = Object.entries(fi).sort((a, b) => b[1] - a[1]);
+        const labels = entries.map(([k]) => k.replace(/_/g, ' ').replace('Infection Freq cat', 'Infection frequency').replace('Hospital before', 'Prior hospitalisation'));
+        const vals = entries.map(([, v]) => v);
+        const colors = ['#4f8ef7', '#34d399', '#fbbf24', '#a78bfa', '#f87171', '#2dd4bf', '#fb923c'];
+        if (fiChart) fiChart.destroy();
+        fiChart = new Chart(document.getElementById('fi-canvas'), {
+          type: 'bar',
+          data: {
+            labels,
+            datasets: [{
+              label: 'Importance score',
+              data: vals,
+              backgroundColor: vals.map((_, i) => colors[i % colors.length] + 'cc'),
+              borderColor: vals.map((_, i) => colors[i % colors.length]),
+              borderWidth: 1,
+              borderRadius: 5,
+            }]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+            plugins: {
+              legend: { display: false },
+              title: {
+                display: true,
+                text: `Feature importance — ${topAbName} model`,
+                color: '#8b93a8', font: { size: 12 }
+              },
+              tooltip: { callbacks: { label: ctx => ` Score: ${(ctx.raw * 100).toFixed(1)}%` } }
+            },
+            scales: {
+              x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#8b93a8', callback: v => (v * 100).toFixed(0) + '%' } },
+              y: { grid: { display: false }, ticks: { color: '#e8eaf0', font: { size: 13 } } }
+            }
+          }
+        });
+      }
+
+      // Resistance stats chart
+      const stats = data.resistance_stats;
+      document.getElementById('chart-species-name').textContent = data.species;
+      const abLabels = Object.keys(stats).map(ab => data.ab_full_names[ab] || ab);
+      const sVals = Object.values(stats).map(s => s.S || 0);
+      const rVals = Object.values(stats).map(s => s.R || 0);
+      if (resChart) resChart.destroy();
+      resChart = new Chart(document.getElementById('res-chart'), {
+        type: 'bar',
+        data: {
+          labels: abLabels,
+          datasets: [
+            { label: 'Susceptible %', data: sVals, backgroundColor: 'rgba(52,211,153,0.75)', borderRadius: 4 },
+            { label: 'Resistant %', data: rVals, backgroundColor: 'rgba(248,113,113,0.75)', borderRadius: 4 }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { labels: { color: '#8b93a8', boxWidth: 12, borderRadius: 3 } } },
+          scales: {
+            x: { ticks: { color: '#8b93a8', maxRotation: 45 }, grid: { color: 'rgba(255,255,255,0.04)' } },
+            y: { ticks: { color: '#8b93a8' }, grid: { color: 'rgba(255,255,255,0.04)' }, max: 100 }
+          }
+        }
+      });
+
+      // Build Print Report
+      const d = new Date();
+      const dateStr = d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
+      const patientAge = document.getElementById('age').value || 'N/A';
+      const patientSex = document.getElementById('gender').value || 'N/A';
+      const diagReasoning = data.species_reasoning ? `<p><strong>AI Reasoning:</strong> ${data.species_reasoning}</p>` : '';
+      const mdrWarn = data.mdr_flag ? `<div style="color: #991b1b; background: #fee2e2; padding: 10px; border: 1px solid #f87171; font-weight: bold; margin-bottom: 20px;">⚠ MULTI-DRUG RESISTANCE (MDR) DETECTED</div>` : '';
+
+      let tableRowsBody = '';
+      data.all_results.forEach(ab => {
+        tableRowsBody += `
+      <tr>
+        <td>${ab.name}</td>
+        <td>${ab.drug_class}</td>
+        <td>${ab.susceptible_pct.toFixed(1)}%</td>
+        <td>${ab.intermediate_pct.toFixed(1)}%</td>
+        <td>${ab.resistant_pct.toFixed(1)}%</td>
+        <td><span class="print-status-${ab.status[0]}">${ab.status}</span></td>
+      </tr>
+    `;
+      });
+
+      const printHtml = `
+    <div class="print-header">
+      <h1 class="print-title">AntibioSense Clinical Susceptibility Report</h1>
+      <div class="print-subtitle">Generated on: ${dateStr}</div>
+    </div>
+    
+    ${mdrWarn}
+
+    <div class="print-section">
+      <div class="print-section-title">Patient Profile</div>
+      <div class="print-row"><span class="print-label">Age / Sex:</span> <span class="print-value">${patientAge} / ${patientSex}</span></div>
+      <div class="print-row"><span class="print-label">Clinical Symptoms:</span> <span class="print-value">${selectedSymptoms.length > 0 ? selectedSymptoms.join(', ') : 'None specified'}</span></div>
+      ${document.getElementById('other-symptoms-textarea') && document.getElementById('other-symptoms-textarea').value ? `<div class="print-row"><span class="print-label">Other Symptoms:</span> <span class="print-value">${document.getElementById('other-symptoms-textarea').value}</span></div>` : ''}
+      <div class="print-row"><span class="print-label">Target Pathogen:</span> <span class="print-value"><strong>${data.species}</strong> (Confidence: ${data.species_probabilities[data.species]}%)</span></div>
+      ${diagReasoning}
+    </div>
+
+    <div class="print-section">
+      <div class="print-section-title">Top Suggested Antibiotics</div>
+      <p style="margin-bottom: 15px;">The following antibiotics have the highest predicted likelihood of clinical success (susceptibility) based on the patient's profile and regional resistance trends.</p>
+      ${data.top3.map((ab, i) => `
+        <div style="margin-bottom: 12px;">
+          <strong>${i + 1}. ${ab.name}</strong> (${ab.drug_class}) &mdash; <span style="color:#065f46;font-weight:bold;">${ab.susceptible_pct.toFixed(1)}% Susceptible</span>
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="print-section">
+      <div class="print-section-title">Complete Antibiotic Panel</div>
+      <table class="print-table">
+        <thead>
+          <tr>
+            <th>Antibiotic</th>
+            <th>Class</th>
+            <th>Susceptible Pred</th>
+            <th>Intermediate Pred</th>
+            <th>Resistant Pred</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${tableRowsBody}
+        </tbody>
+      </table>
+    </div>
+    
+    <div style="margin-top: 30px; font-size: 9pt; color: #555; border-top: 1px solid #ddd; padding-top: 10px;">
+      <strong>Disclaimer:</strong> This report is generated by an AI machine learning model intended for research and educational purposes only. It is not a substitute for clinical judgement, standard laboratory sensitivity testing (AST), or microbiological culture results.
+    </div>
+  `;
+
+      document.getElementById('print-report').innerHTML = printHtml;
+
+      // ── WhatsApp-Ready Summary ──
+      buildShareSummary(data);
+
+      document.getElementById('view-results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function buildShareSummary(data) {
+      const age = document.getElementById('age').value || '?';
+      const gender = document.getElementById('gender').value || '?';
+      const diabetes = document.getElementById('diabetes').value;
+      const hypertension = document.getElementById('hypertension').value;
+      const hospital = document.getElementById('hospital_before').value;
+
+      // Build patient line
+      let patientParts = [];
+      if (activePatientId) patientParts.push('PID ' + activePatientId);
+      patientParts.push(age + (gender === 'M' ? 'M' : gender === 'F' ? 'F' : ''));
+      if (diabetes === 'Yes') patientParts.push('Diabetic');
+      if (hypertension === 'Yes') patientParts.push('Hypertensive');
+      if (hospital === 'Yes') patientParts.push('Prior hospitalisation');
+      const patientLine = patientParts.join(', ');
+
+      // Species confidence
+      const speciesConf = data.species_probabilities[data.species];
+      const confStr = speciesConf ? ` (${speciesConf}% confidence)` : '';
+
+      // Top 3 antibiotics
+      const top3Lines = data.top3.map((ab, i) => {
+        const statusIcon = ab.susceptible_pct >= 60 ? '' : ab.susceptible_pct >= 40 ? '' : '';
+        return `  ${i + 1}. ${ab.name} — ${ab.susceptible_pct.toFixed(1)}% susceptible ${statusIcon}`;
+      }).join('\n');
+
+      // MDR line
+      const mdrLine = data.mdr_flag ? ' MDR DETECTED — resistant to 3+ antibiotic classes' : 'MDR: Not detected';
+
+      // Warnings summary (only high/medium severity from top 3)
+      const warnings = data.contraindication_warnings || {};
+      let warningLines = '';
+      data.top3.forEach(ab => {
+        const abWarns = (warnings[ab.code] || []).filter(w => w.severity === 'high' || w.severity === 'medium');
+        if (abWarns.length > 0) {
+          warningLines += '\n ' + ab.name + ': ' + abWarns[0].message;
+        }
+      });
+
+      // Timestamp
+      const now = new Date();
+      const timeStr = now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) + ', ' + now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true });
+
+      const summaryText = `━━━ AntibioSense Report ━━━\n` +
+        `Patient: ${patientLine}\n` +
+        `Suspected pathogen: ${data.species}${confStr}\n\n` +
+        `Top 3 antibiotics:\n${top3Lines}\n\n` +
+        `${mdrLine}` +
+        `${warningLines ? '\n' + warningLines : ''}\n\n` +
+        `Generated: ${timeStr}\n` +
+        `━━━ AntibioSense ━━━`;
+
+      document.getElementById('share-summary-text').textContent = summaryText;
+      document.getElementById('share-summary-section').style.display = 'block';
+
+      // Store for copy function
+      window._shareSummaryText = summaryText;
+    }
+
+    async function copySummary() {
+      try {
+        await navigator.clipboard.writeText(window._shareSummaryText || '');
+        const toast = document.getElementById('copy-toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2200);
+      } catch (e) {
+        // Fallback for older browsers
+        const ta = document.createElement('textarea');
+        ta.value = window._shareSummaryText || '';
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        const toast = document.getElementById('copy-toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2200);
+      }
+    }
+
+    async function loadHeatmap() {
+      if (document.getElementById('heatmap-container').querySelector('table')) return;
+      const resp = await fetch('/heatmap_data');
+      const data = await resp.json();
+      const { resistance_stats, species_list, ab_cols, ab_full_names } = data;
+
+      // Table
+      let html = '<table class="heatmap-table"><thead><tr><th>Species</th>';
+      ab_cols.forEach(ab => { html += `<th title="${ab_full_names[ab]}">${ab}</th>`; });
+      html += '</tr></thead><tbody>';
+
+      species_list.forEach(sp => {
+        html += `<tr><td class="species-col">${sp}</td>`;
+        ab_cols.forEach(ab => {
+          const v = resistance_stats[sp]?.[ab]?.R || 0;
+          const alpha = (v / 100 * 0.9 + 0.05).toFixed(2);
+          const textColor = v > 50 ? '#fff' : '#ccc';
+          html += `<td style="background:rgba(248,113,113,${alpha});color:${textColor}">${v}%</td>`;
+        });
+        html += '</tr>';
+      });
+      html += '</tbody></table>';
+      document.getElementById('heatmap-container').innerHTML = html;
+
+      // Chart
+      const datasets = ab_cols.map((ab, i) => ({
+        label: ab,
+        data: species_list.map(sp => resistance_stats[sp]?.[ab]?.R || 0),
+        backgroundColor: `hsla(${(i * 24) % 360}, 70%, 60%, 0.75)`,
+        borderRadius: 3
+      }));
+      if (heatmapChart) heatmapChart.destroy();
+      heatmapChart = new Chart(document.getElementById('heatmap-canvas'), {
+        type: 'bar',
+        data: { labels: species_list.map(s => s.split(' ').slice(-1)[0]), datasets },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { labels: { color: '#8b93a8', boxWidth: 10, font: { size: 11 } } } },
+          scales: {
+            x: { ticks: { color: '#e8eaf0' }, grid: { color: 'rgba(255,255,255,0.04)' }, stacked: false },
+            y: {
+              ticks: { color: '#8b93a8', callback: v => v + '%' }, grid: { color: 'rgba(255,255,255,0.04)' }, max: 100,
+              title: { display: true, text: 'Resistance Rate (%)', color: '#8b93a8' }
+            }
+          }
+        }
+      });
+    }
+
+    document.getElementById('other-symptoms-textarea').addEventListener('input', function () {
+      const meta = document.getElementById('textarea-meta');
+      if (this.value.length > 0) {
+        meta.style.display = 'flex';
+      } else {
+        meta.style.display = 'none';
+      }
+    });
+
+    // ════════════════════════════════════════════════════════════════════
+    //  FEATURE D — PATIENT VIEW TOGGLE
+    // ════════════════════════════════════════════════════════════════════
+
+    const SPECIES_SIMPLE = {
+      'Escherichia coli': { short: 'E. coli', desc: 'A common bacteria often found in urinary and digestive infections.' },
+      'Klebsiella pneumoniae': { short: 'Klebsiella', desc: 'A bacteria that can cause lung, urinary, and wound infections, especially in hospitals.' },
+      'Proteus mirabilis': { short: 'Proteus', desc: 'A bacteria commonly linked to urinary tract infections, especially in older patients.' },
+      'Pseudomonas aeruginosa': { short: 'Pseudomonas', desc: 'A tough bacteria often found in hospital-acquired wound and lung infections.' },
+      'Acinetobacter baumannii': { short: 'Acinetobacter', desc: 'A hospital-acquired bacteria that can be very resistant to common medicines.' },
+      'Serratia marcescens': { short: 'Serratia', desc: 'A bacteria that can cause infections in the blood, lungs, and urinary tract.' },
+      'Enterobacteria spp.': { short: 'Enterobacter', desc: 'A group of bacteria that can cause digestive and urinary infections.' },
+      'Citrobacter spp.': { short: 'Citrobacter', desc: 'A bacteria related to urinary and abdominal infections.' },
+      'Morganella morganii': { short: 'Morganella', desc: 'A bacteria that can cause urinary and wound infections, usually in hospital settings.' },
+    };
+
+    function getEffectivenessText(pct) {
+      if (pct >= 70) return { text: 'has a good chance of working', icon: '💊', color: 'var(--green)' };
+      if (pct >= 50) return { text: 'may partially work, but is not the strongest choice', icon: '⚠️', color: 'var(--amber)' };
+      return { text: 'is unlikely to work well against your infection', icon: '❌', color: 'var(--red)' };
+    }
+
+    function togglePatientView() {
+      const toggle = document.getElementById('patient-view-toggle');
+      const isOn = toggle.classList.toggle('on');
+      const data = window._lastPredData;
+
+      document.getElementById('lbl-clinical').classList.toggle('active', !isOn);
+      document.getElementById('lbl-patient').classList.toggle('active', isOn);
+
+      if (!isOn || !data) {
+        // Switch back to clinical view
+        document.getElementById('patient-view-container').style.display = 'none';
+        document.getElementById('clinical-view-container').style.display = 'block';
+        return;
+      }
+
+      // Build patient-friendly view
+      document.getElementById('clinical-view-container').style.display = 'none';
+      const container = document.getElementById('patient-view-container');
+
+      const sp = SPECIES_SIMPLE[data.species] || { short: data.species, desc: '' };
+      const conf = data.species_probabilities[data.species];
+
+      let html = '';
+
+      // MDR warning in simple language
+      if (data.mdr_flag) {
+        html += `<div class="patient-view-card" style="background:rgba(248,113,113,0.08); border-color:rgba(248,113,113,0.25);">
+          <h4 style="color:var(--red);">⚠️ Important Warning</h4>
+          <p>The infection germ is <strong>resistant to multiple common medicines</strong>. This means your doctor will need to use a specialised antibiotic. Don't worry — there are still options available.</p>
+        </div>`;
+      }
+
+      // Species explanation
+      html += `<div class="patient-view-card">
+        <div class="pv-label">Your Infection</div>
+        <h4>🦠 Most likely caused by: ${sp.short}</h4>
+        <p>${sp.desc}</p>
+        ${conf ? `<p style="color:var(--text3); font-size:0.82rem;">The AI is <strong>${conf}% confident</strong> about this identification.</p>` : ''}
+      </div>`;
+
+      // Top 3 medicines in plain language
+      html += `<div class="pv-label" style="margin: 16px 0 8px; font-size:0.78rem; color:var(--text3); font-weight:600; text-transform:uppercase; letter-spacing:0.04em;">Medicine Options (Best to Least)</div>`;
+
+      data.top3.forEach((ab, i) => {
+        const eff = getEffectivenessText(ab.susceptible_pct);
+        const rank = i === 0 ? 'Best option' : i === 1 ? 'Second option' : 'Third option';
+
+        // Check for warnings in simple language
+        const abWarnings = (data.contraindication_warnings || {})[ab.code] || [];
+        let warningHtml = '';
+        if (abWarnings.length > 0) {
+          const simpleWarnings = abWarnings.map(w => `<p style="margin:4px 0 0;color:var(--amber);font-size:0.85rem;">⚠️ ${w.message}</p>`).join('');
+          warningHtml = `<div style="margin-top:8px; padding:10px 12px; background:rgba(251,191,36,0.08); border-radius:8px; border-left:3px solid var(--amber);">
+            <div style="font-size:0.78rem; font-weight:600; color:var(--amber);">Your doctor should know:</div>
+            ${simpleWarnings}
+          </div>`;
+        }
+
+        html += `<div class="patient-view-card">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+            <span style="font-size:1.3rem;">${eff.icon}</span>
+            <div>
+              <div style="font-size:0.72rem; color:var(--text3); font-weight:600; text-transform:uppercase;">${rank}</div>
+              <h4 style="margin:0;">${ab.name}</h4>
+            </div>
+            <span style="margin-left:auto; font-size:1.5rem; font-weight:700; color:${eff.color};">${ab.susceptible_pct.toFixed(0)}%</span>
+          </div>
+          <p>This medicine <strong style="color:${eff.color};">${eff.text}</strong> against your infection.</p>
+          <p style="color:var(--text3); font-size:0.82rem;">It belongs to the <strong>${ab.drug_class}</strong> family of antibiotics.</p>
+          ${warningHtml}
+        </div>`;
+      });
+
+      // Simple explanation of what to do
+      html += `<div class="patient-view-card" style="background:rgba(34,211,238,0.06); border-color:rgba(34,211,238,0.15);">
+        <h4 style="color:var(--cyan);">ℹ️ What Does This Mean?</h4>
+        <p>• A <strong style="color:var(--green);">higher percentage</strong> means the medicine is more likely to work.</p>
+        <p>• Your doctor will choose the best medicine based on these results <strong>and</strong> your medical history.</p>
+        <p>• Always complete the full course of antibiotics as prescribed — even if you feel better.</p>
+        <p style="margin-top:8px; color:var(--text3); font-size:0.82rem; font-style:italic;">This report is generated by AI and is meant to assist your doctor, not replace their judgement.</p>
+      </div>`;
+
+      container.innerHTML = html;
+      container.style.display = 'block';
+    }
+  </script>
+
+</body>
+
+</html>

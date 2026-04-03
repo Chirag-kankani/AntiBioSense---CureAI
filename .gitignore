@@ -1,0 +1,25 @@
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+.env.*
+
+# Database and runtime state
+*.db
+*.sqlite3
+
+# The following is kept out of ignore if you want to push initial feedback state:
+# feedback.json 
+
+# Testing & build
+.pytest_cache/
+.mypy_cache/
+build/
+dist/
+htmlcov/

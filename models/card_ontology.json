@@ -1,0 +1,2720 @@
+{
+  "Acinetobacter baumannii": {
+    "AMX/AMP": {
+      "drug_class": "Amoxicillin/Ampicillin",
+      "key_genes": [
+        "Abau_AbuO",
+        "Abau_OprD_IPM",
+        "Abau_ampC_BLA",
+        "CARB-10",
+        "CARB-14"
+      ],
+      "all_genes_count": 475,
+      "gene_families": [
+        "CARB beta-lactamase",
+        "GES beta-lactamase",
+        "IMP beta-lactamase",
+        "KPC beta-lactamase",
+        "NDM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Acinetobacter baumannii carries resistance genes (Abau_AbuO, Abau_OprD_IPM, Abau_ampC_BLA, CARB-10, CARB-14) from the CARB beta-lactamase, GES beta-lactamase, IMP beta-lactamase family/families. These confer resistance to Amoxicillin/Ampicillin via antibiotic efflux, antibiotic inactivation, reduced permeability to antibiotic, resistance by absence."
+    },
+    "AMC": {
+      "drug_class": "Amoxicillin-Clavulanate",
+      "key_genes": [
+        "Abau_AbuO",
+        "Abau_OprD_IPM",
+        "Abau_ampC_BLA",
+        "CARB-10",
+        "CARB-14"
+      ],
+      "all_genes_count": 475,
+      "gene_families": [
+        "CARB beta-lactamase",
+        "GES beta-lactamase",
+        "IMP beta-lactamase",
+        "KPC beta-lactamase",
+        "NDM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Acinetobacter baumannii carries resistance genes (Abau_AbuO, Abau_OprD_IPM, Abau_ampC_BLA, CARB-10, CARB-14) from the CARB beta-lactamase, GES beta-lactamase, IMP beta-lactamase family/families. These confer resistance to Amoxicillin-Clavulanate via antibiotic efflux, antibiotic inactivation, reduced permeability to antibiotic, resistance by absence."
+    },
+    "CZ": {
+      "drug_class": "Cefazolin",
+      "key_genes": [
+        "ADC-1",
+        "ADC-10",
+        "ADC-100",
+        "ADC-101",
+        "ADC-102"
+      ],
+      "all_genes_count": 288,
+      "gene_families": [
+        "ADC beta-lactamase without carbapenemase activity",
+        "ADC beta-lactamases pending classification for carbapenemase activity",
+        "CTX-M beta-lactamase",
+        "GES beta-lactamase",
+        "IMP beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Acinetobacter baumannii carries resistance genes (ADC-1, ADC-10, ADC-100, ADC-101, ADC-102) from the ADC beta-lactamase without carbapenemase activity, ADC beta-lactamases pending classification for carbapenemase activity, CTX-M beta-lactamase family/families. These confer resistance to Cefazolin via antibiotic efflux, antibiotic inactivation, reduced permeability to antibiotic, resistance by absence."
+    },
+    "FOX": {
+      "drug_class": "Cefoxitin",
+      "key_genes": [
+        "ADC-1",
+        "ADC-10",
+        "ADC-100",
+        "ADC-101",
+        "ADC-102"
+      ],
+      "all_genes_count": 288,
+      "gene_families": [
+        "ADC beta-lactamase without carbapenemase activity",
+        "ADC beta-lactamases pending classification for carbapenemase activity",
+        "CTX-M beta-lactamase",
+        "GES beta-lactamase",
+        "IMP beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Acinetobacter baumannii carries resistance genes (ADC-1, ADC-10, ADC-100, ADC-101, ADC-102) from the ADC beta-lactamase without carbapenemase activity, ADC beta-lactamases pending classification for carbapenemase activity, CTX-M beta-lactamase family/families. These confer resistance to Cefoxitin via antibiotic efflux, antibiotic inactivation, reduced permeability to antibiotic, resistance by absence."
+    },
+    "CTX/CRO": {
+      "drug_class": "Cefotaxime/Ceftriaxone",
+      "key_genes": [
+        "ADC-1",
+        "ADC-10",
+        "ADC-100",
+        "ADC-101",
+        "ADC-102"
+      ],
+      "all_genes_count": 288,
+      "gene_families": [
+        "ADC beta-lactamase without carbapenemase activity",
+        "ADC beta-lactamases pending classification for carbapenemase activity",
+        "CTX-M beta-lactamase",
+        "GES beta-lactamase",
+        "IMP beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Acinetobacter baumannii carries resistance genes (ADC-1, ADC-10, ADC-100, ADC-101, ADC-102) from the ADC beta-lactamase without carbapenemase activity, ADC beta-lactamases pending classification for carbapenemase activity, CTX-M beta-lactamase family/families. These confer resistance to Cefotaxime/Ceftriaxone via antibiotic efflux, antibiotic inactivation, reduced permeability to antibiotic, resistance by absence."
+    },
+    "IPM": {
+      "drug_class": "Imipenem",
+      "key_genes": [
+        "ADC-68",
+        "Abau_AbuO",
+        "Abau_OprD_IPM",
+        "GES-11",
+        "GES-12"
+      ],
+      "all_genes_count": 460,
+      "gene_families": [
+        "ADC beta-lactamase with carbapenemase activity",
+        "CarO porin",
+        "GES beta-lactamase",
+        "IMP beta-lactamase",
+        "KPC beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Acinetobacter baumannii carries resistance genes (ADC-68, Abau_AbuO, Abau_OprD_IPM, GES-11, GES-12) from the ADC beta-lactamase with carbapenemase activity, CarO porin, GES beta-lactamase family/families. These confer resistance to Imipenem via antibiotic efflux, antibiotic inactivation, reduced permeability to antibiotic, resistance by absence."
+    },
+    "GEN": {
+      "drug_class": "Gentamicin",
+      "key_genes": [
+        "AAC(6')-Ib3",
+        "AAC(6')-Ib4",
+        "AAC(6')-Ih",
+        "AAC6_IB_HZ",
+        "ANT(3'')-IIa"
+      ],
+      "all_genes_count": 8,
+      "gene_families": [
+        "AAC(6')",
+        "ANT(3'')",
+        "APH(3')",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation"
+      ],
+      "explanation": "Acinetobacter baumannii carries resistance genes (AAC(6')-Ib3, AAC(6')-Ib4, AAC(6')-Ih, AAC6_IB_HZ, ANT(3'')-IIa) from the AAC(6'), ANT(3''), APH(3') family/families. These confer resistance to Gentamicin via antibiotic efflux, antibiotic inactivation."
+    },
+    "AN": {
+      "drug_class": "Amikacin",
+      "key_genes": [
+        "AAC(6')-Ib3",
+        "AAC(6')-Ib4",
+        "AAC(6')-Ih",
+        "AAC6_IB_HZ",
+        "ANT(3'')-IIa"
+      ],
+      "all_genes_count": 8,
+      "gene_families": [
+        "AAC(6')",
+        "ANT(3'')",
+        "APH(3')",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation"
+      ],
+      "explanation": "Acinetobacter baumannii carries resistance genes (AAC(6')-Ib3, AAC(6')-Ib4, AAC(6')-Ih, AAC6_IB_HZ, ANT(3'')-IIa) from the AAC(6'), ANT(3''), APH(3') family/families. These confer resistance to Amikacin via antibiotic efflux, antibiotic inactivation."
+    },
+    "Acide nalidixique": {
+      "drug_class": "Nalidixic Acid",
+      "key_genes": [
+        "Abau_AbaQ",
+        "Abau_gyrA_FLO",
+        "abeM",
+        "adeF",
+        "adeG"
+      ],
+      "all_genes_count": 11,
+      "gene_families": [
+        "fluoroquinolone resistant gyrA",
+        "major facilitator superfamily (MFS) antibiotic efflux pump",
+        "multidrug and toxic compound extrusion (MATE) transporter",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic target alteration"
+      ],
+      "explanation": "Acinetobacter baumannii carries resistance genes (Abau_AbaQ, Abau_gyrA_FLO, abeM, adeF, adeG) from the fluoroquinolone resistant gyrA, major facilitator superfamily (MFS) antibiotic efflux pump, multidrug and toxic compound extrusion (MATE) transporter family/families. These confer resistance to Nalidixic Acid via antibiotic efflux, antibiotic target alteration."
+    },
+    "ofx": {
+      "drug_class": "Ofloxacin",
+      "key_genes": [
+        "Abau_AbaQ",
+        "Abau_gyrA_FLO",
+        "abeM",
+        "adeF",
+        "adeG"
+      ],
+      "all_genes_count": 11,
+      "gene_families": [
+        "fluoroquinolone resistant gyrA",
+        "major facilitator superfamily (MFS) antibiotic efflux pump",
+        "multidrug and toxic compound extrusion (MATE) transporter",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic target alteration"
+      ],
+      "explanation": "Acinetobacter baumannii carries resistance genes (Abau_AbaQ, Abau_gyrA_FLO, abeM, adeF, adeG) from the fluoroquinolone resistant gyrA, major facilitator superfamily (MFS) antibiotic efflux pump, multidrug and toxic compound extrusion (MATE) transporter family/families. These confer resistance to Ofloxacin via antibiotic efflux, antibiotic target alteration."
+    },
+    "CIP": {
+      "drug_class": "Ciprofloxacin",
+      "key_genes": [
+        "Abau_AbaQ",
+        "Abau_gyrA_FLO",
+        "abeM",
+        "adeF",
+        "adeG"
+      ],
+      "all_genes_count": 11,
+      "gene_families": [
+        "fluoroquinolone resistant gyrA",
+        "major facilitator superfamily (MFS) antibiotic efflux pump",
+        "multidrug and toxic compound extrusion (MATE) transporter",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic target alteration"
+      ],
+      "explanation": "Acinetobacter baumannii carries resistance genes (Abau_AbaQ, Abau_gyrA_FLO, abeM, adeF, adeG) from the fluoroquinolone resistant gyrA, major facilitator superfamily (MFS) antibiotic efflux pump, multidrug and toxic compound extrusion (MATE) transporter family/families. These confer resistance to Ciprofloxacin via antibiotic efflux, antibiotic target alteration."
+    },
+    "C": {
+      "drug_class": "Chloramphenicol",
+      "key_genes": [
+        "adeI",
+        "adeJ",
+        "adeK",
+        "adeN"
+      ],
+      "all_genes_count": 4,
+      "gene_families": [
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux"
+      ],
+      "explanation": "Acinetobacter baumannii carries resistance genes (adeI, adeJ, adeK, adeN) from the resistance-nodulation-cell division (RND) antibiotic efflux pump family/families. These confer resistance to Chloramphenicol via antibiotic efflux."
+    },
+    "Co-trimoxazole": {
+      "drug_class": "Co-trimoxazole",
+      "key_genes": [
+        "DfrA38",
+        "adeI",
+        "adeJ",
+        "adeK",
+        "adeN"
+      ],
+      "all_genes_count": 6,
+      "gene_families": [
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump",
+        "trimethoprim resistant dihydrofolate reductase dfr"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic target replacement"
+      ],
+      "explanation": "Acinetobacter baumannii carries resistance genes (DfrA38, adeI, adeJ, adeK, adeN) from the resistance-nodulation-cell division (RND) antibiotic efflux pump, trimethoprim resistant dihydrofolate reductase dfr family/families. These confer resistance to Co-trimoxazole via antibiotic efflux, antibiotic target replacement."
+    },
+    "Furanes": {
+      "drug_class": "Nitrofurantoin",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Nitrofurantoin were found in CARD for Acinetobacter baumannii. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    },
+    "colistine": {
+      "drug_class": "Colistin",
+      "key_genes": [
+        "BRP(MBL)",
+        "LpsB",
+        "LpxA",
+        "LpxC",
+        "LpxD"
+      ],
+      "all_genes_count": 6,
+      "gene_families": [
+        "Acinetobacter mutant Lpx gene conferring resistance to colistin",
+        "Bleomycin resistant protein",
+        "Intrinsic peptide antibiotic resistant Lps",
+        "MCR phosphoethanolamine transferase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Acinetobacter baumannii carries resistance genes (BRP(MBL), LpsB, LpxA, LpxC, LpxD) from the Acinetobacter mutant Lpx gene conferring resistance to colistin, Bleomycin resistant protein, Intrinsic peptide antibiotic resistant Lps family/families. These confer resistance to Colistin via antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic."
+    }
+  },
+  "Citrobacter spp.": {
+    "AMX/AMP": {
+      "drug_class": "Amoxicillin/Ampicillin",
+      "key_genes": [
+        "ACT-38",
+        "CKO-1",
+        "CTX-M-3",
+        "GES-25",
+        "GES-51"
+      ],
+      "all_genes_count": 29,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "CKO beta-lactamase",
+        "CTX-M beta-lactamase",
+        "GES beta-lactamase",
+        "IMP beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Citrobacter spp. carries resistance genes (ACT-38, CKO-1, CTX-M-3, GES-25, GES-51) from the ACT beta-lactamase, CKO beta-lactamase, CTX-M beta-lactamase family/families. These confer resistance to Amoxicillin/Ampicillin via antibiotic inactivation."
+    },
+    "AMC": {
+      "drug_class": "Amoxicillin-Clavulanate",
+      "key_genes": [
+        "ACT-38",
+        "CKO-1",
+        "CTX-M-3",
+        "GES-25",
+        "GES-51"
+      ],
+      "all_genes_count": 29,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "CKO beta-lactamase",
+        "CTX-M beta-lactamase",
+        "GES beta-lactamase",
+        "IMP beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Citrobacter spp. carries resistance genes (ACT-38, CKO-1, CTX-M-3, GES-25, GES-51) from the ACT beta-lactamase, CKO beta-lactamase, CTX-M beta-lactamase family/families. These confer resistance to Amoxicillin-Clavulanate via antibiotic inactivation."
+    },
+    "CZ": {
+      "drug_class": "Cefazolin",
+      "key_genes": [
+        "ACT-38",
+        "CFE-2",
+        "CMY-100",
+        "CMY-103",
+        "CMY-104"
+      ],
+      "all_genes_count": 98,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "CMY beta-lactamase",
+        "CTX-M beta-lactamase",
+        "DHA beta-lactamase",
+        "GES beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Citrobacter spp. carries resistance genes (ACT-38, CFE-2, CMY-100, CMY-103, CMY-104) from the ACT beta-lactamase, CMY beta-lactamase, CTX-M beta-lactamase family/families. These confer resistance to Cefazolin via antibiotic inactivation."
+    },
+    "FOX": {
+      "drug_class": "Cefoxitin",
+      "key_genes": [
+        "ACT-38",
+        "CFE-2",
+        "CMY-100",
+        "CMY-103",
+        "CMY-104"
+      ],
+      "all_genes_count": 98,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "CMY beta-lactamase",
+        "CTX-M beta-lactamase",
+        "DHA beta-lactamase",
+        "GES beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Citrobacter spp. carries resistance genes (ACT-38, CFE-2, CMY-100, CMY-103, CMY-104) from the ACT beta-lactamase, CMY beta-lactamase, CTX-M beta-lactamase family/families. These confer resistance to Cefoxitin via antibiotic inactivation."
+    },
+    "CTX/CRO": {
+      "drug_class": "Cefotaxime/Ceftriaxone",
+      "key_genes": [
+        "ACT-38",
+        "CFE-2",
+        "CMY-100",
+        "CMY-103",
+        "CMY-104"
+      ],
+      "all_genes_count": 98,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "CMY beta-lactamase",
+        "CTX-M beta-lactamase",
+        "DHA beta-lactamase",
+        "GES beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Citrobacter spp. carries resistance genes (ACT-38, CFE-2, CMY-100, CMY-103, CMY-104) from the ACT beta-lactamase, CMY beta-lactamase, CTX-M beta-lactamase family/families. These confer resistance to Cefotaxime/Ceftriaxone via antibiotic inactivation."
+    },
+    "IPM": {
+      "drug_class": "Imipenem",
+      "key_genes": [
+        "ACT-38",
+        "GES-25",
+        "GES-51",
+        "GMB-1",
+        "IMP-23"
+      ],
+      "all_genes_count": 20,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "GES beta-lactamase",
+        "GMB beta-lactamase",
+        "IMP beta-lactamase",
+        "KHM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Citrobacter spp. carries resistance genes (ACT-38, GES-25, GES-51, GMB-1, IMP-23) from the ACT beta-lactamase, GES beta-lactamase, GMB beta-lactamase family/families. These confer resistance to Imipenem via antibiotic inactivation."
+    },
+    "GEN": {
+      "drug_class": "Gentamicin",
+      "key_genes": [
+        "AAC(6')-Ip"
+      ],
+      "all_genes_count": 1,
+      "gene_families": [
+        "AAC(6')"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Citrobacter spp. carries resistance genes (AAC(6')-Ip) from the AAC(6') family/families. These confer resistance to Gentamicin via antibiotic inactivation."
+    },
+    "AN": {
+      "drug_class": "Amikacin",
+      "key_genes": [
+        "AAC(6')-Ip"
+      ],
+      "all_genes_count": 1,
+      "gene_families": [
+        "AAC(6')"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Citrobacter spp. carries resistance genes (AAC(6')-Ip) from the AAC(6') family/families. These confer resistance to Amikacin via antibiotic inactivation."
+    },
+    "Acide nalidixique": {
+      "drug_class": "Nalidixic Acid",
+      "key_genes": [
+        "QnrB10",
+        "QnrB11",
+        "QnrB12",
+        "QnrB13",
+        "QnrB14"
+      ],
+      "all_genes_count": 56,
+      "gene_families": [
+        "quinolone resistance protein (qnr)"
+      ],
+      "mechanisms": [
+        "antibiotic target protection"
+      ],
+      "explanation": "Citrobacter spp. carries resistance genes (QnrB10, QnrB11, QnrB12, QnrB13, QnrB14) from the quinolone resistance protein (qnr) family/families. These confer resistance to Nalidixic Acid via antibiotic target protection."
+    },
+    "ofx": {
+      "drug_class": "Ofloxacin",
+      "key_genes": [
+        "QnrB10",
+        "QnrB11",
+        "QnrB12",
+        "QnrB13",
+        "QnrB14"
+      ],
+      "all_genes_count": 56,
+      "gene_families": [
+        "quinolone resistance protein (qnr)"
+      ],
+      "mechanisms": [
+        "antibiotic target protection"
+      ],
+      "explanation": "Citrobacter spp. carries resistance genes (QnrB10, QnrB11, QnrB12, QnrB13, QnrB14) from the quinolone resistance protein (qnr) family/families. These confer resistance to Ofloxacin via antibiotic target protection."
+    },
+    "CIP": {
+      "drug_class": "Ciprofloxacin",
+      "key_genes": [
+        "QnrB10",
+        "QnrB11",
+        "QnrB12",
+        "QnrB13",
+        "QnrB14"
+      ],
+      "all_genes_count": 56,
+      "gene_families": [
+        "quinolone resistance protein (qnr)"
+      ],
+      "mechanisms": [
+        "antibiotic target protection"
+      ],
+      "explanation": "Citrobacter spp. carries resistance genes (QnrB10, QnrB11, QnrB12, QnrB13, QnrB14) from the quinolone resistance protein (qnr) family/families. These confer resistance to Ciprofloxacin via antibiotic target protection."
+    },
+    "C": {
+      "drug_class": "Chloramphenicol",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Chloramphenicol were found in CARD for Citrobacter spp.. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    },
+    "Co-trimoxazole": {
+      "drug_class": "Co-trimoxazole",
+      "key_genes": [
+        "dfrA3b"
+      ],
+      "all_genes_count": 1,
+      "gene_families": [
+        "trimethoprim resistant dihydrofolate reductase dfr"
+      ],
+      "mechanisms": [
+        "antibiotic target replacement"
+      ],
+      "explanation": "Citrobacter spp. carries resistance genes (dfrA3b) from the trimethoprim resistant dihydrofolate reductase dfr family/families. These confer resistance to Co-trimoxazole via antibiotic target replacement."
+    },
+    "Furanes": {
+      "drug_class": "Nitrofurantoin",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Nitrofurantoin were found in CARD for Citrobacter spp.. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    },
+    "colistine": {
+      "drug_class": "Colistin",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Colistin were found in CARD for Citrobacter spp.. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    }
+  },
+  "Enterobacteria spp.": {
+    "AMX/AMP": {
+      "drug_class": "Amoxicillin/Ampicillin",
+      "key_genes": [
+        "ACT-100",
+        "ACT-101",
+        "ACT-102",
+        "ACT-103",
+        "ACT-104"
+      ],
+      "all_genes_count": 222,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "FRI beta-lactamase",
+        "GES beta-lactamase",
+        "GIM beta-lactamase",
+        "General Bacterial Porin with reduced permeability to beta-lactams"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Enterobacteria spp. carries resistance genes (ACT-100, ACT-101, ACT-102, ACT-103, ACT-104) from the ACT beta-lactamase, FRI beta-lactamase, GES beta-lactamase family/families. These confer resistance to Amoxicillin/Ampicillin via antibiotic efflux, antibiotic inactivation, reduced permeability to antibiotic."
+    },
+    "AMC": {
+      "drug_class": "Amoxicillin-Clavulanate",
+      "key_genes": [
+        "ACT-100",
+        "ACT-101",
+        "ACT-102",
+        "ACT-103",
+        "ACT-104"
+      ],
+      "all_genes_count": 222,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "FRI beta-lactamase",
+        "GES beta-lactamase",
+        "GIM beta-lactamase",
+        "General Bacterial Porin with reduced permeability to beta-lactams"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Enterobacteria spp. carries resistance genes (ACT-100, ACT-101, ACT-102, ACT-103, ACT-104) from the ACT beta-lactamase, FRI beta-lactamase, GES beta-lactamase family/families. These confer resistance to Amoxicillin-Clavulanate via antibiotic efflux, antibiotic inactivation, reduced permeability to antibiotic."
+    },
+    "CZ": {
+      "drug_class": "Cefazolin",
+      "key_genes": [
+        "ACT-100",
+        "ACT-101",
+        "ACT-102",
+        "ACT-103",
+        "ACT-104"
+      ],
+      "all_genes_count": 280,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "CMH beta-lactamase",
+        "CTX-M beta-lactamase",
+        "DHA beta-lactamase",
+        "DIM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Enterobacteria spp. carries resistance genes (ACT-100, ACT-101, ACT-102, ACT-103, ACT-104) from the ACT beta-lactamase, CMH beta-lactamase, CTX-M beta-lactamase family/families. These confer resistance to Cefazolin via antibiotic efflux, antibiotic inactivation, reduced permeability to antibiotic."
+    },
+    "FOX": {
+      "drug_class": "Cefoxitin",
+      "key_genes": [
+        "ACT-100",
+        "ACT-101",
+        "ACT-102",
+        "ACT-103",
+        "ACT-104"
+      ],
+      "all_genes_count": 280,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "CMH beta-lactamase",
+        "CTX-M beta-lactamase",
+        "DHA beta-lactamase",
+        "DIM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Enterobacteria spp. carries resistance genes (ACT-100, ACT-101, ACT-102, ACT-103, ACT-104) from the ACT beta-lactamase, CMH beta-lactamase, CTX-M beta-lactamase family/families. These confer resistance to Cefoxitin via antibiotic efflux, antibiotic inactivation, reduced permeability to antibiotic."
+    },
+    "CTX/CRO": {
+      "drug_class": "Cefotaxime/Ceftriaxone",
+      "key_genes": [
+        "ACT-100",
+        "ACT-101",
+        "ACT-102",
+        "ACT-103",
+        "ACT-104"
+      ],
+      "all_genes_count": 280,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "CMH beta-lactamase",
+        "CTX-M beta-lactamase",
+        "DHA beta-lactamase",
+        "DIM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Enterobacteria spp. carries resistance genes (ACT-100, ACT-101, ACT-102, ACT-103, ACT-104) from the ACT beta-lactamase, CMH beta-lactamase, CTX-M beta-lactamase family/families. These confer resistance to Cefotaxime/Ceftriaxone via antibiotic efflux, antibiotic inactivation, reduced permeability to antibiotic."
+    },
+    "IPM": {
+      "drug_class": "Imipenem",
+      "key_genes": [
+        "ACT-100",
+        "ACT-101",
+        "ACT-102",
+        "ACT-103",
+        "ACT-104"
+      ],
+      "all_genes_count": 215,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "BKC Beta-lactamase",
+        "DIM beta-lactamase",
+        "FRI beta-lactamase",
+        "GES beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Enterobacteria spp. carries resistance genes (ACT-100, ACT-101, ACT-102, ACT-103, ACT-104) from the ACT beta-lactamase, BKC Beta-lactamase, DIM beta-lactamase family/families. These confer resistance to Imipenem via antibiotic efflux, antibiotic inactivation, reduced permeability to antibiotic."
+    },
+    "GEN": {
+      "drug_class": "Gentamicin",
+      "key_genes": [
+        "AAC(3)-IIg",
+        "AAC(3)-VIa",
+        "AAC(6')-Ib-cr4",
+        "AAC(6')-Ib8",
+        "AAC(6')-If"
+      ],
+      "all_genes_count": 8,
+      "gene_families": [
+        "AAC(3)",
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation"
+      ],
+      "explanation": "Enterobacteria spp. carries resistance genes (AAC(3)-IIg, AAC(3)-VIa, AAC(6')-Ib-cr4, AAC(6')-Ib8, AAC(6')-If) from the AAC(3), AAC(6'), AAC(6')-Ib-cr family/families. These confer resistance to Gentamicin via antibiotic efflux, antibiotic inactivation."
+    },
+    "AN": {
+      "drug_class": "Amikacin",
+      "key_genes": [
+        "AAC(3)-IIg",
+        "AAC(3)-VIa",
+        "AAC(6')-Ib-cr4",
+        "AAC(6')-Ib8",
+        "AAC(6')-If"
+      ],
+      "all_genes_count": 8,
+      "gene_families": [
+        "AAC(3)",
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation"
+      ],
+      "explanation": "Enterobacteria spp. carries resistance genes (AAC(3)-IIg, AAC(3)-VIa, AAC(6')-Ib-cr4, AAC(6')-Ib8, AAC(6')-If) from the AAC(3), AAC(6'), AAC(6')-Ib-cr family/families. These confer resistance to Amikacin via antibiotic efflux, antibiotic inactivation."
+    },
+    "Acide nalidixique": {
+      "drug_class": "Nalidixic Acid",
+      "key_genes": [
+        "AAC(6')-Ib-cr4",
+        "Eclo_acrA",
+        "QnrB7",
+        "ramA"
+      ],
+      "all_genes_count": 4,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "General Bacterial Porin with reduced permeability to beta-lactams",
+        "quinolone resistance protein (qnr)",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target protection",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Enterobacteria spp. carries resistance genes (AAC(6')-Ib-cr4, Eclo_acrA, QnrB7, ramA) from the AAC(6'), AAC(6')-Ib-cr, General Bacterial Porin with reduced permeability to beta-lactams family/families. These confer resistance to Nalidixic Acid via antibiotic efflux, antibiotic inactivation, antibiotic target protection, reduced permeability to antibiotic."
+    },
+    "ofx": {
+      "drug_class": "Ofloxacin",
+      "key_genes": [
+        "AAC(6')-Ib-cr4",
+        "Eclo_acrA",
+        "QnrB7",
+        "ramA"
+      ],
+      "all_genes_count": 4,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "General Bacterial Porin with reduced permeability to beta-lactams",
+        "quinolone resistance protein (qnr)",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target protection",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Enterobacteria spp. carries resistance genes (AAC(6')-Ib-cr4, Eclo_acrA, QnrB7, ramA) from the AAC(6'), AAC(6')-Ib-cr, General Bacterial Porin with reduced permeability to beta-lactams family/families. These confer resistance to Ofloxacin via antibiotic efflux, antibiotic inactivation, antibiotic target protection, reduced permeability to antibiotic."
+    },
+    "CIP": {
+      "drug_class": "Ciprofloxacin",
+      "key_genes": [
+        "AAC(6')-Ib-cr4",
+        "Eclo_acrA",
+        "QnrB7",
+        "ramA"
+      ],
+      "all_genes_count": 4,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "General Bacterial Porin with reduced permeability to beta-lactams",
+        "quinolone resistance protein (qnr)",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target protection",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Enterobacteria spp. carries resistance genes (AAC(6')-Ib-cr4, Eclo_acrA, QnrB7, ramA) from the AAC(6'), AAC(6')-Ib-cr, General Bacterial Porin with reduced permeability to beta-lactams family/families. These confer resistance to Ciprofloxacin via antibiotic efflux, antibiotic inactivation, antibiotic target protection, reduced permeability to antibiotic."
+    },
+    "C": {
+      "drug_class": "Chloramphenicol",
+      "key_genes": [
+        "Eclo_acrA",
+        "catB3",
+        "ramA"
+      ],
+      "all_genes_count": 3,
+      "gene_families": [
+        "General Bacterial Porin with reduced permeability to beta-lactams",
+        "chloramphenicol acetyltransferase (CAT)",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Enterobacteria spp. carries resistance genes (Eclo_acrA, catB3, ramA) from the General Bacterial Porin with reduced permeability to beta-lactams, chloramphenicol acetyltransferase (CAT), resistance-nodulation-cell division (RND) antibiotic efflux pump family/families. These confer resistance to Chloramphenicol via antibiotic efflux, antibiotic inactivation, reduced permeability to antibiotic."
+    },
+    "Co-trimoxazole": {
+      "drug_class": "Co-trimoxazole",
+      "key_genes": [
+        "DfrB9"
+      ],
+      "all_genes_count": 1,
+      "gene_families": [
+        "trimethoprim resistant dihydrofolate reductase dfr"
+      ],
+      "mechanisms": [
+        "antibiotic target replacement"
+      ],
+      "explanation": "Enterobacteria spp. carries resistance genes (DfrB9) from the trimethoprim resistant dihydrofolate reductase dfr family/families. These confer resistance to Co-trimoxazole via antibiotic target replacement."
+    },
+    "Furanes": {
+      "drug_class": "Nitrofurantoin",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Nitrofurantoin were found in CARD for Enterobacteria spp.. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    },
+    "colistine": {
+      "drug_class": "Colistin",
+      "key_genes": [
+        "MCR-10.2",
+        "MCR-10.3",
+        "MCR-10.4",
+        "MCR-10.5",
+        "MCR-4.3"
+      ],
+      "all_genes_count": 6,
+      "gene_families": [
+        "MCR phosphoethanolamine transferase"
+      ],
+      "mechanisms": [
+        "antibiotic target alteration"
+      ],
+      "explanation": "Enterobacteria spp. carries resistance genes (MCR-10.2, MCR-10.3, MCR-10.4, MCR-10.5, MCR-4.3) from the MCR phosphoethanolamine transferase family/families. These confer resistance to Colistin via antibiotic target alteration."
+    }
+  },
+  "Escherichia coli": {
+    "AMX/AMP": {
+      "drug_class": "Amoxicillin/Ampicillin",
+      "key_genes": [
+        "ACC-4",
+        "ACT-5",
+        "ACT-8",
+        "AcrE",
+        "AcrF"
+      ],
+      "all_genes_count": 214,
+      "gene_families": [
+        "ACC beta-lactamase",
+        "ACT beta-lactamase",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "CTX-M beta-lactamase",
+        "FRI beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Escherichia coli carries resistance genes (ACC-4, ACT-5, ACT-8, AcrE, AcrF) from the ACC beta-lactamase, ACT beta-lactamase, ATP-binding cassette (ABC) antibiotic efflux pump family/families. These confer resistance to Amoxicillin/Ampicillin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic."
+    },
+    "AMC": {
+      "drug_class": "Amoxicillin-Clavulanate",
+      "key_genes": [
+        "ACC-4",
+        "ACT-5",
+        "ACT-8",
+        "AcrE",
+        "AcrF"
+      ],
+      "all_genes_count": 214,
+      "gene_families": [
+        "ACC beta-lactamase",
+        "ACT beta-lactamase",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "CTX-M beta-lactamase",
+        "FRI beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Escherichia coli carries resistance genes (ACC-4, ACT-5, ACT-8, AcrE, AcrF) from the ACC beta-lactamase, ACT beta-lactamase, ATP-binding cassette (ABC) antibiotic efflux pump family/families. These confer resistance to Amoxicillin-Clavulanate via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic."
+    },
+    "CZ": {
+      "drug_class": "Cefazolin",
+      "key_genes": [
+        "ACC-4",
+        "ACT-5",
+        "ACT-8",
+        "AcrE",
+        "AcrF"
+      ],
+      "all_genes_count": 436,
+      "gene_families": [
+        "ACC beta-lactamase",
+        "ACT beta-lactamase",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "BIL Beta-lactamase",
+        "CMY beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Escherichia coli carries resistance genes (ACC-4, ACT-5, ACT-8, AcrE, AcrF) from the ACC beta-lactamase, ACT beta-lactamase, ATP-binding cassette (ABC) antibiotic efflux pump family/families. These confer resistance to Cefazolin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic."
+    },
+    "FOX": {
+      "drug_class": "Cefoxitin",
+      "key_genes": [
+        "ACC-4",
+        "ACT-5",
+        "ACT-8",
+        "AcrE",
+        "AcrF"
+      ],
+      "all_genes_count": 436,
+      "gene_families": [
+        "ACC beta-lactamase",
+        "ACT beta-lactamase",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "BIL Beta-lactamase",
+        "CMY beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Escherichia coli carries resistance genes (ACC-4, ACT-5, ACT-8, AcrE, AcrF) from the ACC beta-lactamase, ACT beta-lactamase, ATP-binding cassette (ABC) antibiotic efflux pump family/families. These confer resistance to Cefoxitin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic."
+    },
+    "CTX/CRO": {
+      "drug_class": "Cefotaxime/Ceftriaxone",
+      "key_genes": [
+        "ACC-4",
+        "ACT-5",
+        "ACT-8",
+        "AcrE",
+        "AcrF"
+      ],
+      "all_genes_count": 436,
+      "gene_families": [
+        "ACC beta-lactamase",
+        "ACT beta-lactamase",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "BIL Beta-lactamase",
+        "CMY beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Escherichia coli carries resistance genes (ACC-4, ACT-5, ACT-8, AcrE, AcrF) from the ACC beta-lactamase, ACT beta-lactamase, ATP-binding cassette (ABC) antibiotic efflux pump family/families. These confer resistance to Cefotaxime/Ceftriaxone via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic."
+    },
+    "IPM": {
+      "drug_class": "Imipenem",
+      "key_genes": [
+        "ACT-5",
+        "ACT-8",
+        "CTX-M-27",
+        "Ecol_ompF_BLA",
+        "Ecol_soxS_MULT"
+      ],
+      "all_genes_count": 77,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "CTX-M beta-lactamase",
+        "GES beta-lactamase",
+        "General Bacterial Porin with reduced permeability to beta-lactams"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Escherichia coli carries resistance genes (ACT-5, ACT-8, CTX-M-27, Ecol_ompF_BLA, Ecol_soxS_MULT) from the ACT beta-lactamase, ATP-binding cassette (ABC) antibiotic efflux pump, CTX-M beta-lactamase family/families. These confer resistance to Imipenem via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic."
+    },
+    "GEN": {
+      "drug_class": "Gentamicin",
+      "key_genes": [
+        "AAC(3)-IIc",
+        "AAC(3)-IId",
+        "AAC(3)-IIe",
+        "AAC(3)-IVa",
+        "AAC(6')-I33"
+      ],
+      "all_genes_count": 40,
+      "gene_families": [
+        "16S rRNA methyltransferase (A1408)",
+        "16S rRNA methyltransferase (G1405)",
+        "16s rRNA with mutation conferring resistance to aminoglycoside antibiotics",
+        "AAC(3)",
+        "AAC(6')"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Escherichia coli carries resistance genes (AAC(3)-IIc, AAC(3)-IId, AAC(3)-IIe, AAC(3)-IVa, AAC(6')-I33) from the 16S rRNA methyltransferase (A1408), 16S rRNA methyltransferase (G1405), 16s rRNA with mutation conferring resistance to aminoglycoside antibiotics family/families. These confer resistance to Gentamicin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic, resistance by absence."
+    },
+    "AN": {
+      "drug_class": "Amikacin",
+      "key_genes": [
+        "AAC(3)-IIc",
+        "AAC(3)-IId",
+        "AAC(3)-IIe",
+        "AAC(3)-IVa",
+        "AAC(6')-I33"
+      ],
+      "all_genes_count": 40,
+      "gene_families": [
+        "16S rRNA methyltransferase (A1408)",
+        "16S rRNA methyltransferase (G1405)",
+        "16s rRNA with mutation conferring resistance to aminoglycoside antibiotics",
+        "AAC(3)",
+        "AAC(6')"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Escherichia coli carries resistance genes (AAC(3)-IIc, AAC(3)-IId, AAC(3)-IIe, AAC(3)-IVa, AAC(6')-I33) from the 16S rRNA methyltransferase (A1408), 16S rRNA methyltransferase (G1405), 16s rRNA with mutation conferring resistance to aminoglycoside antibiotics family/families. These confer resistance to Amikacin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic, resistance by absence."
+    },
+    "Acide nalidixique": {
+      "drug_class": "Nalidixic Acid",
+      "key_genes": [
+        "AAC(6')-Ib-cr6",
+        "AcrE",
+        "AcrF",
+        "AcrS",
+        "CRP"
+      ],
+      "all_genes_count": 53,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "General Bacterial Porin with reduced permeability to beta-lactams",
+        "MipA-interacting Protein"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "antibiotic target protection",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Escherichia coli carries resistance genes (AAC(6')-Ib-cr6, AcrE, AcrF, AcrS, CRP) from the AAC(6'), AAC(6')-Ib-cr, ATP-binding cassette (ABC) antibiotic efflux pump family/families. These confer resistance to Nalidixic Acid via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, antibiotic target protection, reduced permeability to antibiotic, resistance by absence."
+    },
+    "ofx": {
+      "drug_class": "Ofloxacin",
+      "key_genes": [
+        "AAC(6')-Ib-cr6",
+        "AcrE",
+        "AcrF",
+        "AcrS",
+        "CRP"
+      ],
+      "all_genes_count": 53,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "General Bacterial Porin with reduced permeability to beta-lactams",
+        "MipA-interacting Protein"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "antibiotic target protection",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Escherichia coli carries resistance genes (AAC(6')-Ib-cr6, AcrE, AcrF, AcrS, CRP) from the AAC(6'), AAC(6')-Ib-cr, ATP-binding cassette (ABC) antibiotic efflux pump family/families. These confer resistance to Ofloxacin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, antibiotic target protection, reduced permeability to antibiotic, resistance by absence."
+    },
+    "CIP": {
+      "drug_class": "Ciprofloxacin",
+      "key_genes": [
+        "AAC(6')-Ib-cr6",
+        "AcrE",
+        "AcrF",
+        "AcrS",
+        "CRP"
+      ],
+      "all_genes_count": 53,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "General Bacterial Porin with reduced permeability to beta-lactams",
+        "MipA-interacting Protein"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "antibiotic target protection",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Escherichia coli carries resistance genes (AAC(6')-Ib-cr6, AcrE, AcrF, AcrS, CRP) from the AAC(6'), AAC(6')-Ib-cr, ATP-binding cassette (ABC) antibiotic efflux pump family/families. These confer resistance to Ciprofloxacin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, antibiotic target protection, reduced permeability to antibiotic, resistance by absence."
+    },
+    "C": {
+      "drug_class": "Chloramphenicol",
+      "key_genes": [
+        "AcrS",
+        "Ecol_23S_CHL",
+        "Ecol_AcrR_MULT",
+        "Ecol_MarR_MULT",
+        "Ecol_acrA"
+      ],
+      "all_genes_count": 15,
+      "gene_families": [
+        "23S rRNA with mutation conferring resistance to phenicol antibiotics",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "General Bacterial Porin with reduced permeability to beta-lactams",
+        "chloramphenicol acetyltransferase (CAT)",
+        "major facilitator superfamily (MFS) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Escherichia coli carries resistance genes (AcrS, Ecol_23S_CHL, Ecol_AcrR_MULT, Ecol_MarR_MULT, Ecol_acrA) from the 23S rRNA with mutation conferring resistance to phenicol antibiotics, ATP-binding cassette (ABC) antibiotic efflux pump, General Bacterial Porin with reduced permeability to beta-lactams family/families. These confer resistance to Chloramphenicol via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic."
+    },
+    "Co-trimoxazole": {
+      "drug_class": "Co-trimoxazole",
+      "key_genes": [
+        "DfrA36",
+        "Ecol_folP_SLF",
+        "dfr22",
+        "dfrA13",
+        "dfrA14"
+      ],
+      "all_genes_count": 17,
+      "gene_families": [
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump",
+        "sulfonamide resistant dihydropteroate synthase folP",
+        "sulfonamide resistant sul",
+        "trimethoprim resistant dihydrofolate reductase dfr"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic target alteration",
+        "antibiotic target replacement"
+      ],
+      "explanation": "Escherichia coli carries resistance genes (DfrA36, Ecol_folP_SLF, dfr22, dfrA13, dfrA14) from the resistance-nodulation-cell division (RND) antibiotic efflux pump, sulfonamide resistant dihydropteroate synthase folP, sulfonamide resistant sul family/families. These confer resistance to Co-trimoxazole via antibiotic efflux, antibiotic target alteration, antibiotic target replacement."
+    },
+    "Furanes": {
+      "drug_class": "Nitrofurantoin",
+      "key_genes": [
+        "Ecol_nfsA_NIT",
+        "Ecol_nfsB_NIT",
+        "oqxA",
+        "oqxB"
+      ],
+      "all_genes_count": 4,
+      "gene_families": [
+        "Antibiotic resistant nfsB",
+        "antibiotic resistant nfsA",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic target alteration"
+      ],
+      "explanation": "Escherichia coli carries resistance genes (Ecol_nfsA_NIT, Ecol_nfsB_NIT, oqxA, oqxB) from the Antibiotic resistant nfsB, antibiotic resistant nfsA, resistance-nodulation-cell division (RND) antibiotic efflux pump family/families. These confer resistance to Nitrofurantoin via antibiotic efflux, antibiotic target alteration."
+    },
+    "colistine": {
+      "drug_class": "Colistin",
+      "key_genes": [
+        "BLMT",
+        "Ecol_16S_EDN",
+        "Kpne_KpnH",
+        "MCR-1.1",
+        "MCR-1.11"
+      ],
+      "all_genes_count": 54,
+      "gene_families": [
+        "16s rRNA with mutation conferring resistance to peptide antibiotics",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "Bleomycin resistant protein",
+        "MCR phosphoethanolamine transferase",
+        "major facilitator superfamily (MFS) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration"
+      ],
+      "explanation": "Escherichia coli carries resistance genes (BLMT, Ecol_16S_EDN, Kpne_KpnH, MCR-1.1, MCR-1.11) from the 16s rRNA with mutation conferring resistance to peptide antibiotics, ATP-binding cassette (ABC) antibiotic efflux pump, Bleomycin resistant protein family/families. These confer resistance to Colistin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration."
+    }
+  },
+  "Klebsiella pneumoniae": {
+    "AMX/AMP": {
+      "drug_class": "Amoxicillin/Ampicillin",
+      "key_genes": [
+        "ACC-1",
+        "ACC-8",
+        "ACT-1",
+        "ACT-3",
+        "ACT-6"
+      ],
+      "all_genes_count": 586,
+      "gene_families": [
+        "ACC beta-lactamase",
+        "ACT beta-lactamase",
+        "CMY beta-lactamase",
+        "GES beta-lactamase",
+        "General Bacterial Porin with reduced permeability to beta-lactams"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Klebsiella pneumoniae carries resistance genes (ACC-1, ACC-8, ACT-1, ACT-3, ACT-6) from the ACC beta-lactamase, ACT beta-lactamase, CMY beta-lactamase family/families. These confer resistance to Amoxicillin/Ampicillin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic, resistance by absence."
+    },
+    "AMC": {
+      "drug_class": "Amoxicillin-Clavulanate",
+      "key_genes": [
+        "ACC-1",
+        "ACC-8",
+        "ACT-1",
+        "ACT-3",
+        "ACT-6"
+      ],
+      "all_genes_count": 586,
+      "gene_families": [
+        "ACC beta-lactamase",
+        "ACT beta-lactamase",
+        "CMY beta-lactamase",
+        "GES beta-lactamase",
+        "General Bacterial Porin with reduced permeability to beta-lactams"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Klebsiella pneumoniae carries resistance genes (ACC-1, ACC-8, ACT-1, ACT-3, ACT-6) from the ACC beta-lactamase, ACT beta-lactamase, CMY beta-lactamase family/families. These confer resistance to Amoxicillin-Clavulanate via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic, resistance by absence."
+    },
+    "CZ": {
+      "drug_class": "Cefazolin",
+      "key_genes": [
+        "ACC-1",
+        "ACC-8",
+        "ACT-1",
+        "ACT-3",
+        "ACT-6"
+      ],
+      "all_genes_count": 622,
+      "gene_families": [
+        "ACC beta-lactamase",
+        "ACT beta-lactamase",
+        "CMH beta-lactamase",
+        "CMY beta-lactamase",
+        "CTX-M beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Klebsiella pneumoniae carries resistance genes (ACC-1, ACC-8, ACT-1, ACT-3, ACT-6) from the ACC beta-lactamase, ACT beta-lactamase, CMH beta-lactamase family/families. These confer resistance to Cefazolin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic, resistance by absence."
+    },
+    "FOX": {
+      "drug_class": "Cefoxitin",
+      "key_genes": [
+        "ACC-1",
+        "ACC-8",
+        "ACT-1",
+        "ACT-3",
+        "ACT-6"
+      ],
+      "all_genes_count": 622,
+      "gene_families": [
+        "ACC beta-lactamase",
+        "ACT beta-lactamase",
+        "CMH beta-lactamase",
+        "CMY beta-lactamase",
+        "CTX-M beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Klebsiella pneumoniae carries resistance genes (ACC-1, ACC-8, ACT-1, ACT-3, ACT-6) from the ACC beta-lactamase, ACT beta-lactamase, CMH beta-lactamase family/families. These confer resistance to Cefoxitin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic, resistance by absence."
+    },
+    "CTX/CRO": {
+      "drug_class": "Cefotaxime/Ceftriaxone",
+      "key_genes": [
+        "ACC-1",
+        "ACC-8",
+        "ACT-1",
+        "ACT-3",
+        "ACT-6"
+      ],
+      "all_genes_count": 622,
+      "gene_families": [
+        "ACC beta-lactamase",
+        "ACT beta-lactamase",
+        "CMH beta-lactamase",
+        "CMY beta-lactamase",
+        "CTX-M beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Klebsiella pneumoniae carries resistance genes (ACC-1, ACC-8, ACT-1, ACT-3, ACT-6) from the ACC beta-lactamase, ACT beta-lactamase, CMH beta-lactamase family/families. These confer resistance to Cefotaxime/Ceftriaxone via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic, resistance by absence."
+    },
+    "IPM": {
+      "drug_class": "Imipenem",
+      "key_genes": [
+        "AAK-1",
+        "ACT-1",
+        "ACT-3",
+        "ACT-6",
+        "ACT-7"
+      ],
+      "all_genes_count": 290,
+      "gene_families": [
+        "AAK beta-lactamase",
+        "ACT beta-lactamase",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "BKC Beta-lactamase",
+        "CMY beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Klebsiella pneumoniae carries resistance genes (AAK-1, ACT-1, ACT-3, ACT-6, ACT-7) from the AAK beta-lactamase, ACT beta-lactamase, ATP-binding cassette (ABC) antibiotic efflux pump family/families. These confer resistance to Imipenem via antibiotic efflux, antibiotic inactivation, reduced permeability to antibiotic, resistance by absence."
+    },
+    "GEN": {
+      "drug_class": "Gentamicin",
+      "key_genes": [
+        "AAC(6')-I-43",
+        "AAC(6')-Ib",
+        "AAC(6')-Ib-cr7",
+        "AAC(6')-Iq",
+        "CrcB"
+      ],
+      "all_genes_count": 12,
+      "gene_families": [
+        "16S rRNA methyltransferase (G1405)",
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "ANT(3'')",
+        "multidrug and toxic compound extrusion (MATE) transporter"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration"
+      ],
+      "explanation": "Klebsiella pneumoniae carries resistance genes (AAC(6')-I-43, AAC(6')-Ib, AAC(6')-Ib-cr7, AAC(6')-Iq, CrcB) from the 16S rRNA methyltransferase (G1405), AAC(6'), AAC(6')-Ib-cr family/families. These confer resistance to Gentamicin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration."
+    },
+    "AN": {
+      "drug_class": "Amikacin",
+      "key_genes": [
+        "AAC(6')-I-43",
+        "AAC(6')-Ib",
+        "AAC(6')-Ib-cr7",
+        "AAC(6')-Iq",
+        "CrcB"
+      ],
+      "all_genes_count": 12,
+      "gene_families": [
+        "16S rRNA methyltransferase (G1405)",
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "ANT(3'')",
+        "multidrug and toxic compound extrusion (MATE) transporter"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration"
+      ],
+      "explanation": "Klebsiella pneumoniae carries resistance genes (AAC(6')-I-43, AAC(6')-Ib, AAC(6')-Ib-cr7, AAC(6')-Iq, CrcB) from the 16S rRNA methyltransferase (G1405), AAC(6'), AAC(6')-Ib-cr family/families. These confer resistance to Amikacin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration."
+    },
+    "Acide nalidixique": {
+      "drug_class": "Nalidixic Acid",
+      "key_genes": [
+        "AAC(6')-Ib-cr7",
+        "Kpne_acrA",
+        "Kpne_acrR_MULT",
+        "Kpne_lamB_CZA",
+        "Kpne_ramR"
+      ],
+      "all_genes_count": 14,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "Sugar Porin (SP)",
+        "quinolone resistance protein (qnr)",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "antibiotic target protection",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Klebsiella pneumoniae carries resistance genes (AAC(6')-Ib-cr7, Kpne_acrA, Kpne_acrR_MULT, Kpne_lamB_CZA, Kpne_ramR) from the AAC(6'), AAC(6')-Ib-cr, Sugar Porin (SP) family/families. These confer resistance to Nalidixic Acid via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, antibiotic target protection, reduced permeability to antibiotic."
+    },
+    "ofx": {
+      "drug_class": "Ofloxacin",
+      "key_genes": [
+        "AAC(6')-Ib-cr7",
+        "Kpne_acrA",
+        "Kpne_acrR_MULT",
+        "Kpne_lamB_CZA",
+        "Kpne_ramR"
+      ],
+      "all_genes_count": 14,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "Sugar Porin (SP)",
+        "quinolone resistance protein (qnr)",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "antibiotic target protection",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Klebsiella pneumoniae carries resistance genes (AAC(6')-Ib-cr7, Kpne_acrA, Kpne_acrR_MULT, Kpne_lamB_CZA, Kpne_ramR) from the AAC(6'), AAC(6')-Ib-cr, Sugar Porin (SP) family/families. These confer resistance to Ofloxacin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, antibiotic target protection, reduced permeability to antibiotic."
+    },
+    "CIP": {
+      "drug_class": "Ciprofloxacin",
+      "key_genes": [
+        "AAC(6')-Ib-cr7",
+        "Kpne_acrA",
+        "Kpne_acrR_MULT",
+        "Kpne_lamB_CZA",
+        "Kpne_ramR"
+      ],
+      "all_genes_count": 14,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "Sugar Porin (SP)",
+        "quinolone resistance protein (qnr)",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "antibiotic target protection",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Klebsiella pneumoniae carries resistance genes (AAC(6')-Ib-cr7, Kpne_acrA, Kpne_acrR_MULT, Kpne_lamB_CZA, Kpne_ramR) from the AAC(6'), AAC(6')-Ib-cr, Sugar Porin (SP) family/families. These confer resistance to Ciprofloxacin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, antibiotic target protection, reduced permeability to antibiotic."
+    },
+    "C": {
+      "drug_class": "Chloramphenicol",
+      "key_genes": [
+        "Kpne_acrA",
+        "Kpne_acrR_MULT",
+        "Kpne_ramR",
+        "cmlA4"
+      ],
+      "all_genes_count": 4,
+      "gene_families": [
+        "major facilitator superfamily (MFS) antibiotic efflux pump",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic target alteration"
+      ],
+      "explanation": "Klebsiella pneumoniae carries resistance genes (Kpne_acrA, Kpne_acrR_MULT, Kpne_ramR, cmlA4) from the major facilitator superfamily (MFS) antibiotic efflux pump, resistance-nodulation-cell division (RND) antibiotic efflux pump family/families. These confer resistance to Chloramphenicol via antibiotic efflux, antibiotic target alteration."
+    },
+    "Co-trimoxazole": {
+      "drug_class": "Co-trimoxazole",
+      "key_genes": [
+        "dfrA10",
+        "dfrA12"
+      ],
+      "all_genes_count": 2,
+      "gene_families": [
+        "trimethoprim resistant dihydrofolate reductase dfr"
+      ],
+      "mechanisms": [
+        "antibiotic target replacement"
+      ],
+      "explanation": "Klebsiella pneumoniae carries resistance genes (dfrA10, dfrA12) from the trimethoprim resistant dihydrofolate reductase dfr family/families. These confer resistance to Co-trimoxazole via antibiotic target replacement."
+    },
+    "Furanes": {
+      "drug_class": "Nitrofurantoin",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Nitrofurantoin were found in CARD for Klebsiella pneumoniae. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    },
+    "colistine": {
+      "drug_class": "Colistin",
+      "key_genes": [
+        "ArnT",
+        "Kleb_PhoP_CST",
+        "Kpne_KpnE",
+        "Kpne_KpnF",
+        "Kpne_PhoQ_CST"
+      ],
+      "all_genes_count": 21,
+      "gene_families": [
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "General Bacterial Porin with reduced permeability to peptide antibiotics",
+        "MCR phosphoethanolamine transferase",
+        "pmr phosphoethanolamine transferase",
+        "small multidrug resistance (SMR) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Klebsiella pneumoniae carries resistance genes (ArnT, Kleb_PhoP_CST, Kpne_KpnE, Kpne_KpnF, Kpne_PhoQ_CST) from the ATP-binding cassette (ABC) antibiotic efflux pump, General Bacterial Porin with reduced permeability to peptide antibiotics, MCR phosphoethanolamine transferase family/families. These confer resistance to Colistin via antibiotic efflux, antibiotic target alteration, reduced permeability to antibiotic, resistance by absence."
+    }
+  },
+  "Morganella morganii": {
+    "AMX/AMP": {
+      "drug_class": "Amoxicillin/Ampicillin",
+      "key_genes": [
+        "OXA-641",
+        "TEM-10",
+        "TEM-124",
+        "TEM-72"
+      ],
+      "all_genes_count": 4,
+      "gene_families": [
+        "OXA beta-lactamase",
+        "OXA-372-like beta-lactamase",
+        "TEM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Morganella morganii carries resistance genes (OXA-641, TEM-10, TEM-124, TEM-72) from the OXA beta-lactamase, OXA-372-like beta-lactamase, TEM beta-lactamase family/families. These confer resistance to Amoxicillin/Ampicillin via antibiotic inactivation."
+    },
+    "AMC": {
+      "drug_class": "Amoxicillin-Clavulanate",
+      "key_genes": [
+        "OXA-641",
+        "TEM-10",
+        "TEM-124",
+        "TEM-72"
+      ],
+      "all_genes_count": 4,
+      "gene_families": [
+        "OXA beta-lactamase",
+        "OXA-372-like beta-lactamase",
+        "TEM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Morganella morganii carries resistance genes (OXA-641, TEM-10, TEM-124, TEM-72) from the OXA beta-lactamase, OXA-372-like beta-lactamase, TEM beta-lactamase family/families. These confer resistance to Amoxicillin-Clavulanate via antibiotic inactivation."
+    },
+    "CZ": {
+      "drug_class": "Cefazolin",
+      "key_genes": [
+        "DHA-10",
+        "DHA-13",
+        "DHA-14",
+        "DHA-16",
+        "DHA-17"
+      ],
+      "all_genes_count": 19,
+      "gene_families": [
+        "DHA beta-lactamase",
+        "MOR beta-lactamase",
+        "TEM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Morganella morganii carries resistance genes (DHA-10, DHA-13, DHA-14, DHA-16, DHA-17) from the DHA beta-lactamase, MOR beta-lactamase, TEM beta-lactamase family/families. These confer resistance to Cefazolin via antibiotic inactivation."
+    },
+    "FOX": {
+      "drug_class": "Cefoxitin",
+      "key_genes": [
+        "DHA-10",
+        "DHA-13",
+        "DHA-14",
+        "DHA-16",
+        "DHA-17"
+      ],
+      "all_genes_count": 19,
+      "gene_families": [
+        "DHA beta-lactamase",
+        "MOR beta-lactamase",
+        "TEM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Morganella morganii carries resistance genes (DHA-10, DHA-13, DHA-14, DHA-16, DHA-17) from the DHA beta-lactamase, MOR beta-lactamase, TEM beta-lactamase family/families. These confer resistance to Cefoxitin via antibiotic inactivation."
+    },
+    "CTX/CRO": {
+      "drug_class": "Cefotaxime/Ceftriaxone",
+      "key_genes": [
+        "DHA-10",
+        "DHA-13",
+        "DHA-14",
+        "DHA-16",
+        "DHA-17"
+      ],
+      "all_genes_count": 19,
+      "gene_families": [
+        "DHA beta-lactamase",
+        "MOR beta-lactamase",
+        "TEM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Morganella morganii carries resistance genes (DHA-10, DHA-13, DHA-14, DHA-16, DHA-17) from the DHA beta-lactamase, MOR beta-lactamase, TEM beta-lactamase family/families. These confer resistance to Cefotaxime/Ceftriaxone via antibiotic inactivation."
+    },
+    "IPM": {
+      "drug_class": "Imipenem",
+      "key_genes": [
+        "OXA-641"
+      ],
+      "all_genes_count": 1,
+      "gene_families": [
+        "OXA beta-lactamase",
+        "OXA-372-like beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Morganella morganii carries resistance genes (OXA-641) from the OXA beta-lactamase, OXA-372-like beta-lactamase family/families. These confer resistance to Imipenem via antibiotic inactivation."
+    },
+    "GEN": {
+      "drug_class": "Gentamicin",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Gentamicin were found in CARD for Morganella morganii. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    },
+    "AN": {
+      "drug_class": "Amikacin",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Amikacin were found in CARD for Morganella morganii. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    },
+    "Acide nalidixique": {
+      "drug_class": "Nalidixic Acid",
+      "key_genes": [
+        "Mmor_gyrB_FLO"
+      ],
+      "all_genes_count": 1,
+      "gene_families": [
+        "fluoroquinolone resistant gyrB"
+      ],
+      "mechanisms": [
+        "antibiotic target alteration"
+      ],
+      "explanation": "Morganella morganii carries resistance genes (Mmor_gyrB_FLO) from the fluoroquinolone resistant gyrB family/families. These confer resistance to Nalidixic Acid via antibiotic target alteration."
+    },
+    "ofx": {
+      "drug_class": "Ofloxacin",
+      "key_genes": [
+        "Mmor_gyrB_FLO"
+      ],
+      "all_genes_count": 1,
+      "gene_families": [
+        "fluoroquinolone resistant gyrB"
+      ],
+      "mechanisms": [
+        "antibiotic target alteration"
+      ],
+      "explanation": "Morganella morganii carries resistance genes (Mmor_gyrB_FLO) from the fluoroquinolone resistant gyrB family/families. These confer resistance to Ofloxacin via antibiotic target alteration."
+    },
+    "CIP": {
+      "drug_class": "Ciprofloxacin",
+      "key_genes": [
+        "Mmor_gyrB_FLO"
+      ],
+      "all_genes_count": 1,
+      "gene_families": [
+        "fluoroquinolone resistant gyrB"
+      ],
+      "mechanisms": [
+        "antibiotic target alteration"
+      ],
+      "explanation": "Morganella morganii carries resistance genes (Mmor_gyrB_FLO) from the fluoroquinolone resistant gyrB family/families. These confer resistance to Ciprofloxacin via antibiotic target alteration."
+    },
+    "C": {
+      "drug_class": "Chloramphenicol",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Chloramphenicol were found in CARD for Morganella morganii. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    },
+    "Co-trimoxazole": {
+      "drug_class": "Co-trimoxazole",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Co-trimoxazole were found in CARD for Morganella morganii. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    },
+    "Furanes": {
+      "drug_class": "Nitrofurantoin",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Nitrofurantoin were found in CARD for Morganella morganii. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    },
+    "colistine": {
+      "drug_class": "Colistin",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Colistin were found in CARD for Morganella morganii. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    }
+  },
+  "Proteus mirabilis": {
+    "AMX/AMP": {
+      "drug_class": "Amoxicillin/Ampicillin",
+      "key_genes": [
+        "ACT-106",
+        "CARB-12",
+        "CARB-54",
+        "IMP-27",
+        "MOX-14"
+      ],
+      "all_genes_count": 28,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "CARB beta-lactamase",
+        "IMP beta-lactamase",
+        "MOX beta-lactamase",
+        "NDM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Proteus mirabilis carries resistance genes (ACT-106, CARB-12, CARB-54, IMP-27, MOX-14) from the ACT beta-lactamase, CARB beta-lactamase, IMP beta-lactamase family/families. These confer resistance to Amoxicillin/Ampicillin via antibiotic inactivation."
+    },
+    "AMC": {
+      "drug_class": "Amoxicillin-Clavulanate",
+      "key_genes": [
+        "ACT-106",
+        "CARB-12",
+        "CARB-54",
+        "IMP-27",
+        "MOX-14"
+      ],
+      "all_genes_count": 28,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "CARB beta-lactamase",
+        "IMP beta-lactamase",
+        "MOX beta-lactamase",
+        "NDM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Proteus mirabilis carries resistance genes (ACT-106, CARB-12, CARB-54, IMP-27, MOX-14) from the ACT beta-lactamase, CARB beta-lactamase, IMP beta-lactamase family/families. These confer resistance to Amoxicillin-Clavulanate via antibiotic inactivation."
+    },
+    "CZ": {
+      "drug_class": "Cefazolin",
+      "key_genes": [
+        "ACT-106",
+        "CMY-12",
+        "CMY-138",
+        "CMY-14",
+        "CMY-149"
+      ],
+      "all_genes_count": 58,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "CMY beta-lactamase",
+        "CTX-M beta-lactamase",
+        "DHA beta-lactamase",
+        "IMP beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Proteus mirabilis carries resistance genes (ACT-106, CMY-12, CMY-138, CMY-14, CMY-149) from the ACT beta-lactamase, CMY beta-lactamase, CTX-M beta-lactamase family/families. These confer resistance to Cefazolin via antibiotic inactivation."
+    },
+    "FOX": {
+      "drug_class": "Cefoxitin",
+      "key_genes": [
+        "ACT-106",
+        "CMY-12",
+        "CMY-138",
+        "CMY-14",
+        "CMY-149"
+      ],
+      "all_genes_count": 58,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "CMY beta-lactamase",
+        "CTX-M beta-lactamase",
+        "DHA beta-lactamase",
+        "IMP beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Proteus mirabilis carries resistance genes (ACT-106, CMY-12, CMY-138, CMY-14, CMY-149) from the ACT beta-lactamase, CMY beta-lactamase, CTX-M beta-lactamase family/families. These confer resistance to Cefoxitin via antibiotic inactivation."
+    },
+    "CTX/CRO": {
+      "drug_class": "Cefotaxime/Ceftriaxone",
+      "key_genes": [
+        "ACT-106",
+        "CMY-12",
+        "CMY-138",
+        "CMY-14",
+        "CMY-149"
+      ],
+      "all_genes_count": 58,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "CMY beta-lactamase",
+        "CTX-M beta-lactamase",
+        "DHA beta-lactamase",
+        "IMP beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Proteus mirabilis carries resistance genes (ACT-106, CMY-12, CMY-138, CMY-14, CMY-149) from the ACT beta-lactamase, CMY beta-lactamase, CTX-M beta-lactamase family/families. These confer resistance to Cefotaxime/Ceftriaxone via antibiotic inactivation."
+    },
+    "IPM": {
+      "drug_class": "Imipenem",
+      "key_genes": [
+        "ACT-106",
+        "IMP-27",
+        "NDM-69",
+        "PER-16",
+        "PER-18"
+      ],
+      "all_genes_count": 8,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "IMP beta-lactamase",
+        "NDM beta-lactamase",
+        "PER beta-lactamase",
+        "VIM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Proteus mirabilis carries resistance genes (ACT-106, IMP-27, NDM-69, PER-16, PER-18) from the ACT beta-lactamase, IMP beta-lactamase, NDM beta-lactamase family/families. These confer resistance to Imipenem via antibiotic inactivation."
+    },
+    "GEN": {
+      "drug_class": "Gentamicin",
+      "key_genes": [
+        "aac(6')-Ib-cr11"
+      ],
+      "all_genes_count": 1,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Proteus mirabilis carries resistance genes (aac(6')-Ib-cr11) from the AAC(6'), AAC(6')-Ib-cr family/families. These confer resistance to Gentamicin via antibiotic inactivation."
+    },
+    "AN": {
+      "drug_class": "Amikacin",
+      "key_genes": [
+        "aac(6')-Ib-cr11"
+      ],
+      "all_genes_count": 1,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Proteus mirabilis carries resistance genes (aac(6')-Ib-cr11) from the AAC(6'), AAC(6')-Ib-cr family/families. These confer resistance to Amikacin via antibiotic inactivation."
+    },
+    "Acide nalidixique": {
+      "drug_class": "Nalidixic Acid",
+      "key_genes": [
+        "QnrA6",
+        "QnrB2",
+        "QnrC",
+        "aac(6')-Ib-cr11"
+      ],
+      "all_genes_count": 4,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "quinolone resistance protein (qnr)"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation",
+        "antibiotic target protection"
+      ],
+      "explanation": "Proteus mirabilis carries resistance genes (QnrA6, QnrB2, QnrC, aac(6')-Ib-cr11) from the AAC(6'), AAC(6')-Ib-cr, quinolone resistance protein (qnr) family/families. These confer resistance to Nalidixic Acid via antibiotic inactivation, antibiotic target protection."
+    },
+    "ofx": {
+      "drug_class": "Ofloxacin",
+      "key_genes": [
+        "QnrA6",
+        "QnrB2",
+        "QnrC",
+        "aac(6')-Ib-cr11"
+      ],
+      "all_genes_count": 4,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "quinolone resistance protein (qnr)"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation",
+        "antibiotic target protection"
+      ],
+      "explanation": "Proteus mirabilis carries resistance genes (QnrA6, QnrB2, QnrC, aac(6')-Ib-cr11) from the AAC(6'), AAC(6')-Ib-cr, quinolone resistance protein (qnr) family/families. These confer resistance to Ofloxacin via antibiotic inactivation, antibiotic target protection."
+    },
+    "CIP": {
+      "drug_class": "Ciprofloxacin",
+      "key_genes": [
+        "QnrA6",
+        "QnrB2",
+        "QnrC",
+        "aac(6')-Ib-cr11"
+      ],
+      "all_genes_count": 4,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "quinolone resistance protein (qnr)"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation",
+        "antibiotic target protection"
+      ],
+      "explanation": "Proteus mirabilis carries resistance genes (QnrA6, QnrB2, QnrC, aac(6')-Ib-cr11) from the AAC(6'), AAC(6')-Ib-cr, quinolone resistance protein (qnr) family/families. These confer resistance to Ciprofloxacin via antibiotic inactivation, antibiotic target protection."
+    },
+    "C": {
+      "drug_class": "Chloramphenicol",
+      "key_genes": [
+        "catA4"
+      ],
+      "all_genes_count": 1,
+      "gene_families": [
+        "chloramphenicol acetyltransferase (CAT)"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Proteus mirabilis carries resistance genes (catA4) from the chloramphenicol acetyltransferase (CAT) family/families. These confer resistance to Chloramphenicol via antibiotic inactivation."
+    },
+    "Co-trimoxazole": {
+      "drug_class": "Co-trimoxazole",
+      "key_genes": [
+        "Pmir_dfrA6"
+      ],
+      "all_genes_count": 1,
+      "gene_families": [
+        "trimethoprim resistant dihydrofolate reductase dfr"
+      ],
+      "mechanisms": [
+        "antibiotic target replacement"
+      ],
+      "explanation": "Proteus mirabilis carries resistance genes (Pmir_dfrA6) from the trimethoprim resistant dihydrofolate reductase dfr family/families. These confer resistance to Co-trimoxazole via antibiotic target replacement."
+    },
+    "Furanes": {
+      "drug_class": "Nitrofurantoin",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Nitrofurantoin were found in CARD for Proteus mirabilis. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    },
+    "colistine": {
+      "drug_class": "Colistin",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Colistin were found in CARD for Proteus mirabilis. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    }
+  },
+  "Pseudomonas aeruginosa": {
+    "AMX/AMP": {
+      "drug_class": "Amoxicillin/Ampicillin",
+      "key_genes": [
+        "AIM-1",
+        "BEL-1",
+        "BEL-2",
+        "BEL-3",
+        "BEL-4"
+      ],
+      "all_genes_count": 381,
+      "gene_families": [
+        "AIM beta-lactamase",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "BEL beta-lactamase",
+        "CAM beta-lactamase",
+        "CARB beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Pseudomonas aeruginosa carries resistance genes (AIM-1, BEL-1, BEL-2, BEL-3, BEL-4) from the AIM beta-lactamase, ATP-binding cassette (ABC) antibiotic efflux pump, BEL beta-lactamase family/families. These confer resistance to Amoxicillin/Ampicillin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic, resistance by absence."
+    },
+    "AMC": {
+      "drug_class": "Amoxicillin-Clavulanate",
+      "key_genes": [
+        "AIM-1",
+        "BEL-1",
+        "BEL-2",
+        "BEL-3",
+        "BEL-4"
+      ],
+      "all_genes_count": 381,
+      "gene_families": [
+        "AIM beta-lactamase",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "BEL beta-lactamase",
+        "CAM beta-lactamase",
+        "CARB beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Pseudomonas aeruginosa carries resistance genes (AIM-1, BEL-1, BEL-2, BEL-3, BEL-4) from the AIM beta-lactamase, ATP-binding cassette (ABC) antibiotic efflux pump, BEL beta-lactamase family/families. These confer resistance to Amoxicillin-Clavulanate via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic, resistance by absence."
+    },
+    "CZ": {
+      "drug_class": "Cefazolin",
+      "key_genes": [
+        "AIM-1",
+        "BEL-1",
+        "BEL-2",
+        "BEL-3",
+        "BEL-4"
+      ],
+      "all_genes_count": 897,
+      "gene_families": [
+        "AIM beta-lactamase",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "BEL beta-lactamase",
+        "CAM beta-lactamase",
+        "CTX-M beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Pseudomonas aeruginosa carries resistance genes (AIM-1, BEL-1, BEL-2, BEL-3, BEL-4) from the AIM beta-lactamase, ATP-binding cassette (ABC) antibiotic efflux pump, BEL beta-lactamase family/families. These confer resistance to Cefazolin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic."
+    },
+    "FOX": {
+      "drug_class": "Cefoxitin",
+      "key_genes": [
+        "AIM-1",
+        "BEL-1",
+        "BEL-2",
+        "BEL-3",
+        "BEL-4"
+      ],
+      "all_genes_count": 897,
+      "gene_families": [
+        "AIM beta-lactamase",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "BEL beta-lactamase",
+        "CAM beta-lactamase",
+        "CTX-M beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Pseudomonas aeruginosa carries resistance genes (AIM-1, BEL-1, BEL-2, BEL-3, BEL-4) from the AIM beta-lactamase, ATP-binding cassette (ABC) antibiotic efflux pump, BEL beta-lactamase family/families. These confer resistance to Cefoxitin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic."
+    },
+    "CTX/CRO": {
+      "drug_class": "Cefotaxime/Ceftriaxone",
+      "key_genes": [
+        "AIM-1",
+        "BEL-1",
+        "BEL-2",
+        "BEL-3",
+        "BEL-4"
+      ],
+      "all_genes_count": 897,
+      "gene_families": [
+        "AIM beta-lactamase",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "BEL beta-lactamase",
+        "CAM beta-lactamase",
+        "CTX-M beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Pseudomonas aeruginosa carries resistance genes (AIM-1, BEL-1, BEL-2, BEL-3, BEL-4) from the AIM beta-lactamase, ATP-binding cassette (ABC) antibiotic efflux pump, BEL beta-lactamase family/families. These confer resistance to Cefotaxime/Ceftriaxone via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic."
+    },
+    "IPM": {
+      "drug_class": "Imipenem",
+      "key_genes": [
+        "AFM-2",
+        "AFM-3",
+        "AFM-4",
+        "CAM-1",
+        "FIM-1"
+      ],
+      "all_genes_count": 808,
+      "gene_families": [
+        "AFM beta-lactamase",
+        "CAM beta-lactamase",
+        "FIM beta-lactamase",
+        "GES beta-lactamase",
+        "GIM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Pseudomonas aeruginosa carries resistance genes (AFM-2, AFM-3, AFM-4, CAM-1, FIM-1) from the AFM beta-lactamase, CAM beta-lactamase, FIM beta-lactamase family/families. These confer resistance to Imipenem via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic."
+    },
+    "GEN": {
+      "drug_class": "Gentamicin",
+      "key_genes": [
+        "AAC(3)-IIIa",
+        "AAC(3)-IIIb",
+        "AAC(3)-IIIc",
+        "AAC(3)-Ia",
+        "AAC(3)-Ib"
+      ],
+      "all_genes_count": 52,
+      "gene_families": [
+        "16S rRNA methyltransferase (G1405)",
+        "AAC(3)",
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "ANT(2'')"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Pseudomonas aeruginosa carries resistance genes (AAC(3)-IIIa, AAC(3)-IIIb, AAC(3)-IIIc, AAC(3)-Ia, AAC(3)-Ib) from the 16S rRNA methyltransferase (G1405), AAC(3), AAC(6') family/families. These confer resistance to Gentamicin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic, resistance by absence."
+    },
+    "AN": {
+      "drug_class": "Amikacin",
+      "key_genes": [
+        "AAC(3)-IIIa",
+        "AAC(3)-IIIb",
+        "AAC(3)-IIIc",
+        "AAC(3)-Ia",
+        "AAC(3)-Ib"
+      ],
+      "all_genes_count": 52,
+      "gene_families": [
+        "16S rRNA methyltransferase (G1405)",
+        "AAC(3)",
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "ANT(2'')"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic",
+        "resistance by absence"
+      ],
+      "explanation": "Pseudomonas aeruginosa carries resistance genes (AAC(3)-IIIa, AAC(3)-IIIb, AAC(3)-IIIc, AAC(3)-Ia, AAC(3)-Ib) from the 16S rRNA methyltransferase (G1405), AAC(3), AAC(6') family/families. These confer resistance to Amikacin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic, resistance by absence."
+    },
+    "Acide nalidixique": {
+      "drug_class": "Nalidixic Acid",
+      "key_genes": [
+        "AAC(6')-Ib-cr5",
+        "MexC",
+        "MexD",
+        "MexE",
+        "MexF"
+      ],
+      "all_genes_count": 32,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "Outer Membrane Porin (Opr)",
+        "fluoroquinolone resistant gyrA"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Pseudomonas aeruginosa carries resistance genes (AAC(6')-Ib-cr5, MexC, MexD, MexE, MexF) from the AAC(6'), AAC(6')-Ib-cr, ATP-binding cassette (ABC) antibiotic efflux pump family/families. These confer resistance to Nalidixic Acid via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic."
+    },
+    "ofx": {
+      "drug_class": "Ofloxacin",
+      "key_genes": [
+        "AAC(6')-Ib-cr5",
+        "MexC",
+        "MexD",
+        "MexE",
+        "MexF"
+      ],
+      "all_genes_count": 32,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "Outer Membrane Porin (Opr)",
+        "fluoroquinolone resistant gyrA"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Pseudomonas aeruginosa carries resistance genes (AAC(6')-Ib-cr5, MexC, MexD, MexE, MexF) from the AAC(6'), AAC(6')-Ib-cr, ATP-binding cassette (ABC) antibiotic efflux pump family/families. These confer resistance to Ofloxacin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic."
+    },
+    "CIP": {
+      "drug_class": "Ciprofloxacin",
+      "key_genes": [
+        "AAC(6')-Ib-cr5",
+        "MexC",
+        "MexD",
+        "MexE",
+        "MexF"
+      ],
+      "all_genes_count": 32,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "Outer Membrane Porin (Opr)",
+        "fluoroquinolone resistant gyrA"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Pseudomonas aeruginosa carries resistance genes (AAC(6')-Ib-cr5, MexC, MexD, MexE, MexF) from the AAC(6'), AAC(6')-Ib-cr, ATP-binding cassette (ABC) antibiotic efflux pump family/families. These confer resistance to Ciprofloxacin via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic."
+    },
+    "C": {
+      "drug_class": "Chloramphenicol",
+      "key_genes": [
+        "MexC",
+        "MexD",
+        "MexE",
+        "MexF",
+        "MexS"
+      ],
+      "all_genes_count": 34,
+      "gene_families": [
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "Outer Membrane Porin (Opr)",
+        "chloramphenicol acetyltransferase (CAT)",
+        "major facilitator superfamily (MFS) antibiotic efflux pump",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic inactivation",
+        "antibiotic target alteration",
+        "reduced permeability to antibiotic"
+      ],
+      "explanation": "Pseudomonas aeruginosa carries resistance genes (MexC, MexD, MexE, MexF, MexS) from the ATP-binding cassette (ABC) antibiotic efflux pump, Outer Membrane Porin (Opr), chloramphenicol acetyltransferase (CAT) family/families. These confer resistance to Chloramphenicol via antibiotic efflux, antibiotic inactivation, antibiotic target alteration, reduced permeability to antibiotic."
+    },
+    "Co-trimoxazole": {
+      "drug_class": "Co-trimoxazole",
+      "key_genes": [
+        "DfrA39",
+        "MexC",
+        "MexD",
+        "MexE",
+        "MexF"
+      ],
+      "all_genes_count": 19,
+      "gene_families": [
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump",
+        "trimethoprim resistant dihydrofolate reductase dfr"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic target replacement"
+      ],
+      "explanation": "Pseudomonas aeruginosa carries resistance genes (DfrA39, MexC, MexD, MexE, MexF) from the resistance-nodulation-cell division (RND) antibiotic efflux pump, trimethoprim resistant dihydrofolate reductase dfr family/families. These confer resistance to Co-trimoxazole via antibiotic efflux, antibiotic target replacement."
+    },
+    "Furanes": {
+      "drug_class": "Nitrofurantoin",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Nitrofurantoin were found in CARD for Pseudomonas aeruginosa. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    },
+    "colistine": {
+      "drug_class": "Colistin",
+      "key_genes": [
+        "Paer_CpxR",
+        "Paer_PhoP_CST",
+        "Paer_PhoQ_CST",
+        "YajC",
+        "arnA"
+      ],
+      "all_genes_count": 9,
+      "gene_families": [
+        "ATP-binding cassette (ABC) antibiotic efflux pump",
+        "pmr phosphoethanolamine transferase",
+        "resistance-nodulation-cell division (RND) antibiotic efflux pump",
+        "transmembrane protein conferring colistin resistance"
+      ],
+      "mechanisms": [
+        "antibiotic efflux",
+        "antibiotic target alteration",
+        "resistance by absence"
+      ],
+      "explanation": "Pseudomonas aeruginosa carries resistance genes (Paer_CpxR, Paer_PhoP_CST, Paer_PhoQ_CST, YajC, arnA) from the ATP-binding cassette (ABC) antibiotic efflux pump, pmr phosphoethanolamine transferase, resistance-nodulation-cell division (RND) antibiotic efflux pump family/families. These confer resistance to Colistin via antibiotic efflux, antibiotic target alteration, resistance by absence."
+    }
+  },
+  "Serratia marcescens": {
+    "AMX/AMP": {
+      "drug_class": "Amoxicillin/Ampicillin",
+      "key_genes": [
+        "ACT-10",
+        "BES-1",
+        "GES-16",
+        "GES-55",
+        "GIM-3"
+      ],
+      "all_genes_count": 12,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "BES Beta-lactamase",
+        "GES beta-lactamase",
+        "GIM beta-lactamase",
+        "IMP beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Serratia marcescens carries resistance genes (ACT-10, BES-1, GES-16, GES-55, GIM-3) from the ACT beta-lactamase, BES Beta-lactamase, GES beta-lactamase family/families. These confer resistance to Amoxicillin/Ampicillin via antibiotic inactivation."
+    },
+    "AMC": {
+      "drug_class": "Amoxicillin-Clavulanate",
+      "key_genes": [
+        "ACT-10",
+        "BES-1",
+        "GES-16",
+        "GES-55",
+        "GIM-3"
+      ],
+      "all_genes_count": 12,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "BES Beta-lactamase",
+        "GES beta-lactamase",
+        "GIM beta-lactamase",
+        "IMP beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Serratia marcescens carries resistance genes (ACT-10, BES-1, GES-16, GES-55, GIM-3) from the ACT beta-lactamase, BES Beta-lactamase, GES beta-lactamase family/families. These confer resistance to Amoxicillin-Clavulanate via antibiotic inactivation."
+    },
+    "CZ": {
+      "drug_class": "Cefazolin",
+      "key_genes": [
+        "ACT-10",
+        "CMY-111",
+        "CTX-M-221",
+        "CTX-M-245",
+        "GES-16"
+      ],
+      "all_genes_count": 19,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "CMY beta-lactamase",
+        "CTX-M beta-lactamase",
+        "GES beta-lactamase",
+        "GIM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Serratia marcescens carries resistance genes (ACT-10, CMY-111, CTX-M-221, CTX-M-245, GES-16) from the ACT beta-lactamase, CMY beta-lactamase, CTX-M beta-lactamase family/families. These confer resistance to Cefazolin via antibiotic inactivation."
+    },
+    "FOX": {
+      "drug_class": "Cefoxitin",
+      "key_genes": [
+        "ACT-10",
+        "CMY-111",
+        "CTX-M-221",
+        "CTX-M-245",
+        "GES-16"
+      ],
+      "all_genes_count": 19,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "CMY beta-lactamase",
+        "CTX-M beta-lactamase",
+        "GES beta-lactamase",
+        "GIM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Serratia marcescens carries resistance genes (ACT-10, CMY-111, CTX-M-221, CTX-M-245, GES-16) from the ACT beta-lactamase, CMY beta-lactamase, CTX-M beta-lactamase family/families. These confer resistance to Cefoxitin via antibiotic inactivation."
+    },
+    "CTX/CRO": {
+      "drug_class": "Cefotaxime/Ceftriaxone",
+      "key_genes": [
+        "ACT-10",
+        "CMY-111",
+        "CTX-M-221",
+        "CTX-M-245",
+        "GES-16"
+      ],
+      "all_genes_count": 19,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "CMY beta-lactamase",
+        "CTX-M beta-lactamase",
+        "GES beta-lactamase",
+        "GIM beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Serratia marcescens carries resistance genes (ACT-10, CMY-111, CTX-M-221, CTX-M-245, GES-16) from the ACT beta-lactamase, CMY beta-lactamase, CTX-M beta-lactamase family/families. These confer resistance to Cefotaxime/Ceftriaxone via antibiotic inactivation."
+    },
+    "IPM": {
+      "drug_class": "Imipenem",
+      "key_genes": [
+        "ACT-10",
+        "GES-16",
+        "GES-55",
+        "GIM-3",
+        "IMP-24"
+      ],
+      "all_genes_count": 14,
+      "gene_families": [
+        "ACT beta-lactamase",
+        "GES beta-lactamase",
+        "GIM beta-lactamase",
+        "IMP beta-lactamase",
+        "OXA beta-lactamase"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Serratia marcescens carries resistance genes (ACT-10, GES-16, GES-55, GIM-3, IMP-24) from the ACT beta-lactamase, GES beta-lactamase, GIM beta-lactamase family/families. These confer resistance to Imipenem via antibiotic inactivation."
+    },
+    "GEN": {
+      "drug_class": "Gentamicin",
+      "key_genes": [
+        "AAC(3)-IIb",
+        "AAC(6')-Ian",
+        "AAC(6')-Ib-cr9",
+        "AAC(6')-Ic",
+        "ANT3II_ANT6II"
+      ],
+      "all_genes_count": 6,
+      "gene_families": [
+        "AAC(3)",
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "APH(3')",
+        "aminoglycoside bifunctional resistance protein"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Serratia marcescens carries resistance genes (AAC(3)-IIb, AAC(6')-Ian, AAC(6')-Ib-cr9, AAC(6')-Ic, ANT3II_ANT6II) from the AAC(3), AAC(6'), AAC(6')-Ib-cr family/families. These confer resistance to Gentamicin via antibiotic inactivation."
+    },
+    "AN": {
+      "drug_class": "Amikacin",
+      "key_genes": [
+        "AAC(3)-IIb",
+        "AAC(6')-Ian",
+        "AAC(6')-Ib-cr9",
+        "AAC(6')-Ic",
+        "ANT3II_ANT6II"
+      ],
+      "all_genes_count": 6,
+      "gene_families": [
+        "AAC(3)",
+        "AAC(6')",
+        "AAC(6')-Ib-cr",
+        "APH(3')",
+        "aminoglycoside bifunctional resistance protein"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Serratia marcescens carries resistance genes (AAC(3)-IIb, AAC(6')-Ian, AAC(6')-Ib-cr9, AAC(6')-Ic, ANT3II_ANT6II) from the AAC(3), AAC(6'), AAC(6')-Ib-cr family/families. These confer resistance to Amikacin via antibiotic inactivation."
+    },
+    "Acide nalidixique": {
+      "drug_class": "Nalidixic Acid",
+      "key_genes": [
+        "AAC(6')-Ib-cr9"
+      ],
+      "all_genes_count": 1,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Serratia marcescens carries resistance genes (AAC(6')-Ib-cr9) from the AAC(6'), AAC(6')-Ib-cr family/families. These confer resistance to Nalidixic Acid via antibiotic inactivation."
+    },
+    "ofx": {
+      "drug_class": "Ofloxacin",
+      "key_genes": [
+        "AAC(6')-Ib-cr9"
+      ],
+      "all_genes_count": 1,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Serratia marcescens carries resistance genes (AAC(6')-Ib-cr9) from the AAC(6'), AAC(6')-Ib-cr family/families. These confer resistance to Ofloxacin via antibiotic inactivation."
+    },
+    "CIP": {
+      "drug_class": "Ciprofloxacin",
+      "key_genes": [
+        "AAC(6')-Ib-cr9"
+      ],
+      "all_genes_count": 1,
+      "gene_families": [
+        "AAC(6')",
+        "AAC(6')-Ib-cr"
+      ],
+      "mechanisms": [
+        "antibiotic inactivation"
+      ],
+      "explanation": "Serratia marcescens carries resistance genes (AAC(6')-Ib-cr9) from the AAC(6'), AAC(6')-Ib-cr family/families. These confer resistance to Ciprofloxacin via antibiotic inactivation."
+    },
+    "C": {
+      "drug_class": "Chloramphenicol",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Chloramphenicol were found in CARD for Serratia marcescens. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    },
+    "Co-trimoxazole": {
+      "drug_class": "Co-trimoxazole",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Co-trimoxazole were found in CARD for Serratia marcescens. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    },
+    "Furanes": {
+      "drug_class": "Nitrofurantoin",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Nitrofurantoin were found in CARD for Serratia marcescens. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    },
+    "colistine": {
+      "drug_class": "Colistin",
+      "key_genes": [],
+      "all_genes_count": 0,
+      "gene_families": [],
+      "mechanisms": [],
+      "explanation": "No specific resistance genes for Colistin were found in CARD for Serratia marcescens. Resistance may be mediated by chromosomal mutations or mechanisms not yet catalogued."
+    }
+  }
+}

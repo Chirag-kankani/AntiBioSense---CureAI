@@ -1,0 +1,318 @@
+{
+  "CIP": {
+    "drug_name": "Ciprofloxacin",
+    "warnings": [
+      {
+        "condition": "diabetes",
+        "field": "diabetes",
+        "value": "Yes",
+        "severity": "medium",
+        "message": "Fluoroquinolones may cause severe blood sugar fluctuations (hypo/hyperglycemia) in diabetic patients. Monitor glucose closely.",
+        "source": "FDA Drug Safety Communication 2018"
+      },
+      {
+        "condition": "elderly",
+        "field": "age",
+        "operator": ">=",
+        "value": 65,
+        "severity": "medium",
+        "message": "Increased risk of tendon rupture and peripheral neuropathy in elderly patients. Consider alternatives if available.",
+        "source": "BNF Guidelines"
+      },
+      {
+        "condition": "pediatric",
+        "field": "age",
+        "operator": "<=",
+        "value": 18,
+        "severity": "high",
+        "message": "Fluoroquinolones are generally contraindicated in children — risk of cartilage and joint damage during growth.",
+        "source": "WHO Essential Medicines List for Children"
+      }
+    ]
+  },
+  "ofx": {
+    "drug_name": "Ofloxacin",
+    "warnings": [
+      {
+        "condition": "diabetes",
+        "field": "diabetes",
+        "value": "Yes",
+        "severity": "medium",
+        "message": "Fluoroquinolones may cause dysglycemia in diabetic patients. Monitor blood sugar carefully during therapy.",
+        "source": "FDA Drug Safety Communication 2018"
+      },
+      {
+        "condition": "elderly",
+        "field": "age",
+        "operator": ">=",
+        "value": 65,
+        "severity": "medium",
+        "message": "Elderly patients face elevated risk of tendon rupture with fluoroquinolone use. Prefer safer alternatives when possible.",
+        "source": "BNF Guidelines"
+      },
+      {
+        "condition": "pediatric",
+        "field": "age",
+        "operator": "<=",
+        "value": 18,
+        "severity": "high",
+        "message": "Fluoroquinolones are generally contraindicated in pediatric patients due to risk of musculoskeletal toxicity.",
+        "source": "WHO Essential Medicines List for Children"
+      }
+    ]
+  },
+  "Acide nalidixique": {
+    "drug_name": "Nalidixic Acid",
+    "warnings": [
+      {
+        "condition": "obsolete",
+        "field": "_always",
+        "severity": "low",
+        "message": "Nalidixic acid is considered obsolete for empiric therapy in most current guidelines. Newer quinolones are preferred.",
+        "source": "ICMR AMR Guidelines 2023"
+      },
+      {
+        "condition": "pediatric",
+        "field": "age",
+        "operator": "<=",
+        "value": 12,
+        "severity": "high",
+        "message": "Nalidixic acid should be avoided in young children — risk of increased intracranial pressure and cartilage toxicity.",
+        "source": "BNF for Children"
+      }
+    ]
+  },
+  "colistine": {
+    "drug_name": "Colistin",
+    "warnings": [
+      {
+        "condition": "nephrotoxicity",
+        "field": "_always",
+        "severity": "high",
+        "message": "Colistin is nephrotoxic. Renal function (creatinine, GFR) must be assessed before and during therapy. Hydrate aggressively.",
+        "source": "IDSA Guidelines"
+      },
+      {
+        "condition": "diabetes_renal",
+        "field": "diabetes",
+        "value": "Yes",
+        "severity": "high",
+        "message": "Diabetic patients have elevated baseline renal risk. Colistin-induced nephrotoxicity may be more severe. Monitor renal function closely.",
+        "source": "Clinical Infectious Diseases 2019"
+      },
+      {
+        "condition": "elderly_renal",
+        "field": "age",
+        "operator": ">=",
+        "value": 60,
+        "severity": "high",
+        "message": "Elderly patients have reduced renal clearance. Colistin dose adjustment and close monitoring of renal function is essential.",
+        "source": "EMA Colistin Referral 2014"
+      }
+    ]
+  },
+  "GEN": {
+    "drug_name": "Gentamicin",
+    "warnings": [
+      {
+        "condition": "nephrotoxicity",
+        "field": "_always",
+        "severity": "medium",
+        "message": "Aminoglycosides carry risk of nephrotoxicity and ototoxicity. Monitor renal function and drug levels during therapy.",
+        "source": "Sanford Guide"
+      },
+      {
+        "condition": "elderly",
+        "field": "age",
+        "operator": ">=",
+        "value": 65,
+        "severity": "medium",
+        "message": "Elderly patients require dose adjustment for Gentamicin based on creatinine clearance to avoid nephro/ototoxicity.",
+        "source": "BNF Guidelines"
+      }
+    ]
+  },
+  "AN": {
+    "drug_name": "Amikacin",
+    "warnings": [
+      {
+        "condition": "nephrotoxicity",
+        "field": "_always",
+        "severity": "medium",
+        "message": "Amikacin (aminoglycoside) carries risk of nephrotoxicity and irreversible ototoxicity. Therapeutic drug monitoring is recommended.",
+        "source": "Sanford Guide"
+      },
+      {
+        "condition": "elderly",
+        "field": "age",
+        "operator": ">=",
+        "value": 65,
+        "severity": "medium",
+        "message": "Renal dose adjustment required in elderly patients. Monitor serum creatinine and amikacin trough levels.",
+        "source": "BNF Guidelines"
+      }
+    ]
+  },
+  "IPM": {
+    "drug_name": "Imipenem",
+    "warnings": [
+      {
+        "condition": "seizure_risk",
+        "field": "_always",
+        "severity": "medium",
+        "message": "Imipenem may lower the seizure threshold. Use with caution in patients with CNS disorders or renal impairment.",
+        "source": "Merck Manual"
+      },
+      {
+        "condition": "elderly_renal",
+        "field": "age",
+        "operator": ">=",
+        "value": 65,
+        "severity": "medium",
+        "message": "Dose reduction required in elderly/renal-impaired patients to reduce CNS toxicity (seizures).",
+        "source": "Sanford Guide"
+      }
+    ]
+  },
+  "AMX/AMP": {
+    "drug_name": "Amoxicillin/Ampicillin",
+    "warnings": [
+      {
+        "condition": "allergy_note",
+        "field": "_always",
+        "severity": "low",
+        "message": "Penicillin allergy is common (8-10% of patients). Always confirm absence of penicillin/beta-lactam allergy before prescribing.",
+        "source": "NICE Guidelines"
+      }
+    ]
+  },
+  "AMC": {
+    "drug_name": "Amoxicillin-Clavulanate",
+    "warnings": [
+      {
+        "condition": "allergy_note",
+        "field": "_always",
+        "severity": "low",
+        "message": "Contains penicillin (amoxicillin). Confirm absence of penicillin allergy. Risk of hepatotoxicity with prolonged use.",
+        "source": "NICE Guidelines"
+      },
+      {
+        "condition": "elderly_liver",
+        "field": "age",
+        "operator": ">=",
+        "value": 65,
+        "severity": "medium",
+        "message": "Elderly patients are at higher risk of cholestatic jaundice with amoxicillin-clavulanate. Prefer shorter courses.",
+        "source": "BNF Guidelines"
+      }
+    ]
+  },
+  "CZ": {
+    "drug_name": "Cefazolin",
+    "warnings": [
+      {
+        "condition": "allergy_crossreact",
+        "field": "_always",
+        "severity": "low",
+        "message": "Cross-reactivity between penicillin and 1st-gen cephalosporins is ~1-2%. Confirm absence of severe penicillin allergy.",
+        "source": "JACI 2019"
+      }
+    ]
+  },
+  "FOX": {
+    "drug_name": "Cefoxitin",
+    "warnings": [
+      {
+        "condition": "allergy_crossreact",
+        "field": "_always",
+        "severity": "low",
+        "message": "Cephamycins have low cross-reactivity with penicillin, but caution is advised in patients with severe beta-lactam allergy.",
+        "source": "JACI 2019"
+      }
+    ]
+  },
+  "CTX/CRO": {
+    "drug_name": "Cefotaxime/Ceftriaxone",
+    "warnings": [
+      {
+        "condition": "neonatal_calcium",
+        "field": "age",
+        "operator": "<=",
+        "value": 1,
+        "severity": "high",
+        "message": "Ceftriaxone is contraindicated in neonates receiving IV calcium — risk of fatal cardiopulmonary precipitation.",
+        "source": "FDA Black Box Warning"
+      },
+      {
+        "condition": "gallbladder",
+        "field": "_always",
+        "severity": "low",
+        "message": "Ceftriaxone may cause biliary sludging/pseudolithiasis, particularly with prolonged use. Monitor clinically.",
+        "source": "Sanford Guide"
+      }
+    ]
+  },
+  "C": {
+    "drug_name": "Chloramphenicol",
+    "warnings": [
+      {
+        "condition": "bone_marrow",
+        "field": "_always",
+        "severity": "high",
+        "message": "Chloramphenicol carries risk of dose-independent aplastic anemia (rare but fatal). Reserve for serious infections when no alternatives exist.",
+        "source": "WHO Model Prescribing Information"
+      },
+      {
+        "condition": "neonatal",
+        "field": "age",
+        "operator": "<=",
+        "value": 1,
+        "severity": "high",
+        "message": "Contraindicated in neonates — risk of Gray Baby Syndrome (cardiovascular collapse from immature hepatic metabolism).",
+        "source": "Nelson's Pediatrics"
+      }
+    ]
+  },
+  "Co-trimoxazole": {
+    "drug_name": "Co-trimoxazole",
+    "warnings": [
+      {
+        "condition": "renal_impairment",
+        "field": "age",
+        "operator": ">=",
+        "value": 65,
+        "severity": "medium",
+        "message": "Co-trimoxazole can cause hyperkalemia and renal toxicity in elderly patients. Check potassium and renal function before prescribing.",
+        "source": "BMJ Best Practice"
+      },
+      {
+        "condition": "folate_deficiency",
+        "field": "_always",
+        "severity": "low",
+        "message": "Inhibits folate metabolism. Use with caution in patients with pre-existing folate deficiency or on antifolate drugs (e.g., methotrexate).",
+        "source": "BNF Guidelines"
+      }
+    ]
+  },
+  "Furanes": {
+    "drug_name": "Nitrofurantoin",
+    "warnings": [
+      {
+        "condition": "renal_clearance",
+        "field": "age",
+        "operator": ">=",
+        "value": 65,
+        "severity": "medium",
+        "message": "Nitrofurantoin is ineffective if creatinine clearance is below 30 mL/min (common in elderly). Check GFR before prescribing.",
+        "source": "NICE UTI Guidelines"
+      },
+      {
+        "condition": "pulmonary",
+        "field": "_always",
+        "severity": "low",
+        "message": "Prolonged use may cause pulmonary fibrosis. Not recommended for long-term prophylaxis in patients with lung disease.",
+        "source": "BNF Guidelines"
+      }
+    ]
+  }
+}

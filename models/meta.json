@@ -1,0 +1,1216 @@
+{
+  "model_meta": {
+    "AMX/AMP": {
+      "accuracy": 61.2,
+      "f1_macro": 46.1,
+      "full_name": "Amoxicillin/Ampicillin",
+      "drug_class": "Penicillin",
+      "classes": [
+        "Intermediate",
+        "Resistant",
+        "Susceptible"
+      ]
+    },
+    "AMC": {
+      "accuracy": 60.7,
+      "f1_macro": 45.2,
+      "full_name": "Amoxicillin-Clavulanate",
+      "drug_class": "\u03b2-Lactam + Inhibitor",
+      "classes": [
+        "Intermediate",
+        "Resistant",
+        "Susceptible"
+      ]
+    },
+    "CZ": {
+      "accuracy": 60.4,
+      "f1_macro": 45.8,
+      "full_name": "Cefazolin",
+      "drug_class": "Cephalosporin (1st gen)",
+      "classes": [
+        "Intermediate",
+        "Resistant",
+        "Susceptible"
+      ]
+    },
+    "FOX": {
+      "accuracy": 61.3,
+      "f1_macro": 47.8,
+      "full_name": "Cefoxitin",
+      "drug_class": "Cephalosporin (2nd gen)",
+      "classes": [
+        "Intermediate",
+        "Resistant",
+        "Susceptible"
+      ]
+    },
+    "CTX/CRO": {
+      "accuracy": 58.9,
+      "f1_macro": 43.8,
+      "full_name": "Cefotaxime/Ceftriaxone",
+      "drug_class": "Cephalosporin (3rd gen)",
+      "classes": [
+        "Intermediate",
+        "Resistant",
+        "Susceptible"
+      ]
+    },
+    "IPM": {
+      "accuracy": 62.1,
+      "f1_macro": 46.9,
+      "full_name": "Imipenem",
+      "drug_class": "Carbapenem",
+      "classes": [
+        "Intermediate",
+        "Resistant",
+        "Susceptible"
+      ]
+    },
+    "GEN": {
+      "accuracy": 66.3,
+      "f1_macro": 40.3,
+      "full_name": "Gentamicin",
+      "drug_class": "Aminoglycoside",
+      "classes": [
+        "Intermediate",
+        "Resistant",
+        "Susceptible"
+      ]
+    },
+    "AN": {
+      "accuracy": 66.3,
+      "f1_macro": 40.8,
+      "full_name": "Amikacin",
+      "drug_class": "Aminoglycoside",
+      "classes": [
+        "Intermediate",
+        "Resistant",
+        "Susceptible"
+      ]
+    },
+    "Acide nalidixique": {
+      "accuracy": 70.2,
+      "f1_macro": 42.6,
+      "full_name": "Nalidixic Acid",
+      "drug_class": "Quinolone",
+      "classes": [
+        "Intermediate",
+        "Resistant",
+        "Susceptible"
+      ]
+    },
+    "ofx": {
+      "accuracy": 71.4,
+      "f1_macro": 40.8,
+      "full_name": "Ofloxacin",
+      "drug_class": "Fluoroquinolone",
+      "classes": [
+        "Intermediate",
+        "Resistant",
+        "Susceptible"
+      ]
+    },
+    "CIP": {
+      "accuracy": 69.6,
+      "f1_macro": 42.2,
+      "full_name": "Ciprofloxacin",
+      "drug_class": "Fluoroquinolone",
+      "classes": [
+        "Intermediate",
+        "Resistant",
+        "Susceptible"
+      ]
+    },
+    "C": {
+      "accuracy": 71.5,
+      "f1_macro": 41.6,
+      "full_name": "Chloramphenicol",
+      "drug_class": "Phenicol",
+      "classes": [
+        "Intermediate",
+        "Resistant",
+        "Susceptible"
+      ]
+    },
+    "Co-trimoxazole": {
+      "accuracy": 70.0,
+      "f1_macro": 42.1,
+      "full_name": "Co-trimoxazole",
+      "drug_class": "Sulfonamide",
+      "classes": [
+        "Intermediate",
+        "Resistant",
+        "Susceptible"
+      ]
+    },
+    "Furanes": {
+      "accuracy": 69.4,
+      "f1_macro": 39.6,
+      "full_name": "Nitrofurantoin",
+      "drug_class": "Nitrofuran",
+      "classes": [
+        "Intermediate",
+        "Resistant",
+        "Susceptible"
+      ]
+    },
+    "colistine": {
+      "accuracy": 69.4,
+      "f1_macro": 41.1,
+      "full_name": "Colistin",
+      "drug_class": "Polymyxin",
+      "classes": [
+        "Intermediate",
+        "Resistant",
+        "Susceptible"
+      ]
+    }
+  },
+  "feature_importances": {
+    "AMX/AMP": {
+      "species": 0.8795,
+      "Diabetes": 0.0495,
+      "gender": 0.0337,
+      "Hypertension": 0.023,
+      "Hospital_before": 0.0143,
+      "age": 0.0,
+      "Infection_Freq_cat": 0.0
+    },
+    "AMC": {
+      "species": 0.6872,
+      "Infection_Freq_cat": 0.1345,
+      "age": 0.0829,
+      "Hypertension": 0.0344,
+      "gender": 0.0314,
+      "Diabetes": 0.0296,
+      "Hospital_before": 0.0
+    },
+    "CZ": {
+      "species": 0.5583,
+      "age": 0.1285,
+      "gender": 0.1069,
+      "Hospital_before": 0.0794,
+      "Infection_Freq_cat": 0.0653,
+      "Hypertension": 0.0616,
+      "Diabetes": 0.0
+    },
+    "FOX": {
+      "species": 0.5449,
+      "age": 0.153,
+      "Infection_Freq_cat": 0.1014,
+      "Hospital_before": 0.0702,
+      "gender": 0.0597,
+      "Hypertension": 0.0432,
+      "Diabetes": 0.0276
+    },
+    "CTX/CRO": {
+      "species": 0.9219,
+      "Infection_Freq_cat": 0.0523,
+      "Hospital_before": 0.0257,
+      "age": 0.0,
+      "gender": 0.0,
+      "Diabetes": 0.0,
+      "Hypertension": 0.0
+    },
+    "IPM": {
+      "species": 0.5776,
+      "age": 0.1273,
+      "Hypertension": 0.0822,
+      "Infection_Freq_cat": 0.0739,
+      "Hospital_before": 0.0582,
+      "Diabetes": 0.0563,
+      "gender": 0.0245
+    },
+    "GEN": {
+      "age": 0.2633,
+      "species": 0.2599,
+      "gender": 0.2392,
+      "Infection_Freq_cat": 0.179,
+      "Hospital_before": 0.0585,
+      "Diabetes": 0.0,
+      "Hypertension": 0.0
+    },
+    "AN": {
+      "Hospital_before": 0.1964,
+      "age": 0.1852,
+      "Diabetes": 0.1785,
+      "species": 0.1594,
+      "Hypertension": 0.1089,
+      "gender": 0.1077,
+      "Infection_Freq_cat": 0.064
+    },
+    "Acide nalidixique": {
+      "species": 0.2839,
+      "age": 0.2425,
+      "Hospital_before": 0.1613,
+      "Infection_Freq_cat": 0.1208,
+      "Diabetes": 0.0794,
+      "gender": 0.0621,
+      "Hypertension": 0.05
+    },
+    "ofx": {
+      "species": 0.2514,
+      "age": 0.2344,
+      "gender": 0.223,
+      "Infection_Freq_cat": 0.1733,
+      "Hospital_before": 0.1108,
+      "Diabetes": 0.0071,
+      "Hypertension": 0.0
+    },
+    "CIP": {
+      "age": 0.25,
+      "species": 0.2483,
+      "Diabetes": 0.165,
+      "Infection_Freq_cat": 0.1283,
+      "gender": 0.09,
+      "Hospital_before": 0.0667,
+      "Hypertension": 0.0517
+    },
+    "C": {
+      "species": 0.2653,
+      "Infection_Freq_cat": 0.1927,
+      "age": 0.1757,
+      "Hypertension": 0.1657,
+      "Hospital_before": 0.0953,
+      "Diabetes": 0.0633,
+      "gender": 0.042
+    },
+    "Co-trimoxazole": {
+      "species": 0.2757,
+      "age": 0.2191,
+      "Infection_Freq_cat": 0.215,
+      "Hospital_before": 0.1276,
+      "Diabetes": 0.0905,
+      "gender": 0.072,
+      "Hypertension": 0.0
+    },
+    "Furanes": {
+      "species": 0.6756,
+      "Hospital_before": 0.1903,
+      "age": 0.0724,
+      "Infection_Freq_cat": 0.0617,
+      "gender": 0.0,
+      "Diabetes": 0.0,
+      "Hypertension": 0.0
+    },
+    "colistine": {
+      "species": 0.3492,
+      "age": 0.2199,
+      "Infection_Freq_cat": 0.1991,
+      "gender": 0.1382,
+      "Hypertension": 0.0773,
+      "Diabetes": 0.0163,
+      "Hospital_before": 0.0
+    }
+  },
+  "resistance_stats": {
+    "Escherichia coli": {
+      "AMX/AMP": {
+        "R": 69.1,
+        "S": 29.0,
+        "I": 1.9,
+        "n": 6083
+      },
+      "AMC": {
+        "R": 69.3,
+        "S": 28.9,
+        "I": 1.7,
+        "n": 6083
+      },
+      "CZ": {
+        "R": 68.3,
+        "S": 29.9,
+        "I": 1.8,
+        "n": 6083
+      },
+      "FOX": {
+        "R": 69.0,
+        "S": 29.2,
+        "I": 1.9,
+        "n": 6083
+      },
+      "CTX/CRO": {
+        "R": 68.9,
+        "S": 29.1,
+        "I": 1.9,
+        "n": 6083
+      },
+      "IPM": {
+        "R": 69.4,
+        "S": 28.8,
+        "I": 1.8,
+        "n": 6083
+      },
+      "GEN": {
+        "R": 18.4,
+        "S": 79.9,
+        "I": 1.7,
+        "n": 6083
+      },
+      "AN": {
+        "R": 18.0,
+        "S": 80.2,
+        "I": 1.8,
+        "n": 6083
+      },
+      "Acide nalidixique": {
+        "R": 17.9,
+        "S": 80.2,
+        "I": 1.9,
+        "n": 6083
+      },
+      "ofx": {
+        "R": 17.3,
+        "S": 80.9,
+        "I": 1.7,
+        "n": 6083
+      },
+      "CIP": {
+        "R": 18.4,
+        "S": 79.8,
+        "I": 1.8,
+        "n": 6083
+      },
+      "C": {
+        "R": 18.5,
+        "S": 79.7,
+        "I": 1.9,
+        "n": 6083
+      },
+      "Co-trimoxazole": {
+        "R": 18.9,
+        "S": 79.2,
+        "I": 1.9,
+        "n": 6083
+      },
+      "Furanes": {
+        "R": 17.6,
+        "S": 80.6,
+        "I": 1.8,
+        "n": 6083
+      },
+      "colistine": {
+        "R": 17.7,
+        "S": 80.5,
+        "I": 1.8,
+        "n": 6083
+      }
+    },
+    "Morganella morganii": {
+      "AMX/AMP": {
+        "R": 20.0,
+        "S": 78.4,
+        "I": 1.6,
+        "n": 305
+      },
+      "AMC": {
+        "R": 27.5,
+        "S": 71.5,
+        "I": 1.0,
+        "n": 305
+      },
+      "CZ": {
+        "R": 25.2,
+        "S": 74.1,
+        "I": 0.7,
+        "n": 305
+      },
+      "FOX": {
+        "R": 26.9,
+        "S": 73.1,
+        "I": 0.0,
+        "n": 305
+      },
+      "CTX/CRO": {
+        "R": 27.2,
+        "S": 71.8,
+        "I": 1.0,
+        "n": 305
+      },
+      "IPM": {
+        "R": 21.0,
+        "S": 78.4,
+        "I": 0.7,
+        "n": 305
+      },
+      "GEN": {
+        "R": 14.8,
+        "S": 84.6,
+        "I": 0.7,
+        "n": 305
+      },
+      "AN": {
+        "R": 17.7,
+        "S": 80.7,
+        "I": 1.6,
+        "n": 305
+      },
+      "Acide nalidixique": {
+        "R": 12.8,
+        "S": 85.6,
+        "I": 1.6,
+        "n": 305
+      },
+      "ofx": {
+        "R": 15.7,
+        "S": 83.3,
+        "I": 1.0,
+        "n": 305
+      },
+      "CIP": {
+        "R": 12.5,
+        "S": 86.2,
+        "I": 1.3,
+        "n": 305
+      },
+      "C": {
+        "R": 4.6,
+        "S": 94.1,
+        "I": 1.3,
+        "n": 305
+      },
+      "Co-trimoxazole": {
+        "R": 6.2,
+        "S": 93.1,
+        "I": 0.7,
+        "n": 305
+      },
+      "Furanes": {
+        "R": 7.9,
+        "S": 90.8,
+        "I": 1.3,
+        "n": 305
+      },
+      "colistine": {
+        "R": 5.2,
+        "S": 93.4,
+        "I": 1.3,
+        "n": 305
+      }
+    },
+    "Proteus mirabilis": {
+      "AMX/AMP": {
+        "R": 33.6,
+        "S": 65.2,
+        "I": 1.2,
+        "n": 742
+      },
+      "AMC": {
+        "R": 37.5,
+        "S": 61.1,
+        "I": 1.5,
+        "n": 742
+      },
+      "CZ": {
+        "R": 35.0,
+        "S": 63.9,
+        "I": 1.1,
+        "n": 742
+      },
+      "FOX": {
+        "R": 37.9,
+        "S": 61.2,
+        "I": 0.9,
+        "n": 742
+      },
+      "CTX/CRO": {
+        "R": 34.9,
+        "S": 63.5,
+        "I": 1.6,
+        "n": 742
+      },
+      "IPM": {
+        "R": 33.4,
+        "S": 64.8,
+        "I": 1.8,
+        "n": 742
+      },
+      "GEN": {
+        "R": 19.7,
+        "S": 79.4,
+        "I": 0.9,
+        "n": 742
+      },
+      "AN": {
+        "R": 17.9,
+        "S": 81.3,
+        "I": 0.8,
+        "n": 742
+      },
+      "Acide nalidixique": {
+        "R": 12.8,
+        "S": 86.0,
+        "I": 1.2,
+        "n": 742
+      },
+      "ofx": {
+        "R": 11.9,
+        "S": 86.5,
+        "I": 1.6,
+        "n": 742
+      },
+      "CIP": {
+        "R": 12.4,
+        "S": 86.5,
+        "I": 1.1,
+        "n": 742
+      },
+      "C": {
+        "R": 7.5,
+        "S": 91.2,
+        "I": 1.2,
+        "n": 742
+      },
+      "Co-trimoxazole": {
+        "R": 5.5,
+        "S": 93.8,
+        "I": 0.7,
+        "n": 742
+      },
+      "Furanes": {
+        "R": 5.5,
+        "S": 93.1,
+        "I": 1.3,
+        "n": 742
+      },
+      "colistine": {
+        "R": 5.7,
+        "S": 92.5,
+        "I": 1.9,
+        "n": 742
+      }
+    },
+    "Citrobacter spp.": {
+      "AMX/AMP": {
+        "R": 45.9,
+        "S": 52.8,
+        "I": 1.2,
+        "n": 481
+      },
+      "AMC": {
+        "R": 47.0,
+        "S": 51.6,
+        "I": 1.5,
+        "n": 481
+      },
+      "CZ": {
+        "R": 47.0,
+        "S": 52.2,
+        "I": 0.8,
+        "n": 481
+      },
+      "FOX": {
+        "R": 45.9,
+        "S": 52.6,
+        "I": 1.5,
+        "n": 481
+      },
+      "CTX/CRO": {
+        "R": 43.9,
+        "S": 54.9,
+        "I": 1.2,
+        "n": 481
+      },
+      "IPM": {
+        "R": 44.3,
+        "S": 55.1,
+        "I": 0.6,
+        "n": 481
+      },
+      "GEN": {
+        "R": 15.2,
+        "S": 83.4,
+        "I": 1.5,
+        "n": 481
+      },
+      "AN": {
+        "R": 16.2,
+        "S": 82.7,
+        "I": 1.0,
+        "n": 481
+      },
+      "Acide nalidixique": {
+        "R": 5.4,
+        "S": 93.3,
+        "I": 1.2,
+        "n": 481
+      },
+      "ofx": {
+        "R": 5.0,
+        "S": 94.2,
+        "I": 0.8,
+        "n": 481
+      },
+      "CIP": {
+        "R": 5.8,
+        "S": 92.9,
+        "I": 1.2,
+        "n": 481
+      },
+      "C": {
+        "R": 4.6,
+        "S": 94.0,
+        "I": 1.5,
+        "n": 481
+      },
+      "Co-trimoxazole": {
+        "R": 8.9,
+        "S": 90.2,
+        "I": 0.8,
+        "n": 481
+      },
+      "Furanes": {
+        "R": 8.1,
+        "S": 90.9,
+        "I": 1.0,
+        "n": 481
+      },
+      "colistine": {
+        "R": 6.4,
+        "S": 92.3,
+        "I": 1.2,
+        "n": 481
+      }
+    },
+    "Enterobacteria spp.": {
+      "AMX/AMP": {
+        "R": 40.5,
+        "S": 58.2,
+        "I": 1.3,
+        "n": 997
+      },
+      "AMC": {
+        "R": 42.0,
+        "S": 56.0,
+        "I": 2.0,
+        "n": 997
+      },
+      "CZ": {
+        "R": 41.5,
+        "S": 56.4,
+        "I": 2.1,
+        "n": 997
+      },
+      "FOX": {
+        "R": 39.7,
+        "S": 58.9,
+        "I": 1.4,
+        "n": 997
+      },
+      "CTX/CRO": {
+        "R": 39.6,
+        "S": 58.6,
+        "I": 1.8,
+        "n": 997
+      },
+      "IPM": {
+        "R": 41.0,
+        "S": 56.4,
+        "I": 2.6,
+        "n": 997
+      },
+      "GEN": {
+        "R": 17.8,
+        "S": 80.6,
+        "I": 1.6,
+        "n": 997
+      },
+      "AN": {
+        "R": 17.0,
+        "S": 81.3,
+        "I": 1.7,
+        "n": 997
+      },
+      "Acide nalidixique": {
+        "R": 6.4,
+        "S": 91.5,
+        "I": 2.1,
+        "n": 997
+      },
+      "ofx": {
+        "R": 6.8,
+        "S": 91.2,
+        "I": 2.0,
+        "n": 997
+      },
+      "CIP": {
+        "R": 7.2,
+        "S": 90.6,
+        "I": 2.2,
+        "n": 997
+      },
+      "C": {
+        "R": 7.0,
+        "S": 90.8,
+        "I": 2.2,
+        "n": 997
+      },
+      "Co-trimoxazole": {
+        "R": 6.6,
+        "S": 91.4,
+        "I": 2.0,
+        "n": 997
+      },
+      "Furanes": {
+        "R": 5.4,
+        "S": 92.5,
+        "I": 2.1,
+        "n": 997
+      },
+      "colistine": {
+        "R": 6.1,
+        "S": 91.4,
+        "I": 2.5,
+        "n": 997
+      }
+    },
+    "Pseudomonas aeruginosa": {
+      "AMX/AMP": {
+        "R": 36.0,
+        "S": 62.5,
+        "I": 1.5,
+        "n": 200
+      },
+      "AMC": {
+        "R": 32.5,
+        "S": 64.0,
+        "I": 3.5,
+        "n": 200
+      },
+      "CZ": {
+        "R": 33.5,
+        "S": 63.0,
+        "I": 3.5,
+        "n": 200
+      },
+      "FOX": {
+        "R": 32.5,
+        "S": 66.0,
+        "I": 1.5,
+        "n": 200
+      },
+      "CTX/CRO": {
+        "R": 36.0,
+        "S": 62.5,
+        "I": 1.5,
+        "n": 200
+      },
+      "IPM": {
+        "R": 33.5,
+        "S": 65.0,
+        "I": 1.5,
+        "n": 200
+      },
+      "GEN": {
+        "R": 21.0,
+        "S": 75.5,
+        "I": 3.5,
+        "n": 200
+      },
+      "AN": {
+        "R": 23.5,
+        "S": 75.0,
+        "I": 1.5,
+        "n": 200
+      },
+      "Acide nalidixique": {
+        "R": 6.5,
+        "S": 89.5,
+        "I": 4.0,
+        "n": 200
+      },
+      "ofx": {
+        "R": 8.0,
+        "S": 90.0,
+        "I": 2.0,
+        "n": 200
+      },
+      "CIP": {
+        "R": 7.5,
+        "S": 90.5,
+        "I": 2.0,
+        "n": 200
+      },
+      "C": {
+        "R": 9.5,
+        "S": 88.5,
+        "I": 2.0,
+        "n": 200
+      },
+      "Co-trimoxazole": {
+        "R": 11.0,
+        "S": 86.5,
+        "I": 2.5,
+        "n": 200
+      },
+      "Furanes": {
+        "R": 10.0,
+        "S": 88.0,
+        "I": 2.0,
+        "n": 200
+      },
+      "colistine": {
+        "R": 13.0,
+        "S": 84.5,
+        "I": 2.5,
+        "n": 200
+      }
+    },
+    "Klebsiella pneumoniae": {
+      "AMX/AMP": {
+        "R": 57.4,
+        "S": 40.2,
+        "I": 2.4,
+        "n": 702
+      },
+      "AMC": {
+        "R": 56.7,
+        "S": 41.7,
+        "I": 1.6,
+        "n": 702
+      },
+      "CZ": {
+        "R": 54.6,
+        "S": 44.2,
+        "I": 1.3,
+        "n": 702
+      },
+      "FOX": {
+        "R": 56.8,
+        "S": 41.0,
+        "I": 2.1,
+        "n": 702
+      },
+      "CTX/CRO": {
+        "R": 59.7,
+        "S": 38.7,
+        "I": 1.6,
+        "n": 702
+      },
+      "IPM": {
+        "R": 55.6,
+        "S": 42.7,
+        "I": 1.7,
+        "n": 702
+      },
+      "GEN": {
+        "R": 28.8,
+        "S": 68.7,
+        "I": 2.6,
+        "n": 702
+      },
+      "AN": {
+        "R": 29.1,
+        "S": 69.1,
+        "I": 1.9,
+        "n": 702
+      },
+      "Acide nalidixique": {
+        "R": 4.6,
+        "S": 93.7,
+        "I": 1.7,
+        "n": 702
+      },
+      "ofx": {
+        "R": 6.1,
+        "S": 92.2,
+        "I": 1.7,
+        "n": 702
+      },
+      "CIP": {
+        "R": 7.8,
+        "S": 90.9,
+        "I": 1.3,
+        "n": 702
+      },
+      "C": {
+        "R": 7.0,
+        "S": 92.0,
+        "I": 1.0,
+        "n": 702
+      },
+      "Co-trimoxazole": {
+        "R": 5.1,
+        "S": 93.4,
+        "I": 1.4,
+        "n": 702
+      },
+      "Furanes": {
+        "R": 6.6,
+        "S": 92.2,
+        "I": 1.3,
+        "n": 702
+      },
+      "colistine": {
+        "R": 4.8,
+        "S": 93.3,
+        "I": 1.9,
+        "n": 702
+      }
+    },
+    "Serratia marcescens": {
+      "AMX/AMP": {
+        "R": 15.6,
+        "S": 82.0,
+        "I": 2.3,
+        "n": 256
+      },
+      "AMC": {
+        "R": 19.9,
+        "S": 79.3,
+        "I": 0.8,
+        "n": 256
+      },
+      "CZ": {
+        "R": 18.8,
+        "S": 80.1,
+        "I": 1.2,
+        "n": 256
+      },
+      "FOX": {
+        "R": 14.5,
+        "S": 84.4,
+        "I": 1.2,
+        "n": 256
+      },
+      "CTX/CRO": {
+        "R": 17.2,
+        "S": 80.9,
+        "I": 2.0,
+        "n": 256
+      },
+      "IPM": {
+        "R": 17.6,
+        "S": 80.5,
+        "I": 2.0,
+        "n": 256
+      },
+      "GEN": {
+        "R": 36.3,
+        "S": 62.9,
+        "I": 0.8,
+        "n": 256
+      },
+      "AN": {
+        "R": 36.3,
+        "S": 61.7,
+        "I": 2.0,
+        "n": 256
+      },
+      "Acide nalidixique": {
+        "R": 7.4,
+        "S": 91.0,
+        "I": 1.6,
+        "n": 256
+      },
+      "ofx": {
+        "R": 7.4,
+        "S": 92.2,
+        "I": 0.4,
+        "n": 256
+      },
+      "CIP": {
+        "R": 4.3,
+        "S": 93.8,
+        "I": 2.0,
+        "n": 256
+      },
+      "C": {
+        "R": 2.0,
+        "S": 96.5,
+        "I": 1.6,
+        "n": 256
+      },
+      "Co-trimoxazole": {
+        "R": 7.0,
+        "S": 92.2,
+        "I": 0.8,
+        "n": 256
+      },
+      "Furanes": {
+        "R": 4.3,
+        "S": 94.5,
+        "I": 1.2,
+        "n": 256
+      },
+      "colistine": {
+        "R": 10.5,
+        "S": 88.3,
+        "I": 1.2,
+        "n": 256
+      }
+    },
+    "Acinetobacter baumannii": {
+      "AMX/AMP": {
+        "R": 30.9,
+        "S": 66.3,
+        "I": 2.8,
+        "n": 181
+      },
+      "AMC": {
+        "R": 39.2,
+        "S": 59.7,
+        "I": 1.1,
+        "n": 181
+      },
+      "CZ": {
+        "R": 32.0,
+        "S": 66.3,
+        "I": 1.7,
+        "n": 181
+      },
+      "FOX": {
+        "R": 31.5,
+        "S": 66.3,
+        "I": 2.2,
+        "n": 181
+      },
+      "CTX/CRO": {
+        "R": 39.2,
+        "S": 58.6,
+        "I": 2.2,
+        "n": 181
+      },
+      "IPM": {
+        "R": 33.7,
+        "S": 64.1,
+        "I": 2.2,
+        "n": 181
+      },
+      "GEN": {
+        "R": 17.1,
+        "S": 81.2,
+        "I": 1.7,
+        "n": 181
+      },
+      "AN": {
+        "R": 17.1,
+        "S": 80.1,
+        "I": 2.8,
+        "n": 181
+      },
+      "Acide nalidixique": {
+        "R": 5.0,
+        "S": 93.4,
+        "I": 1.7,
+        "n": 181
+      },
+      "ofx": {
+        "R": 9.4,
+        "S": 87.8,
+        "I": 2.8,
+        "n": 181
+      },
+      "CIP": {
+        "R": 7.7,
+        "S": 89.5,
+        "I": 2.8,
+        "n": 181
+      },
+      "C": {
+        "R": 13.3,
+        "S": 84.0,
+        "I": 2.8,
+        "n": 181
+      },
+      "Co-trimoxazole": {
+        "R": 9.9,
+        "S": 87.8,
+        "I": 2.2,
+        "n": 181
+      },
+      "Furanes": {
+        "R": 10.5,
+        "S": 88.4,
+        "I": 1.1,
+        "n": 181
+      },
+      "colistine": {
+        "R": 14.4,
+        "S": 83.4,
+        "I": 2.2,
+        "n": 181
+      }
+    }
+  },
+  "ab_full_names": {
+    "AMX/AMP": "Amoxicillin/Ampicillin",
+    "AMC": "Amoxicillin-Clavulanate",
+    "CZ": "Cefazolin",
+    "FOX": "Cefoxitin",
+    "CTX/CRO": "Cefotaxime/Ceftriaxone",
+    "IPM": "Imipenem",
+    "GEN": "Gentamicin",
+    "AN": "Amikacin",
+    "Acide nalidixique": "Nalidixic Acid",
+    "ofx": "Ofloxacin",
+    "CIP": "Ciprofloxacin",
+    "C": "Chloramphenicol",
+    "Co-trimoxazole": "Co-trimoxazole",
+    "Furanes": "Nitrofurantoin",
+    "colistine": "Colistin"
+  },
+  "ab_classes": {
+    "AMX/AMP": "Penicillin",
+    "AMC": "\u03b2-Lactam + Inhibitor",
+    "CZ": "Cephalosporin (1st gen)",
+    "FOX": "Cephalosporin (2nd gen)",
+    "CTX/CRO": "Cephalosporin (3rd gen)",
+    "IPM": "Carbapenem",
+    "GEN": "Aminoglycoside",
+    "AN": "Aminoglycoside",
+    "Acide nalidixique": "Quinolone",
+    "ofx": "Fluoroquinolone",
+    "CIP": "Fluoroquinolone",
+    "C": "Phenicol",
+    "Co-trimoxazole": "Sulfonamide",
+    "Furanes": "Nitrofuran",
+    "colistine": "Polymyxin"
+  },
+  "species_list": [
+    "Acinetobacter baumannii",
+    "Citrobacter spp.",
+    "Enterobacteria spp.",
+    "Escherichia coli",
+    "Klebsiella pneumoniae",
+    "Morganella morganii",
+    "Proteus mirabilis",
+    "Pseudomonas aeruginosa",
+    "Serratia marcescens"
+  ],
+  "ab_cols": [
+    "AMX/AMP",
+    "AMC",
+    "CZ",
+    "FOX",
+    "CTX/CRO",
+    "IPM",
+    "GEN",
+    "AN",
+    "Acide nalidixique",
+    "ofx",
+    "CIP",
+    "C",
+    "Co-trimoxazole",
+    "Furanes",
+    "colistine"
+  ],
+  "model_artifact_format": "split-pickle-v1",
+  "model_files": {
+    "AMX/AMP": "model_AMX_AMP.pkl",
+    "AMC": "model_AMC.pkl",
+    "CZ": "model_CZ.pkl",
+    "FOX": "model_FOX.pkl",
+    "CTX/CRO": "model_CTX_CRO.pkl",
+    "IPM": "model_IPM.pkl",
+    "GEN": "model_GEN.pkl",
+    "AN": "model_AN.pkl",
+    "Acide nalidixique": "model_Acide_nalidixique.pkl",
+    "ofx": "model_ofx.pkl",
+    "CIP": "model_CIP.pkl",
+    "C": "model_C.pkl",
+    "Co-trimoxazole": "model_Co_trimoxazole.pkl",
+    "Furanes": "model_Furanes.pkl",
+    "colistine": "model_colistine.pkl"
+  }
+}

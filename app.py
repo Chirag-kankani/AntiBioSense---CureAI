@@ -562,7 +562,7 @@ def predict_antibiotics(age, gender, diabetes, hypertension, hospital_before, in
         
         # FREE TIER FIX: MODELS[ab] is now a file path, not an unpickled object in RAM.
         # We load one, predict, and immediately delete it to stay under 512MB RAM.
-        model_path = MODELS[ab]
+        model_path = str(MODELS[ab])
         try:
             with open(model_path, 'rb') as f:
                 m = pickle.load(f)
@@ -613,6 +613,7 @@ def index():
 
 @app.route('/predict', methods=['POST'])
 def predict():
+  try:
     data = request.json
     symptoms = data.get('symptoms', [])
     species = data.get('species', '')
@@ -714,6 +715,10 @@ def predict():
         'contraindication_warnings': warnings_map,
         'clinician_trust': trust_map,
     })
+  except Exception as e:
+    print(f'[PREDICT ERROR] {e}')
+    traceback.print_exc()
+    return jsonify({'error': f'Server error: {str(e)}'}), 500
 
 
 # ═══════════════════════════════════════════════════════════════════════
